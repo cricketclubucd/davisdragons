@@ -18,7 +18,14 @@ function myEventHandler() {
         str = "Bad device ready, or none available because we're running in a browser." ;
     }
 
-    alert(str) ;
+    navigator.notification.alert(str) ;
+}
+
+function signInHandler()
+{
+    "use strict";
+    
+    window.location = "signInScreen.html";
 }
 
 

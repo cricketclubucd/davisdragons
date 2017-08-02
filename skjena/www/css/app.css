@@ -32,6 +32,32 @@ input, textarea  {
 body {
     background: #FFFFFA;
     color: navy;
+    font-family: Papyrus, fantasy;
+	font-size: 25px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 28px;
+}
+
+h1 {
+	font-family: Papyrus, fantasy;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 38px;
+}
+
+input[type="button"] {
+    font-family: Papyrus, fantasy;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+    background-color: goldenrod;
+    color: navy;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
 }
 
 img {

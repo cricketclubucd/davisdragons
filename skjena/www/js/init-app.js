@@ -19,19 +19,22 @@ app.consoleLog = function() {
 // Customize this function to initialize your application, as needed.
 
 app.initEvents = function() {
-    "use strict" ;
-    var fName = "app.initEvents():" ;
-    app.consoleLog(fName, "entry") ;
+    "use strict";
+    var fName = "app.initEvents():";
+    app.consoleLog(fName, "entry");
 
-    var el, evt ;
+    var el, el2, evt;
 
     if( navigator.msPointerEnabled || !('ontouchend' in window))    // if on Win 8 machine or no touch
-        evt = "click" ;                                             // let touch become a click event
+        evt = "click";                                             // let touch become a click event
     else                                                            // else, assume touch events available
-        evt = "touchend" ;                                          // not optimum, but works
+        evt = "touchend";                                          // not optimum, but works
 
-    el = document.getElementById("id_btnHello") ;
-    el.addEventListener(evt, myEventHandler, false) ;
+    el = document.getElementById("id_btnHello");
+    el.addEventListener(evt, myEventHandler, false);
+    
+    el2 = document.getElementById("id_btnSignIn");
+    el2.addEventListener(evt, signInHandler, false);
 
     app.initDebug();
     app.hideSplashScreen();
@@ -42,6 +45,7 @@ app.initEvents = function() {
 
     app.consoleLog(fName, "exit") ;
 } ;
+document.addEventListener("app.Ready", myEventHandler, false);
 document.addEventListener("app.Ready", app.initEvents, false) ;
 
 // Just a bunch of useful debug console.log() messages.
