@@ -1,0 +1,42 @@
+/*
+ * Please see the included LICENSE.md file for license terms and conditions.
+ */
+
+@import "../fonts/exofontkit/stylesheet.css";
+
+h1 {
+	font-family: 'exoregular';
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 38px;
+}
+
+body {
+    background: navy;
+    color: goldenrod;
+    font
+}
+
+input[type="email"] {
+    width: 100%;
+	height: 40%;
+    background-color: goldenrod;
+    color: navy;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+}
+
+input[type="password"] {
+	height: auto;
+    width: 100%;
+    background-color: goldenrod;
+    color: navy;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+}
+
+.align-center {
+    text-align: center;
+}

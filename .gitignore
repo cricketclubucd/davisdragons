@@ -1,0 +1,10 @@
+# ignore Cordova/PhoneGap CLI directories
+# in essence, everything but www and config file
+/*
+!/www
+!/config.xml
+!/info.txt
+!/README.md
+!/LICENSE.md
+!/notes.md
+!/.gitignore

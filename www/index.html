@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<!--
+  * Please see the included LICENSE.md file for license terms and conditions.
+  -->
+<head>
+    <title>Cricket Club Mobile App Template</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <style>
+        /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- <h1 class="align-center">Davis Dragons</h1> -->
+    <p class="align-center">
+        <img src="img/icon.png"/>
+        Welcome.
+    </p>
+    <br>
+    <p class="align-center">
+        <input type="button" id="id_btnHello" value="Welcome, Dragons!">
+    </p>
+    <p class="align-center">
+        <input type="button" id="id_btnSignIn" value="Sign In">
+    </p>
+
+    <!-- Sidebar -->
+    <img class="toggle" src="img/sidebar-icon.png" onclick="toggle_sidebar()" />
+    <div id="sidebar">
+        Side Menu
+    </div>
+
+    <!-- Place your remote debugging weinre script URL here, if it does not work below. -->
+
+    <!-- "Phantom" cordova.js required for projects that use Cordova plugins. -->
+    <script src="cordova.js"></script>
+    <!-- for your event code -->
+    <script src="js/index.js"></script>
+    <!-- for your init code -->
+    <script src="js/init-app.js"></script>
+    <!-- normalizes device and document ready events-->
+    <script src="js/init-dev.js"></script>
+
+    <!-- weinre script URL location, alternate above. -->
+</body>
+
+</html>
