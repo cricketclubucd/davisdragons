@@ -36,6 +36,8 @@ app.initEvents = function() {
     el2 = document.getElementById("id_btnSignIn");
     el2.addEventListener(evt, signInHandler, false);
 
+    
+
     app.initDebug();
     app.hideSplashScreen();
 

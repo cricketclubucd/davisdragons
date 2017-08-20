@@ -1,0 +1,37 @@
+/*
+ * Please see the included LICENSE.md file for license terms and conditions.
+ */
+
+
+@import "../fonts/exofontkit/stylesheet.css";
+
+h1 {
+	font-family: 'exoregular';
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 38px;
+}
+
+.align-center {
+    font-family: 'exoregular';
+    text-align: center ;
+}
+
+body {
+    background: navy;
+    background-image: 
+    color: goldenrod;
+    font
+}
+input[type="button"] {
+    font-family: 'exoregular';
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+    background-color: goldenrod;
+    color: navy;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+}

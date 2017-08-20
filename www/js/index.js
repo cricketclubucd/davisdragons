@@ -25,8 +25,9 @@ function signInHandler()
 {
     "use strict";
 
-    window.location = "signInScreen.html";
+    window.location = "signInScreen.html"; 
 }
+
 
 function toggle_sidebar()
 {
@@ -44,6 +45,8 @@ function toggle_sidebar()
         sidebar.style.left = "-200px";
     }
 }
+
+
 
 
 // ...additional event handlers here...

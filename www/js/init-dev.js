@@ -67,7 +67,7 @@ dev.isDeviceReady = {                   // listed in approximate order expected
 dev.onDeviceReady = function() {
     var fName = "dev.onDeviceReady():" ;
     dev.consoleLog(fName + "entry") ;
-
+    
     // Useful for debug and understanding initialization flow.
     if( dev.isDeviceReady.e_fnDeviceReady__ ) {
         dev.consoleLog(fName + "function terminated") ;
