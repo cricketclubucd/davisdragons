@@ -20,11 +20,14 @@ h1 {
 }
 
 body {
-    background: navy;
-    background-image: 
+      
+    
     color: goldenrod;
     font
 }
+
+
+
 input[type="button"] {
     font-family: 'exoregular';
 	font-style: normal;
@@ -35,3 +38,7 @@ input[type="button"] {
     border: 2px darkgoldenrod;
     border-radius: 4px;
 }
+
+
+
+
