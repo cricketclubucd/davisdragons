@@ -20,11 +20,13 @@ h1 {
 }
 
 body {
-    background: navy;
-    background-image: 
+
+
     color: goldenrod;
-    font
 }
+
+
+
 input[type="button"] {
     font-family: 'exoregular';
 	font-style: normal;
