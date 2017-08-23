@@ -25,20 +25,8 @@ function signInHandler()
 {
     "use strict";
 
-    window.location = "signInScreen.html";
+    window.location = "signInScreen.html"; 
 }
-
-function userHandler()
-{
-
-    "use strict";
-
-    window.location = "userScreen.html";
-
-
-}
-
-
 
 
 function toggle_sidebar()

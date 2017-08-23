@@ -8,10 +8,10 @@ function signInAction()
 
 function umpireHandler()
 {
-
+  
     "use strict";
 
-    window.location = "UmpireScreen.html";
+    window.location = "UmpireScreen.html"; 
 
 
 }

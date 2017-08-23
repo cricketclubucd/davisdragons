@@ -39,7 +39,7 @@ body {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
-	line-height: 10px;
+	line-height: 28px;
 }
 
 h1 {
@@ -48,14 +48,12 @@ h1 {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: bold;
-	line-height: 30px;
+	line-height: 38px;
 }
 
 input[type="button"] {
     font-family: 'exoregular';
 	font-style: normal;
-  font-size: 15px;
-  line-height: 20px;
 	font-variant: normal;
 	font-weight: normal;
     background-color: goldenrod;
