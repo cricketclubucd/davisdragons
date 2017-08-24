@@ -38,6 +38,13 @@ function userHandler()
 
 }
 
+function navigationHandler(str)
+{
+	"use strict";
+
+	window.location = str;
+}
+
 
 
 

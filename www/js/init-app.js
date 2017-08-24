@@ -23,7 +23,7 @@ app.initEvents = function() {
     var fName = "app.initEvents():";
     app.consoleLog(fName + "entry");
 
-    var el, el2, evt;
+    var el, el2,el3, evt;
 
     if( navigator.msPointerEnabled || !('ontouchend' in window))    // if on Win 8 machine or no touch
         evt = "click";                                             // let touch become a click event

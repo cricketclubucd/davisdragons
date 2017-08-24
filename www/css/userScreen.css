@@ -2,6 +2,7 @@
  * Please see the included LICENSE.md file for license terms and conditions.
  */
 
+
 @import "../fonts/exofontkit/stylesheet.css";
 body {
     -webkit-touch-callout: none ;
@@ -11,6 +12,9 @@ body {
     -webkit-tap-highlight-color: rgba(0,0,0,0) ;
     -webkit-tap-highlight-color: transparent ;      /* For some Androids */
 }
+
+/* Recommended for Windows 8 Phone (html and body below) */
+/* SOURCE: http://www.excellentwebworld.com/common-problems-solution-for-windows-phone-8-phonegap */
 html {
     -ms-touch-action: pan-x ;
 }
@@ -24,14 +28,13 @@ body {
 input, textarea  {
     -webkit-user-select: text ; -moz-user-select: text ; -ms-user-select: text ; user-select: text ;
 }
-
 img {
     max-width: 200px;
     max-height: 200px;
     display: block;
     margin: 0 auto;
-
 }
+
 img.toggle {
     position: fixed;
     size: 10%;
@@ -39,13 +42,48 @@ img.toggle {
     top: 10px;
 }
 
-body {
-    background:goldenrod ;
+body
+{
+    background-image:image("img/userBack2.png");
     color: navy;
     line-height: 20px;
     font-size: 30px;
-
 }
+
+input[type="text"] {
+    font-family: 'exoregular';
+	font-style: normal;
+  font-size: 15px;
+  line-height: 20px;
+	font-variant: normal;
+	font-weight: normal;
+    background-color: goldenrod;
+    color: navy;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+    text-align: center ;
+}
+
+input[type="button"] {
+    font-family: 'exoregular';
+	font-style: normal;
+  font-size: 15px;
+  line-height: 20px;
+	font-variant: normal;
+	font-weight: normal;
+    background-color: navy;
+    color: goldenrod;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+    text-align: center ;
+}
+
+
+
+
+
+
+
 
 
 .align-center {
