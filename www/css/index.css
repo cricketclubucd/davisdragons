@@ -32,7 +32,6 @@ input, textarea  {
 }
 
 body {
-    background: #FFFFFA;
     color: navy;
     font-family: Papyrus, fantasy;
 	font-size: 25px;
@@ -67,13 +66,40 @@ input[type="button"] {
 img {
     max-width: 300px;
     max-height: 300px;
-    display: block;
-    margin: 0 auto;
+    left: 10vw;
+    display: inline-block;
+    margin: 10vw 10vw;
 }
 
 .align-center {
     font-family: 'exoregular';
-    text-align: center ;
+    position: relative;
+    align-content: center;
+    left: 25vw;
+}
+
+#trbackground {
+	background: url("../img/background.jpg");  
+	/*background-size: 200vw 200vh;*/
+	height: 100vh;
+	width: 200vw;
+	overflow: visible; 
+	position: absolute;
+    top: 0px;
+    opacity: 1;    
+    -webkit-transition: all 0.7s ease-in-out;
+       -moz-transition: all 0.7s ease-in-out;
+        -ms-transition: all 0.7s ease-in-out;
+         -o-transition: all 0.7s ease-in-out;
+            transition: all 0.7s ease-in-out;
+}
+
+#trbackground.welcome {
+	left: 0vw;
+}
+
+#trbackground.signIn {
+	left: -100vw;
 }
 
 #sidebar {
@@ -88,9 +114,35 @@ img {
     transition: all 0.5s ease-in-out;
 }
 
-img.toggle {
+.toggle {
     position: fixed;
     size: 10%;
     left: 10px;
     top: 10px;
+}
+
+input[type="email"] {
+    width: 50%;
+	height: 40%;
+    background-color: goldenrod;
+    color: navy;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+}
+
+input[type="password"] {
+	height: auto;
+    width: 50%;
+    background-color: goldenrod;
+    color: navy;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+}
+
+#login {
+	float: right;
+	align-content: center;
+	position: absolute;
+	left: 135vw;
+	top: 20vw;
 }

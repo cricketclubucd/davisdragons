@@ -23,7 +23,7 @@ app.initEvents = function() {
     var fName = "app.initEvents():";
     app.consoleLog(fName + "entry");
 
-    var el, el2,el3, el4,evt;
+    var el, el2, el3, el4,evt;
 
     if( navigator.msPointerEnabled || !('ontouchend' in window))    // if on Win 8 machine or no touch
         evt = "click";                                             // let touch become a click event
@@ -32,7 +32,7 @@ app.initEvents = function() {
 
     el = document.getElementById("id_btnHello");
     el.addEventListener(evt, myEventHandler, false);
-
+    
     el2 = document.getElementById("id_btnSignIn");
     el2.addEventListener(evt, signInHandler, false);
 
@@ -41,8 +41,6 @@ app.initEvents = function() {
 
     el4 = document.getElementById("id_btnuser");
     el4.addEventListener(evt,userHandler,false);
-
-
 
     app.initDebug();
     app.hideSplashScreen();
