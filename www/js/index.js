@@ -2,6 +2,15 @@
  * Please see the included LICENSE.md file for license terms and conditions.
  */
 
+var bodyObj, className, index;
+
+trbackgroundObj = document.getElementById('trbackground');
+index = 1;
+className = [
+    'welcome',
+    'signIn'
+];
+
 function myEventHandler() {
     "use strict" ;
 
@@ -21,13 +30,47 @@ function myEventHandler() {
     navigator.notification.alert(str) ;
 }
 
-function signInHandler()
+function updateIndex()
 {
-    "use strict";
-
-    window.location = "signInScreen.html"; 
+	if(index === 0)
+	{
+		index = 1;
+    }
+    else
+    {
+	    index = 0;
+	}
 }
 
+function signInHandler()
+{
+    trbackgroundObj.className = className[index];
+    updateIndex();
+}
+
+function memberHandler()
+{
+
+    "use strict";
+
+    window.location = "memberScreen.html";
+}
+
+
+function userHandler()
+{
+
+    "use strict";
+
+    window.location = "userScreen.html";
+}
+
+function navigationHandler(str)
+{
+	"use strict";
+
+	window.location = str;
+}
 
 function toggle_sidebar()
 {
@@ -45,8 +88,6 @@ function toggle_sidebar()
         sidebar.style.left = "-200px";
     }
 }
-
-
 
 
 // ...additional event handlers here...
