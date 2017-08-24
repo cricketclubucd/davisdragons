@@ -35,6 +35,18 @@ img {
     margin: 0 auto;
 }
 
+#sidebar {
+    position: fixed;
+    display: inline-block;
+    font-family: 'exoregular';
+    top: 0px;
+    height: 100%;
+    width: 200px;
+    left: -200px;
+    background-color: darkgoldenrod;
+    transition: all 0.5s ease-in-out;
+}
+
 img.toggle {
     position: fixed;
     size: 10%;
