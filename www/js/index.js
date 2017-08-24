@@ -28,14 +28,21 @@ function signInHandler()
     window.location = "signInScreen.html";
 }
 
+function memberHandler()
+{
+
+    "use strict";
+
+    window.location = "memberScreen.html";
+}
+
+
 function userHandler()
 {
 
     "use strict";
 
     window.location = "userScreen.html";
-
-
 }
 
 function navigationHandler(str)

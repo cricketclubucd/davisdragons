@@ -63,6 +63,20 @@ input[type="text"] {
     text-align: center ;
 }
 
+input[type="button"] {
+    font-family: 'exoregular';
+	font-style: normal;
+  font-size: 15px;
+  line-height: 20px;
+	font-variant: normal;
+	font-weight: normal;
+    background-color: navy;
+    color: goldenrod;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+    text-align: center ;
+}
+
 
 
 .align-center {

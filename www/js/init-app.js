@@ -23,7 +23,7 @@ app.initEvents = function() {
     var fName = "app.initEvents():";
     app.consoleLog(fName + "entry");
 
-    var el, el2,el3, evt;
+    var el, el2,el3, el4,evt;
 
     if( navigator.msPointerEnabled || !('ontouchend' in window))    // if on Win 8 machine or no touch
         evt = "click";                                             // let touch become a click event
@@ -36,8 +36,11 @@ app.initEvents = function() {
     el2 = document.getElementById("id_btnSignIn");
     el2.addEventListener(evt, signInHandler, false);
 
-    el3 = document.getElementById("id_btnuser");
-    el3.addEventListener(evt,userHandler,false);
+    el3 = document.getElementById("id_btnmember");
+    el3.addEventListener(evt,memberHandler,false);
+
+    el4 = document.getElementById("id_btnuser");
+    el4.addEventListener(evt,userHandler,false);
 
 
 
