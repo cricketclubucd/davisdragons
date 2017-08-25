@@ -51,12 +51,6 @@ h1 {
 }
 
 input[type="button"] {
-    font-family: 'exoregular';
-	font-style: normal;
-  font-size: 15px;
-  line-height: 20px;
-	font-variant: normal;
-	font-weight: normal;
     background-color: goldenrod;
     color: navy;
     border: 2px darkgoldenrod;
@@ -121,28 +115,55 @@ img {
     top: 10px;
 }
 
-input[type="email"] {
-    width: 50%;
-	height: 40%;
+input[type=email] {
+	width: 70vw;
+    color: navy;
+    background-color: transparent;
+    border: none;
+    border-bottom: 4px solid navy;
+}
+
+input[type=submit] {
     background-color: goldenrod;
     color: navy;
     border: 2px darkgoldenrod;
     border-radius: 4px;
 }
 
-input[type="password"] {
-	height: auto;
-    width: 50%;
-    background-color: goldenrod;
+input[type=password] {
+	width: 70vw;
     color: navy;
-    border: 2px darkgoldenrod;
-    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 4px solid navy;
+}
+
+input[type="email"]::-webkit-input-placeholder {
+	color: navy !important;
+}
+
+input[type="password"]::-webkit-input-placeholder {
+	color: navy !important;
 }
 
 #login {
 	float: right;
 	align-content: center;
 	position: absolute;
-	left: 135vw;
+	left: 120vw;
 	top: 20vw;
+}
+
+label, input {
+	font-family: 'exoregular';
+	font-style: normal;
+    font-size: 15px;
+    line-height: 20px;
+	font-variant: normal;
+	font-weight: normal;
+    display: block;
+}
+
+label {
+    margin-bottom: 20px;
 }
