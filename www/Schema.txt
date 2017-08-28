@@ -21,4 +21,3 @@ Bowler(
         maxInningWickets:integer
 
       )
-      
