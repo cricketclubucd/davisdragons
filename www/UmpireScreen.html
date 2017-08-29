@@ -14,13 +14,37 @@
         </style>
         <link rel="stylesheet" href="css/UmpireScreen.css">
     </head>
-        <body style="background: url(img/background2.png) no-repeat;background-size: 100%;" >             
+        <body style="background: url(img/back2.png) no-repeat;background-size: 100%;" >             
             <h1 class="align-center"> Ball Statistics </h1>
             
             <p class="align-center">
                 <input type="button" id="id_btnSubmit" value="Submit!">
             </p>
-            
+          <p class = "align-center">
+          <div id="tab1" class="tabcontent">
+            <h3>Wagon Wheel</h3>
+            <p>London is the capital city of England.</p>
+            </div>
+
+        <div id="tab2" class="tabcontent">
+        <h3>ScoreCard</h3>
+        <p>Paris is the capital of France.</p> 
+        </div>
+
+        <div id="tab3" class="tabcontent">
+            <h3>Extra</h3>
+        <p>Tokyo is the capital of Japan.</p>
+        </div>
+
+        </p>
+
+<button class="tablink" onclick="openCity('tab1', this, 'red')" id="defaultOpen">London</button>
+<button class="tablink" onclick="openCity('tab2', this, 'green')">Paris</button>
+<button class="tablink" onclick="openCity('tab3', this, 'blue')">Tokyo</button>
+
+
+    
+         <script src= "js/umpireScreen.js"> </script>   
         </body>
 </html>
 

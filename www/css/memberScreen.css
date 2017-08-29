@@ -29,24 +29,30 @@ input, textarea  {
     -webkit-user-select: text ; -moz-user-select: text ; -ms-user-select: text ; user-select: text ;
 }
 img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
+    text-align: left;
     display: block;
     margin: 0 auto;
 }
+
+body
+{
+    background-image: url("../img/cricket.png");
+    color: red;
+    line-height: 20px;
+    font-size: 40px;
+    width: 200px;
+    height: 40px;
+
+}
+
 
 img.toggle {
     position: fixed;
     size: 10%;
     left: 10px;
     top: 10px;
-}
-
-body
-{
-    color: navy;
-    line-height: 20px;
-    font-size: 30px;
 }
 
 #sidebar {
@@ -62,21 +68,7 @@ body
 }
 
 input[type="text"] {
-    font-family: 'exoregular';
-	font-style: normal;
-  font-size: 15px;
-  line-height: 20px;
-	font-variant: normal;
-	font-weight: normal;
-    background-color: goldenrod;
-    color: navy;
-    border: 2px darkgoldenrod;
-    border-radius: 4px;
-    text-align: center ;
-}
-
-input[type="button"] {
-    font-family: 'exoregular';
+  font-family: 'exoregular';
 	font-style: normal;
   font-size: 15px;
   line-height: 20px;
@@ -89,9 +81,21 @@ input[type="button"] {
     text-align: center ;
 }
 
+input[type="button"] {
+    font-family: 'exoregular';
+	font-style: normal;
+  font-size: 15px;
+  line-height: 20px;
+	font-variant: normal;
+	font-weight: normal;
+  background-color: navy;
+  color: goldenrod;
+  text-align: center ;
+}
+
 
 
 .align-center {
     font-family: 'exoregular';
-    text-align: center ;
+    text-align: left ;
 }
