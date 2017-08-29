@@ -98,7 +98,6 @@
     </platform>
     <engine name="browser" spec="~4.1.0" />
     <engine name="ios" spec="~4.4.0" />
-    <plugin name="cordova-plugin-actionsheet" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git" />
     <plugin name="cordova-plugin-battery-status" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="cordova-plugin-console" spec="https://git-wip-us.apache.org/repos/asf/cordova-plugin-console.git" />
@@ -120,4 +119,5 @@
     <plugin name="cordova-plugin-statusbar" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
+    <engine name="android" spec="~6.2.2" />
 </widget>
