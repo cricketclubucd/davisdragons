@@ -1,0 +1,98 @@
+	//Sample Schema
+
+	{
+	   "teams":
+	    {
+	       "team1":
+	        {
+	        	"name": "India"  ,
+	        	"batsmen":
+	        	 {
+	        		"arahane":  true  ,
+	        		"rsharma": true,
+	        		"sraina": true,
+	        		"vkohli": true  ,
+
+	            	
+	             },
+	            "bowlers":
+	             {
+	             	"bkumar " : true ,
+	            	"rashwin" : true ,
+
+	             },
+	             "captain" : "vkohli",
+	             "totalruns": 200
+
+	        },
+
+	        "team2":
+	        {
+	        	"name:": "Austrailia",
+	        	"batsmen":
+	        	 {
+	        	    "swatson": true,
+	        	    "ssmith": true,
+	        	    "dwarner": true
+	             },
+
+	            "bowlers":
+	             {
+	        		"ssmith": true,
+	            	"mjohnson": true,
+	            	"mmarsh": true
+	             },
+	             "captain": "ssmith",
+
+	             "totalruns": 190
+
+
+	        }
+
+	    },    // The team object identifies 
+
+
+
+		"balls":
+		 {
+		 	"ball1":
+		 	 {
+		 	   "batsman": "dwarner",
+		 	   "bowler": "bkumar"  ,
+		 	   "wicket": false ,
+		 	   "runs":  4  ,
+		 	   "extras": 
+		 	   {
+                 "lbye": "false",
+                  "wd": "false",
+                  "bye": "false",
+                  "nb" : "false",
+
+		 	   },   
+
+
+		 	 },
+		 	 "ball2":
+		 	 {
+		 	 	"..."
+		 	 }
+
+		 },
+		 "players":
+		 {
+		 	"bkumar":
+		 	{
+		 		"name": "Bhuvaneswar Kumar",
+		 		"position": "bowler",
+		 		"strikeRate": 100.0,
+		 		"economy": 4.3,
+		 		"totalRuns": 50,
+		 		"jerseyNumber": 3 ,
+		 		"gender": "Male" ,
+                "team ": "India"
+
+		 	}
+		 }
+		 
+
+	}
