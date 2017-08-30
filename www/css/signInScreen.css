@@ -23,7 +23,7 @@ input[type="email"] {
     width: 50%;
 	height: 40%;
     background-color: goldenrod;
-    color: navy;
+    color: goldenrod;
     border: 2px darkgoldenrod;
     border-radius: 4px;
 }
