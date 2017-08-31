@@ -14,3 +14,16 @@ function openCity(cityName,elmnt,color) {
 }
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+var mainText = document.getElementById(mainText);
+var submitBtn = document.getElementById(submitBtn);
+var database = firebase.database();
+
+
+function submitClick()
+{
+    var firebaseRef = database.ref();
+    var messageText = mainText.value;
+    console.log(messageText);
+    firebaseRef.child("Text").set(messageText); 
+   
+}

@@ -37,12 +37,36 @@
         </div>
 
         </p>
+        <p>
+
+        <div class="mainDiv" align="right">
+        <p class = "align-center">
+        <h1 align="left">Firebase Web App</h1>
+        <textarea id= "mainText" placeholder="Enter text here..."></textarea>
+        <button id = "submitBtn" onclick= submitClick()><i class="fa fa-arrow-right" aria-hidden="true"></i></button>   
+        </p>    
+    </div>
 
 <button class="tablink" onclick="openCity('tab1', this, 'red')" id="defaultOpen">London</button>
 <button class="tablink" onclick="openCity('tab2', this, 'green')">Paris</button>
 <button class="tablink" onclick="openCity('tab3', this, 'blue')">Tokyo</button>
 
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+var config = 
+        {
+            apiKey: "AIzaSyD6anW3vwA6GRjWrrdz2L43QEqOVecGrgo",
+            authDomain: "davisdragons-b41c9.firebaseapp.com",
+            databaseURL: "https://davisdragons-b41c9.firebaseio.com",
+            projectId: "davisdragons-b41c9",
+            storageBucket: "",
+            messagingSenderId: "881322195809"
+        };
+        firebase.initializeApp(config);
+        var database = firebase.database();
 
+
+        </script>
     
          <script src= "js/umpireScreen.js"> </script>   
         </body>
