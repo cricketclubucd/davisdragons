@@ -61,6 +61,23 @@
 		<div id="sidebar">
 			Side Menu
 		</div>
+
+		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+		<script>
+		var config = 
+		{
+    		apiKey: "AIzaSyD6anW3vwA6GRjWrrdz2L43QEqOVecGrgo",
+    		authDomain: "davisdragons-b41c9.firebaseapp.com",
+    		databaseURL: "https://davisdragons-b41c9.firebaseio.com",
+    		projectId: "davisdragons-b41c9",
+    		storageBucket: "",
+    		messagingSenderId: "881322195809"
+  		};
+  		firebase.initializeApp(config);
+        var database = firebase.database();
+
+
+		</script>
 		
 		<!-- "Phantom" cordova.js required for projects that use Cordova plugins. -->
 		<script src="cordova.js"></script>
@@ -70,9 +87,9 @@
 		<script src="js/init-app.js"></script>
 		<!-- normalizes device and document ready events-->
 		<script src="js/init-dev.js"></script>
-
-        <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-        <script src= "js/init-firebase.js"></script>
+        <script src
+        
+        
       
 
 		
