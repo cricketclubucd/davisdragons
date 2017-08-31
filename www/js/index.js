@@ -85,7 +85,7 @@ function signInHandler()
             alert(errorMessage);
           }
     console.log(error);
-    navigationHandler('memberScreen.html');
+    
 
     }); // end of eventListener for login button
     id_btnSignUp.addEventListener('click', e=> {
@@ -141,7 +141,17 @@ function signInHandler()
 firebase.auth().onAuthStateChanged(firebaseUser =>{
     if(firebaseUser)
     {
-      console.log(firebaseUser);
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var providerData = user.providerData;
+        navigationHandler('memberScreen.html');
+        console.log(firebaseUser);
+
+        
     }
     else
     {
