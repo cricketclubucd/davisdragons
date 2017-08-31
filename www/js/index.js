@@ -52,16 +52,7 @@ function signInHandler()
 
 (function () 
 {
-    var config =
-            {
-                apiKey: "AIzaSyD6anW3vwA6GRjWrrdz2L43QEqOVecGrgo",
-                authDomain: "davisdragons-b41c9.firebaseapp.com",
-                databaseURL: "https://davisdragons-b41c9.firebaseio.com",
-                projectId: "davisdragons-b41c9",
-                storageBucket: "",
-                messagingSenderId: "881322195809"
-            };
-    firebase.initializeApp(config);
+    
     const id_txtEmail= document.getElementById('id_txtEmail');
     const id_txtPassword= document.getElementById('id_txtPassword');
     const id_btnSubmit= document.getElementById('id_btnSubmit');
@@ -71,16 +62,105 @@ function signInHandler()
     // Get email and password
     const email= id_txtEmail.value;
     const password = id_txtPassword.value;
+    if (email.length < 4) {
+          alert('Please enter an email address.');
+          return;
+        }
+    if (password.length < 4) {
+          alert('Please enter a password.');
+          return;
+        }
     const auth = firebase.auth();
     //Sign in
     const promise = auth.signInWithEmailAndPassword(email, password);
-    promise.catch(e => console.log(e.message));
+    promise.catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } 
+          else {
+            alert(errorMessage);
+          }
+    console.log(error);
+    navigationHandler('memberScreen.html');
 
     }); // end of eventListener for login button
+    id_btnSignUp.addEventListener('click', e=> {
+    //get email and password
+    //check for real email
+ 
+    const email= id_txtEmail.value;
+    const password = id_txtPassword.value;
+    const auth = firebase.auth();
+    if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START createwithemail]
+    //Sign in
+    const promise = auth.createUserWithEmailAndPassword(email, password);
+    promise.catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+    });
+        
+    
+
+
+
+
+    }); //create
+
+    
+
+
+
+
+
+
+});
+//add a realtime listener
+
+
+firebase.auth().onAuthStateChanged(firebaseUser =>{
+    if(firebaseUser)
+    {
+      console.log(firebaseUser);
+    }
+    else
+    {
+      console.log("not logged in");
+    }
+
+    });
+
+function sendEmailVerification() {
+    
+      firebase.auth().currentUser.sendEmailVerification().then(function() {
+        // Email Verification sent!
+       
+        alert('Email Verification Sent!');
+        
+      });
+      
+    }
 }());
-
-
-
     
         
     
