@@ -46,15 +46,15 @@ function signInHandler()
 {
     trbackgroundObj.className = className[index];
     updateIndex();
-    
+
 
 }
 
-(function () 
+(function ()
 {
-    
+
     const id_txtEmail= document.getElementById('id_txtEmail');
-    const id_txtPassword= document.getElementById('id_txtPassword');
+    const id_txtPassword= document.getElementById('id_txtPasswxsord');
     const id_btnSubmit= document.getElementById('id_btnSubmit');
     const id_btnSignUp= document.getElementById('id_btnSignUp');
     // Add login event
@@ -80,18 +80,18 @@ function signInHandler()
           // [START_EXCLUDE]
           if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');
-          } 
+          }
           else {
             alert(errorMessage);
           }
     console.log(error);
-    
+
 
     }); // end of eventListener for login button
     id_btnSignUp.addEventListener('click', e=> {
     //get email and password
     //check for real email
- 
+
     const email= id_txtEmail.value;
     const password = id_txtPassword.value;
     const auth = firebase.auth();
@@ -119,15 +119,15 @@ function signInHandler()
         }
         console.log(error);
     });
-        
-    
+
+
 
 
 
 
     }); //create
 
-    
+
 
 
 
@@ -151,7 +151,7 @@ firebase.auth().onAuthStateChanged(firebaseUser =>{
         navigationHandler('memberScreen.html');
         console.log(firebaseUser);
 
-        
+
     }
     else
     {
@@ -161,25 +161,25 @@ firebase.auth().onAuthStateChanged(firebaseUser =>{
     });
 
 function sendEmailVerification() {
-    
+
       firebase.auth().currentUser.sendEmailVerification().then(function() {
         // Email Verification sent!
-       
+
         alert('Email Verification Sent!');
-        
+
       });
-      
+
     }
 }());
-    
-        
-    
 
 
-  
 
 
-   
+
+
+
+
+
 
 
 
