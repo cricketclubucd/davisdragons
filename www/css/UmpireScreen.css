@@ -57,7 +57,7 @@ ul {
     padding: 14px 16px;
     font-size: 17px;
     width: 33.3%;
-    
+
 }
 
 .tablink:hover {
@@ -68,14 +68,52 @@ ul {
 .tabcontent {
     color: white;
     display: none;
-    padding: 50px;
+		height: 120px;
+    /* padding: 40px;*/
     text-align: center;
-    
+
+}
+
+.submit {
+	height: 40px;
+	width: 40px;
+	position: relative;
+	top: 20px;
+	left: 20px;
+	background: blue;
+	color: gold;
+	border-style: solid;
+	border-color: black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.submit2 {
+	height: 40px;
+	width: 40px;
+	position: relative;
+	padding-right: 20px;
+	top: 25px;
+	left: 20px;
+	background: blue;
+	color: gold;
+	border-style: solid;
+	border-color: black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.runs {
+	height: 40px;
+	width: 40px;
+	position: relative;
+	top: 20px;
+	background: gold;
+	border-style: solid;
+	border-color: black;
+	color: blue;
 }
 
 #tab1 {background-color:red;}
 #tab2 {background-color:orange;}
 #tab3 {background-color:blue;}
-
-
-

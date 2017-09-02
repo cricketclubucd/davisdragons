@@ -29,30 +29,28 @@ input, textarea  {
     -webkit-user-select: text ; -moz-user-select: text ; -ms-user-select: text ; user-select: text ;
 }
 img {
-    max-width: 300px;
-    max-height: 300px;
-    text-align: left;
+    max-width: 200px;
+    max-height: 200px;
     display: block;
     margin: 0 auto;
 }
 
-body
-{
-    background-image: url("../img/cricket.png");
-    color: red;
-    line-height: 20px;
-    font-size: 40px;
-    width: 200px;
-    height: 40px;
-
+.Image {
+    height: 100px;
 }
-
 
 img.toggle {
     position: fixed;
     size: 10%;
     left: 10px;
     top: 10px;
+}
+
+body
+{
+    color: navy;
+    line-height: 20px;
+    font-size: 30px;
 }
 
 #sidebar {
@@ -68,14 +66,14 @@ img.toggle {
 }
 
 input[type="text"] {
-  font-family: 'exoregular';
+    font-family: 'exoregular';
 	font-style: normal;
   font-size: 15px;
   line-height: 20px;
 	font-variant: normal;
 	font-weight: normal;
-    background-color: navy;
-    color: goldenrod;
+    background-color: goldenrod;
+    color: navy;
     border: 2px darkgoldenrod;
     border-radius: 4px;
     text-align: center ;
@@ -88,14 +86,83 @@ input[type="button"] {
   line-height: 20px;
 	font-variant: normal;
 	font-weight: normal;
-  background-color: navy;
-  color: goldenrod;
-  text-align: center ;
+    background-color: navy;
+    color: goldenrod;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+    text-align: center ;
 }
 
 
 
 .align-center {
     font-family: 'exoregular';
-    text-align: left ;
+    text-align: center ;
+}
+
+.bowler {
+    position: relative;
+    top: 70px;
+    align-items: center;
+    border-style: solid;
+    font-size: 20px;
+    background: navy;
+    color: gold;
+    font-size: 15px;
+}
+
+.batter1 {
+    position: relative;
+    top: 10px;
+    align-items: center;
+    border-style: solid;
+    background: gold;
+}
+
+.batter2 {
+    position: relative;
+    top: 40px;
+    align-items: center;
+    border-style: solid;
+    background: gold;
+}
+
+.name {
+    position: relative;
+    left: 10px;
+}
+
+.score {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+}
+
+.balls {
+    float: right;
+    padding-right: 10px;
+    color: grey;
+}
+
+.bowled {
+    float: right;
+    padding-right: 20px;
+}
+
+.wickets {
+    float: right;
+}
+
+
+.pic {
+    height: 50px;
+    width: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50%;
+    float: left;
+}
+
+.batsmen {
+    font-size: 20px;
 }
