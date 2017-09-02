@@ -26,19 +26,19 @@
           <h1>Sign in</h1>
           <form id= "id_formLogin">
 	          <label>
-              	<input type="email" placeholder="Username"/>
+              	<input id= "txtEmail" type="email" placeholder="Username"/>
 	          </label>
 	          <label>
-			  	<input type="password" placeholder="Password"/>
+			  	<input id= "txtPassword" type="password" placeholder="Password"/>
 			  </label>
 			  <label>
-			  	<input type="submit" value="Log in" id= "id_btnSubmit"/>
+			  	<input type="button" value="Log in" id= "id_btnLogin"/>
 
 
 			  </label>
 
         <label>
-        <input type="submit" value="SignUp" id= "id_btnAdd"/>
+        <input type="button" value="SignUp" id= "id_btnSignUp" onclick= "navigationHandler('memberScreen.html')"/>
         </label>
 
 
@@ -53,7 +53,7 @@
 		<br>
 		<p class="align-center">
  			<input type="button" id="id_btnHello" value="Welcome, Dragons!">
-      
+
       <input type="button" onclick="navigationHandler('getter.html')" id="id_check" value="Search">
 		</p>
 		<p class="align-center">
@@ -84,7 +84,7 @@
                 messagingSenderId: "881322195809"
             };
         firebase.initializeApp(config);
-        var database = firebase.database();
+
 
 
             </script>
@@ -93,7 +93,7 @@
 		<script src="cordova.js"></script>
 		<!-- for your event code -->
 		<script src="js/index.js"></script>
-    <script src="js/init-firebase.js"></script>
+    <!--script src="js/init-firebase.js"></script>
 		<!-- for your init code -->
 		<script src="js/init-app.js"></script>
 		<!-- normalizes device and document ready events-->
