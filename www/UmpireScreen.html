@@ -1,108 +1,131 @@
 <!DOCTYPE html>
-<html >
-    <head>
-        <meta charset="UTF-8">
-        <title>Umpire Screen</title>
-        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
-        <style>
-            /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
-            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
-            @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-            @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
-        </style>
-        <link rel="stylesheet" href="css/UmpireScreen.css">
-    </head>
-        <body style="background: url(img/back2.png) no-repeat;background-size: 100%;" >
-            <h1 class="align-center"> Ball Statistics </h1>
+  <html >
+      <head>
+          <meta charset="UTF-8">
+          <title>Umpire Screen</title>
+          <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+          <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+          <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+          <style>
+              /* following two viewport lines are equivalent to meta viewport statement above, and is needed for Windows */
+              /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+              @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+              @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+          </style>
+          <link rel="stylesheet" href="css/UmpireScreen.css">
+      </head>
+          <body style="background: url(img/back2.png) no-repeat;background-size: 100%;" >
+              <h1 class="align-center"> Ball Statistics </h1>
 
-            <p class="align-center">
-                <input type="button" id="id_btnSubmit" value="Submit!">
-            </p>
-          <p class = "align-center">
-          <div id="tab1" class="tabcontent">
-            <h3>Wagon Wheel</h3>
-            <p>London is the capital city of England.</p>
-            </div>
+              <p class="align-center">
+                  <input type="button" id="id_btnSubmit" value="Submit!">
+              </p>
+            <p class = "align-center">
+            <div id="tab1" class="tabcontent">
+              <h3>Wagon Wheel</h3>
+              <p>London is the capital city of England.</p>
+              </div>
 
-        <div id="tab2" class="tabcontent">
-        <h3>ScoreCard</h3>
-        <div id="scoring">
-          0
-        </div>
-        <p>Paris is the capital of France.</p>
-        </div>
+          <div id="tab2" class="tabcontent">
+          <h3>ScoreCard</h3>
+          <div id="scoring">
+            0
+          </div>
+          <p>Paris is the capital of France.</p>
+          </div>
 
-        <div id="tab3" class="tabcontent">
-            <h3>Extra</h3>
-        <p>Tokyo is the capital of Japan.</p>
-        </div>
+          <div id="tab3" class="tabcontent">
+              <h3>Extra</h3>
+          <p>Tokyo is the capital of Japan.</p>
+          </div>
 
-        </p>
+          </p>
 
-<button class="tablink" onclick="openCity('tab1', this, 'red')" id="defaultOpen">London</button>
-<button class="tablink" onclick="openCity('tab2', this, 'green')" id="scoreCard">Paris</button>
-<button class="tablink" onclick="openCity('tab3', this, 'blue')">Tokyo</button>
+  <button class="tablink" onclick="openCity('tab1', this, 'red')" id="defaultOpen">London</button>
+  <button class="tablink" onclick="openCity('tab2', this, 'green')" id="scoreCard">Paris</button>
+  <button class="tablink" onclick="openCity('tab3', this, 'blue')">Tokyo</button>
+  <input id= "initialInput" type = "text" placeholder= "ball"/>
+  <button id="dot" onclick="dot()" class="runs">Dot</button>
+  <button id="one" onclick="add1()" class="runs">1</button>
+  <button id="two" onclick="add2()" class="runs">2</button>
+  <button id="three" onclick="add3()" class="runs">3</button>
+  <button id="four" onclick="add4()" class="runs">4</button>
+  <button id="six" onclick="add6()" class="runs">6</button>
+  <button id="submit" onclick="submitRuns()" class= "runs">Submit </button> <br>
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 
-<button id="dot" onclick="dot()" class="runs">Dot</button>
-<button id="one" onclick="add1()" class="runs">1</button>
-<button id="two" onclick="add2()" class="runs">2</button>
-<button id="three" onclick="add3()" class="runs">3</button>
-<button id="four" onclick="add4()" class="runs">4</button>
-<button id="six" onclick="add6()" class="runs">6</button><br>
+  <script>
 
-         <script>
-         document.getElementById("scoreCard").click();
-         var scoreOnBall = 0;
-         var total = 0;
-         function openCity(cityName,elmnt,color) {
-             var i, tabcontent, tablinks;
-             tabcontent = document.getElementsByClassName("tabcontent");
-             for (i = 0; i < tabcontent.length; i++) {
-                 tabcontent[i].style.display = "none";
-             }
-             tablinks = document.getElementsByClassName("tablink");
-             for (i = 0; i < tablinks.length; i++) {
-                 tablinks[i].style.backgroundColor = "";
-             }
-             document.getElementById(cityName).style.display = "block";
-             elmnt.style.backgroundColor = color;
-          }
+          // Initialize Firebase
+       var config = {
+       apiKey: "AIzaSyD6anW3vwA6GRjWrrdz2L43QEqOVecGrgo",
+       authDomain: "davisdragons-b41c9.firebaseapp.com",
+      databaseURL: "https://davisdragons-b41c9.firebaseio.com",
+      projectId: "davisdragons-b41c9",
+      storageBucket: "davisdragons-b41c9.appspot.com",
+      messagingSenderId: "881322195809"
+    };
+    firebase.initializeApp(config);
+    
 
-          function dot() {
-            scoreOnBall = 0;
-            total+=0;
-            document.getElementById("scoring").innerHTML = total;
-          }
-          function add1() {
-            scoreOnBall = 1;
-            total+=1
-            document.getElementById("scoring").innerHTML = total;
-          }
-          function add2() {
-            scoreOnBall = 2;
-            total+=2
-            document.getElementById("scoring").innerHTML = total;
-          }
-          function add3() {
-            scoreOnBall = 3;
-            total+=3
-            document.getElementById("scoring").innerHTML = total;
-          }
-          function add4() {
-            scoreOnBall = 4;
-            total+=4
-            document.getElementById("scoring").innerHTML = total;
-          }
-          function add6() {
-            scoreOnBall = 6;
-            total+=6
-            document.getElementById("scoring").innerHTML = total;
-          }
+           document.getElementById("scoreCard").click();
+           var scoreOnBall = 0;
+           var total = 0;
+           function openCity(cityName,elmnt,color) {
+               var i, tabcontent, tablinks;
+               tabcontent = document.getElementsByClassName("tabcontent");
+               for (i = 0; i < tabcontent.length; i++) {
+                   tabcontent[i].style.display = "none";
+               }
+               tablinks = document.getElementsByClassName("tablink");
+               for (i = 0; i < tablinks.length; i++) {
+                   tablinks[i].style.backgroundColor = "";
+               }
+               document.getElementById(cityName).style.display = "block";
+               elmnt.style.backgroundColor = color;
+            }
 
+            function dot() {
+              scoreOnBall = 0;
+              total+=0;
+              document.getElementById("scoring").innerHTML = total;
+            }
+            function add1() {
+              scoreOnBall = 1;
+              total+=1
+              document.getElementById("scoring").innerHTML = total;
+            }
+            function add2() {
+              scoreOnBall = 2;
+              total+=2
+              document.getElementById("scoring").innerHTML = total;
+            }
+            function add3() {
+              scoreOnBall = 3;
+              total+=3
+              document.getElementById("scoring").innerHTML = total;
+            }
+            function add4() {
+              scoreOnBall = 4;
+              total+=4
+              document.getElementById("scoring").innerHTML = total;
+            }
+            function add6() {
+              scoreOnBall = 6;
+              total+=6
+              document.getElementById("scoring").innerHTML = total;
+            }
 
-
+           function submitRuns()
+           {
+            var database = firebase.database();
+            var ref = database.ref('balls');
+            var data =
+            {
+              runs: total
+            }
+             ref.child(document.getElementById("initialInput").value).set(data);
+           }
           // document.getElementById("scoring").innerHTML = window.enter();
           document.getElementById("scoreCard").click();
           </script>
