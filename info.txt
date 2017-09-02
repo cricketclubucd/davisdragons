@@ -18,25 +18,6 @@ Config.xml file:
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="SplashScreenDelay" value="1000" />
-    <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
-    <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-contacts" source="npm" spec="~2.0.1" />
-    <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2" />
-    <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1" />
-    <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0" />
-    <plugin name="cordova-plugin-geolocation" source="npm" spec="~2.1.0" />
-    <plugin name="cordova-plugin-globalization" source="npm" spec="~1.0.3" />
-    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0" />
-    <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
-    <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
-    <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
-    <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
-    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
@@ -121,13 +102,46 @@ Config.xml file:
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <engine name="browser" spec="~4.1.0" />
+    <engine name="ios" spec="~4.4.0" />
+    <plugin name="cordova-plugin-battery-status" spec="~1.1.1" />
+    <plugin name="cordova-plugin-camera" spec="~2.1.1" />
     <plugin name="cordova-plugin-console" spec="https://git-wip-us.apache.org/repos/asf/cordova-plugin-console.git" />
+    <plugin name="cordova-plugin-contacts" spec="~2.0.1" />
+    <plugin name="cordova-plugin-device" spec="~1.1.1" />
+    <plugin name="cordova-plugin-device-motion" spec="~1.2.0" />
+    <plugin name="cordova-plugin-device-orientation" spec="~1.0.2" />
+    <plugin name="cordova-plugin-dialogs" spec="~1.2.0" />
+    <plugin name="cordova-plugin-file" spec="~4.1.1" />
+    <plugin name="cordova-plugin-file-transfer" spec="~1.5.0" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.1.0" />
+    <plugin name="cordova-plugin-globalization" spec="~1.0.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="~1.3.0" />
+    <plugin name="cordova-plugin-media" spec="~2.2.0" />
+    <plugin name="cordova-plugin-media-capture" spec="~1.2.0" />
+    <plugin name="cordova-plugin-navigationbar" spec="^1.0.31" />
+    <plugin name="cordova-plugin-network-information" spec="~1.2.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="~3.2.1" />
+    <plugin name="cordova-plugin-statusbar" spec="~2.1.2" />
+    <plugin name="cordova-plugin-vibration" spec="~2.1.0" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
+    <engine name="android" spec="~6.2.2" />
 </widget>
 
 
 Plugins: 
 
-cordova-plugin-battery-status,cordova-plugin-camera,cordova-plugin-compat,cordova-plugin-console,cordova-plugin-contacts,cordova-plugin-device,cordova-plugin-device-motion,cordova-plugin-device-orientation,cordova-plugin-dialogs,cordova-plugin-file,cordova-plugin-file-transfer,cordova-plugin-geolocation,cordova-plugin-globalization,cordova-plugin-inappbrowser,cordova-plugin-media,cordova-plugin-media-capture,cordova-plugin-network-information,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-vibration,cordova-plugin-whitelist
+cordova-plugin-battery-status,cordova-plugin-camera,cordova-plugin-compat,cordova-plugin-console,cordova-plugin-contacts,cordova-plugin-device,cordova-plugin-device-motion,cordova-plugin-device-orientation,cordova-plugin-dialogs,cordova-plugin-file,cordova-plugin-file-transfer,cordova-plugin-geolocation,cordova-plugin-globalization,cordova-plugin-inappbrowser,cordova-plugin-media,cordova-plugin-media-capture,cordova-plugin-navigationbar,cordova-plugin-network-information,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-vibration,cordova-plugin-whitelist
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: android: Command failed with exit code ENOENT
 
 
+
+iOS platform:
+
+Xcode 8.3.3
+Build version 8E3004b
 

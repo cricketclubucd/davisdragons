@@ -18,11 +18,17 @@
     <body>
       <div id="login">
           <h1 class="align-center">Log in</h1>
-          <form>
-              <input type="email" placeholder="Username"><br>
-              <input type="password" placeholder="Password"><br>
-              <input type="submit" value="Log in">
-          </form>
+          <form id= "id_formLogin">
+              <input id = "id_txtEmail" type="email" placeholder="Username"><br>
+              <input id = "id_txtPassword" type="password" placeholder="Password"><br>
+              <input type="submit" value="Log in" id= "id_btnSubmit">
+              <input type="submit" value="SignUp" id= "id_btnSignUp"> 
       </div>
+
+
+          </form>
+      <button id="id_btnUmp" onclick= "umpireHandler();">Umpire</button>
+      <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+      <script src= "js/signInScreen.js"> </script>
     </body>
 </html>

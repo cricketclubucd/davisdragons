@@ -20,17 +20,17 @@ body {
 }
 
 input[type="email"] {
-    width: 100%;
+    width: 50%;
 	height: 40%;
     background-color: goldenrod;
-    color: navy;
+    color: goldenrod;
     border: 2px darkgoldenrod;
     border-radius: 4px;
 }
 
 input[type="password"] {
 	height: auto;
-    width: 100%;
+    width: 50%;
     background-color: goldenrod;
     color: navy;
     border: 2px darkgoldenrod;
@@ -38,5 +38,5 @@ input[type="password"] {
 }
 
 .align-center {
-    text-align: center;
+    text-align: left;
 }

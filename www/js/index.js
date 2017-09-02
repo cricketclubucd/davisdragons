@@ -2,6 +2,15 @@
  * Please see the included LICENSE.md file for license terms and conditions.
  */
 
+var bodyObj, className, index;
+
+trbackgroundObj = document.getElementById('trbackground');
+index = 1;
+className = [
+    'welcome',
+    'signIn'
+];
+
 function myEventHandler() {
     "use strict" ;
 
@@ -21,13 +30,186 @@ function myEventHandler() {
     navigator.notification.alert(str) ;
 }
 
-function signInHandler()
+function updateIndex()
 {
-    "use strict";
-
-    window.location = "signInScreen.html"; 
+	if(index === 0)
+	{
+		index = 1;
+    }
+    else
+    {
+	    index = 0;
+	}
 }
 
+function signInHandler()
+{
+    trbackgroundObj.className = className[index];
+    updateIndex();
+
+
+}
+
+(function ()
+{
+
+    const id_txtEmail= document.getElementById('id_txtEmail');
+    const id_txtPassword= document.getElementById('id_txtPasswxsord');
+    const id_btnSubmit= document.getElementById('id_btnSubmit');
+    const id_btnSignUp= document.getElementById('id_btnSignUp');
+    // Add login event
+    id_btnSubmit.addEventListener('click', e=> {
+    // Get email and password
+    const email= id_txtEmail.value;
+    const password = id_txtPassword.value;
+    if (email.length < 4) {
+          alert('Please enter an email address.');
+          return;
+        }
+    if (password.length < 4) {
+          alert('Please enter a password.');
+          return;
+        }
+    const auth = firebase.auth();
+    //Sign in
+    const promise = auth.signInWithEmailAndPassword(email, password);
+    promise.catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          }
+          else {
+            alert(errorMessage);
+          }
+    console.log(error);
+
+
+    }); // end of eventListener for login button
+    id_btnSignUp.addEventListener('click', e=> {
+    //get email and password
+    //check for real email
+
+    const email= id_txtEmail.value;
+    const password = id_txtPassword.value;
+    const auth = firebase.auth();
+    if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 4) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Sign in with email and pass.
+      // [START createwithemail]
+    //Sign in
+    const promise = auth.createUserWithEmailAndPassword(email, password);
+    promise.catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+    });
+
+
+
+
+
+
+    }); //create
+
+
+
+
+
+
+
+
+});
+//add a realtime listener
+
+
+firebase.auth().onAuthStateChanged(firebaseUser =>{
+    if(firebaseUser)
+    {
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var providerData = user.providerData;
+        navigationHandler('memberScreen.html');
+        console.log(firebaseUser);
+
+
+    }
+    else
+    {
+      console.log("not logged in");
+    }
+
+    });
+
+function sendEmailVerification() {
+
+      firebase.auth().currentUser.sendEmailVerification().then(function() {
+        // Email Verification sent!
+
+        alert('Email Verification Sent!');
+
+      });
+
+    }
+}());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function memberHandler()
+{
+
+    "use strict";
+
+    window.location = "memberScreen.html";
+}
+
+
+function userHandler()
+{
+
+    "use strict";
+
+    window.location = "userScreen.html";
+}
+
+function navigationHandler(str)
+{
+	"use strict";
+
+	window.location = str;
+}
 
 function toggle_sidebar()
 {
@@ -45,8 +227,6 @@ function toggle_sidebar()
         sidebar.style.left = "-200px";
     }
 }
-
-
 
 
 // ...additional event handlers here...
