@@ -2,7 +2,8 @@
 # in essence, everything but www and config file
 /*
 !/www
+!/src
+!/*.json
 !/config.xml
-!/README.md
-!/schema.json
+!/docs
 !/.gitignore
