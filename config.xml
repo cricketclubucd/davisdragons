@@ -106,7 +106,11 @@
     <plugin name="cordova-plugin-cocoapod-support" spec="~1.3.0" />
     <plugin name="cordova-plugin-console" spec="https://git-wip-us.apache.org/repos/asf/cordova-plugin-console.git" />
     <plugin name="cordova-plugin-contacts" spec="~2.0.1" />
-    
+    <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
+        <variable name="URL_SCHEME" value="org.cricket.DavisDragons" />
+        <variable name="ANDROID_SCHEME" value=" " />
+        <variable name="ANDROID_HOST" value=" " />
+        <variable name="ANDROID_PATHPREFIX" value="/" />
     </plugin>
     <plugin name="cordova-plugin-device" spec="~1.1.1" />
     <plugin name="cordova-plugin-device-motion" spec="~1.2.0" />
@@ -127,5 +131,5 @@
     <plugin name="cordova-plugin-statusbar" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
-    
+    <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
 </widget>
