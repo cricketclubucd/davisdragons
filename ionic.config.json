@@ -1,0 +1,8 @@
+{
+  "name": "DavisDragons",
+  "app_id": "org.cricket.DavisDragons",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

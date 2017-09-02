@@ -1,0 +1,72 @@
+/*
+ * Please see the included LICENSE.md file for license terms and conditions.
+ */
+
+
+@import "../fonts/exofontkit/stylesheet.css";
+body {
+    -webkit-touch-callout: none ;
+    -webkit-text-size-adjust: none ; -ms-text-size-adjust: none ;
+    -webkit-user-select: none ; -moz-user-select: none ; -ms-user-select: none ; user-select: none ;
+    -webkit-highlight: none ;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) ;
+    -webkit-tap-highlight-color: transparent ;      /* For some Androids */
+}
+
+/* Recommended for Windows 8 Phone (html and body below) */
+/* SOURCE: http://www.excellentwebworld.com/common-problems-solution-for-windows-phone-8-phonegap */
+html {
+    -ms-touch-action: pan-x ;
+}
+
+body {
+    -ms-touch-action: pan-y ;
+    -ms-content-zooming: none ;
+}
+
+body
+{
+    background: goldenrod;
+    color: red;
+    line-height: 20px;
+    font-size: 40px;
+    width: 200px;
+    height: 40px;
+
+}
+
+
+.next {
+    font-family: 'exoregular';
+    font-size: 18px;
+    align-content: center;
+}
+
+
+
+
+input[type="text"] {
+  font-family: 'exoregular';
+	font-style: normal;
+  font-size: 15px;
+  line-height: 20px;
+	font-variant: normal;
+	font-weight: normal;
+    background-color: navy;
+    color: goldenrod;
+    border: 2px darkgoldenrod;
+    border-radius: 4px;
+    text-align: center ;
+}
+
+input[type="button"] {
+    font-family: 'exoregular';
+	font-style: normal;
+  font-size: 15px;
+  line-height: 20px;
+	font-variant: normal;
+	font-weight: normal;
+  background-color: navy;
+  color: goldenrod;
+  text-align: center ;
+}

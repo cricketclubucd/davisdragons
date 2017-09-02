@@ -1,0 +1,13 @@
+{
+  "name": "DavisDragons",
+  "short_name": "davisdragons",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "../www/img/logo.png",
+    "sizes": "768x768",
+    "type": "image/png"
+  }],
+  "background_color": "#4e8ef7",
+  "theme_color": "#4e8ef7"
+}

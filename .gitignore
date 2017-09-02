@@ -4,7 +4,5 @@
 !/www
 !/config.xml
 !/README.md
-!/privacy_policy.html
-!/package.json
-!/DavisDragons.keystore
+!/schema.json
 !/.gitignore
