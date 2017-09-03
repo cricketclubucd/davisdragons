@@ -65,7 +65,7 @@ var SignInPage = (function () {
 }());
 SignInPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-signIn',template:/*ion-inline-start:"/Users/sjena/Code/cricket/davisdragons/src/pages/signIn/signIn.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Sign In</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="has-header">\n<ion-list>\n	<ion-item>\n		<ion-label floating>Username</ion-label>\n		<ion-input type="text"></ion-input>\n	</ion-item>\n	\n	<ion-item>\n		<ion-label floating>Password</ion-label>\n		<ion-input type="text"></ion-input>\n	</ion-item>\n</ion-list>\n\n<div padding>\n	<button block (click)="goToHome()">Sign In</button>\n</div>\n</ion-content>'/*ion-inline-end:"/Users/sjena/Code/cricket/davisdragons/src/pages/signIn/signIn.html"*/
+        selector: 'page-signIn',template:/*ion-inline-start:"/Users/sjena/Code/cricket/davisdragons/src/pages/signIn/signIn.html"*/'<ion-content>\n<ion-fab right bottom>\n<button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>\n</ion-fab>\n<ion-list>\n	<ion-list-header text-center class="headfont"> Sign In </ion-list-header>\n	<ion-item>\n		<ion-label floating>Username</ion-label>\n		<ion-input type="text"></ion-input>\n	</ion-item>\n	\n	<ion-item>\n		<ion-label floating>Password</ion-label>\n		<ion-input type="text"></ion-input>\n	</ion-item>\n</ion-list>\n\n<div padding>\n	<button block (click)="goToHome()">Sign In</button>\n</div>\n</ion-content>'/*ion-inline-end:"/Users/sjena/Code/cricket/davisdragons/src/pages/signIn/signIn.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], SignInPage);
@@ -246,7 +246,6 @@ var MyApp = (function () {
         this.initializeApp();
         // used for an example of ngFor and navigation
         this.pages = [
-            { title: 'SignIn', component: __WEBPACK_IMPORTED_MODULE_4__pages_signIn_signIn__["a" /* SignInPage */] },
             { title: 'Home', component: __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */] },
             { title: 'List', component: __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */] }
         ];

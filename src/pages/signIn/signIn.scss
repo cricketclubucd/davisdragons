@@ -1,3 +1,12 @@
-page-signIn {
+@import "../../../www/assets/fonts/exofontkit/stylesheet.css";
 
+page-signIn {
+	.headfont {
+	font-family: 'exoregular';
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 38px;
+	}
 }
