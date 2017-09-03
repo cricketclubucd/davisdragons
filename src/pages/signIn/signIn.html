@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sign In</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="has-header">
+<ion-list>
+	<ion-item>
+		<ion-label floating>Username</ion-label>
+		<ion-input type="text"></ion-input>
+	</ion-item>
+	
+	<ion-item>
+		<ion-label floating>Password</ion-label>
+		<ion-input type="text"></ion-input>
+	</ion-item>
+</ion-list>
+
+<div padding>
+	<button block (click)="goToHome()">Sign In</button>
+</div>
+</ion-content>
