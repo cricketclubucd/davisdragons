@@ -1,4 +1,3 @@
-@import url(../../../www/assets/fonts/exofontkit/stylesheet.css);
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25207,4 +25206,14 @@ page-signIn .headfont {
   font-variant: normal;
   font-weight: bold;
   line-height: 38px;
+}
+
+page-spectator .item ion-thumbnail {
+  min-width: 5rem;
+  min-height: 5rem;
+}
+
+page-spectator .item ion-thumbnail img {
+  max-width: 5rem;
+  min-width: 5rem;
 }
