@@ -2,9 +2,10 @@
 # in essence, everything but www and config file
 /*
 !/www
+!/src
+!/resources
+!/oldcode
+!/*.json
 !/config.xml
-!/info.txt
-!/README.md
-!/LICENSE.md
-!/notes.md
+!/docs
 !/.gitignore
