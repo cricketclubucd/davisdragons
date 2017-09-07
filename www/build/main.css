@@ -25199,6 +25199,103 @@ ion-navbar.toolbar {
   }
 }
 
+page-add .headfont {
+  font-family: 'exoregular';
+  font-size: 35px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 38px;
+  color: white;
+  background: goldenrod;
+}
+
+page-add ion-navbar {
+  font-family: 'MyFontFamily';
+  text-transform: uppercase;
+  background-color: red;
+}
+
+page-add input[type="text"] {
+  font-family: 'exoregular';
+  font-style: normal;
+  font-size: 15px;
+}
+
+page-add .button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+}
+
+page-add .button:hover {
+  background-color: red;
+}
+
+page-add .button:active {
+  background-color: white;
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+}
+
+page-getter .headfont {
+  font-family: 'exoregular';
+  font-size: 35px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 38px;
+}
+
+page-getter input[type="text"] {
+  font-family: 'exoregular';
+  font-style: normal;
+  font-size: 15px;
+}
+
+page-show .headfont {
+  font-family: 'exoregular';
+  font-size: 35px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 38px;
+  color: white;
+  background: goldenrod;
+}
+
+page-show ion-navbar {
+  font-family: 'MyFontFamily';
+  text-transform: uppercase;
+  background-color: red;
+}
+
+page-show input[type="text"] {
+  font-family: 'exoregular';
+  font-style: normal;
+  font-size: 15px;
+}
+
+page-show .button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  font-size: 16px;
+}
+
+page-show .button:hover {
+  background-color: red;
+}
+
+page-show .button:active {
+  background-color: white;
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+}
+
 page-signIn .headfont {
   font-family: 'exoregular';
   font-size: 35px;
@@ -25206,6 +25303,7 @@ page-signIn .headfont {
   font-variant: normal;
   font-weight: bold;
   line-height: 38px;
+  background: goldenrod;
 }
 
 page-spectator .item ion-thumbnail {
