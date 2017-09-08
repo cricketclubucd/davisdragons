@@ -20,6 +20,8 @@ import{TabBasicContentPage} from '../pages/member/member';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import { GooglePlus } from '@ionic-native/google-plus';
+import * as firebase from 'firebase';
 
 
 @NgModule({
@@ -58,7 +60,8 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirebaseProvider
+    FirebaseProvider,
+    GooglePlus
   ]
 })
 export class AppModule {}

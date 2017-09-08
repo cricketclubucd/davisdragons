@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "881322195809",
+    "firebase_url": "https://davisdragons-b41c9.firebaseio.com",
+    "project_id": "davisdragons-b41c9",
+    "storage_bucket": "davisdragons-b41c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881322195809:android:711012e52739db71",
+        "android_client_info": {
+          "package_name": "org.cricket.davisdragons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881322195809-tdrdbgfipi2fjc95t33upn0asik7mgqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.cricket.davisdragons",
+            "certificate_hash": "963f5614147b7c289986e2b5e74a720a87d320ca"
+          }
+        },
+        {
+          "client_id": "881322195809-mrs1rnkn77qnovhm89h2uhqd2thrrbor.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaWQhmYDncZaYMfcqf5hBVwn0nURg1A2E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881322195809-mrs1rnkn77qnovhm89h2uhqd2thrrbor.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "881322195809-k0dg7hbbk6q8rpo0tfdstrm5q9s2uufo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.cricket.davisdragons"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

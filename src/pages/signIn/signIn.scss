@@ -1,5 +1,6 @@
 
 page-signIn {
+	ion-content {
 	.headfont {
 	font-family: 'exoregular';
 	font-size: 35px;
@@ -7,6 +8,13 @@ page-signIn {
 	font-variant: normal;
 	font-weight: bold;
 	line-height: 38px;
-	background: goldenrod;
 	}
+		button {
+			top: 75%;
+			text-align: center;
+}
+		ion-item {
+			top: 75%;
+}
+}
 }

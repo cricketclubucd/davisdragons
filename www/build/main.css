@@ -25296,14 +25296,22 @@ page-show .button:active {
   transform: translateY(4px);
 }
 
-page-signIn .headfont {
+page-signIn ion-content .headfont {
   font-family: 'exoregular';
   font-size: 35px;
   font-style: normal;
   font-variant: normal;
   font-weight: bold;
   line-height: 38px;
-  background: goldenrod;
+}
+
+page-signIn ion-content button {
+  top: 75%;
+  text-align: center;
+}
+
+page-signIn ion-content ion-item {
+  top: 75%;
 }
 
 page-spectator .item ion-thumbnail {

@@ -1,7 +1,7 @@
 # ignore Cordova/PhoneGap CLI directories
 # in essence, everything but www and config file
 /*
-!/www
+!/www/assets
 !/src
 !/resources
 !/oldcode
