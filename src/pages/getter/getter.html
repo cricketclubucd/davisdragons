@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-fab right bottom>
+<button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
+</ion-fab>
+<ion-list>
+	<ion-list-header text-center class="headfont"> Search </ion-list-header>
+	<ion-item>
+		<ion-label floating>Jersey Number</ion-label>
+		<ion-input type="text"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label floating>Name</ion-label>
+		<ion-input type="text"></ion-input>
+	</ion-item>
+
+  <ion-item>
+		<ion-label floating>Economy</ion-label>
+		<ion-input type="text"></ion-input>
+	</ion-item>
+
+</ion-list>
+
+<div padding>
+	<button block (click)="goToHome()">Search</button>
+</div>
+</ion-content>

@@ -4,6 +4,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { SignInPage } from '../pages/signIn/signIn';
+import { GetterPage } from '../pages/getter/getter';
+import { AddPage } from '../pages/add/add';
+import { ShowPage } from '../pages/show/show';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {SpectatorPage} from '../pages/spectator/spectator';
