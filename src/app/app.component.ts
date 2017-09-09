@@ -12,6 +12,7 @@ import { ListPage } from '../pages/list/list';
 import {SpectatorPage} from '../pages/spectator/spectator';
 import{MemberPage} from '../pages/member/member';
 //import{TabBasicContentPage} from '../pages/member/TabBasicContentPage';
+import {UmpirePage} from '../pages/umpire/umpire';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,6 +33,7 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Spectator', component: SpectatorPage },
         { title: 'Member', component: MemberPage },
+        { title: 'Umpire', component: UmpirePage },
     ];
 
   }

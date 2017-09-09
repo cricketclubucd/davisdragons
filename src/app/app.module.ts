@@ -22,7 +22,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { GooglePlus } from '@ionic-native/google-plus';
 import * as firebase from 'firebase';
-
+import {UmpirePage} from '../pages/umpire/umpire';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import * as firebase from 'firebase';
     ListPage,
     SpectatorPage,
     MemberPage,
-    TabBasicContentPage
+    TabBasicContentPage,
+    UmpirePage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,8 @@ import * as firebase from 'firebase';
     ListPage,
     SpectatorPage,
     MemberPage,
-    TabBasicContentPage
+    TabBasicContentPage,
+    UmpirePage
   ],
   providers: [
     StatusBar,

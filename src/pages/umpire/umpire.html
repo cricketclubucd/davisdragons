@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Umpire</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+  <ion-content>
+    <div text-center>
+    <button ion-button  color="danger" (click) = 'incrementone();'>+1</button>
+    <button ion-button  color="danger" (click) = 'increment2();'>+2</button>
+    <button ion-button  color="danger" (click) = 'incrementthree();'>+3</button>
+    <button ion-button  color="danger" (click) = 'incrementfour();'>+4</button>
+    <button ion-button  color="danger" (click) = 'incrementsix();'>+6</button>
+     <button ion-button color ="danger" (click) = 'increment0();'> dot </button>
+    <!--button ion-button  color="danger" (click) = 'dot();'>dot</button!-->
+
+      </div>
+     <h1>The Score is {{score}} </h1>
+
+</ion-content>
