@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
@@ -14,7 +14,7 @@ import { MyApp } from '../../app/app.component';
 export class SignInPage {
 	userProfile: any = null;
 	fireauth = firebase.auth();
-	constructor(public navCtrl: NavController, public navParams: NavParams, public googleplus: GooglePlus) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform) {
 		this.fireauth.onAuthStateChanged( user => {
 			if (user){
 				this.userProfile = user; 
@@ -25,10 +25,17 @@ export class SignInPage {
 	}
 	
 	googleauth() {
-		this.googleplus.login({
+		var clientInfo = { 
 			'webClientId' : '881322195809-mrs1rnkn77qnovhm89h2uhqd2thrrbor.apps.googleusercontent.com',
 			'offline' : true
-		})
+		};
+		
+		if (this.platform.is('android'))
+		{
+			clientInfo.webClientId = '881322195809-mrs1rnkn77qnovhm89h2uhqd2thrrbor.apps.googleusercontent.com';
+			clientInfo.offline = true;
+		}
+		this.googleplus.login(clientInfo)
 		  .then((res) => {
 			  const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);
 			 this.fireauth.signInWithCredential(firecreds).then((res) => {

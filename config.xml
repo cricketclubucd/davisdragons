@@ -47,6 +47,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <preference name="KeychainAccessibility" value="WhenUnlocked" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
         <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
@@ -91,7 +92,6 @@
     <plugin name="cordova-plugin-battery-status" spec="^1.2.4" />
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-plugin-buildinfo" spec="^1.1.0" />
-    <plugin name="cordova-plugin-console" spec="^1.0.7" />
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="org.cricket.davisdragons" />
         <variable name="ANDROID_SCHEME" value=" " />
@@ -101,7 +101,7 @@
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-device-motion" spec="^1.2.5" />
     <plugin name="cordova-plugin-device-orientation" spec="^1.0.7" />
-    <plugin name="cordova-plugin-googleplus" spec="^5.1.1">
+    <plugin name="cordova-plugin-googleplus" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.881322195809-k0dg7hbbk6q8rpo0tfdstrm5q9s2uufo" />
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
