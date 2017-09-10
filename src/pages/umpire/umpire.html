@@ -11,15 +11,15 @@
 
   <ion-content>
     <div text-center>
-    <button ion-button  color="danger" (click) = 'incrementone();'>+1</button>
-    <button ion-button  color="danger" (click) = 'increment2();'>+2</button>
-    <button ion-button  color="danger" (click) = 'incrementthree();'>+3</button>
-    <button ion-button  color="danger" (click) = 'incrementfour();'>+4</button>
-    <button ion-button  color="danger" (click) = 'incrementsix();'>+6</button>
-     <button ion-button color ="danger" (click) = 'increment0();'> dot </button>
+    <button ion-button  color="danger" (click) = 'incrementone(); updateballid();    pushdata();'>+1</button>
+    <button ion-button  color="danger" (click) = 'increment2(); updateballid();   pushdata();' >+2</button>
+    <button ion-button  color="danger" (click) = 'incrementthree(); updateballid();   pushdata();'>+3</button>
+    <button ion-button  color="danger" (click) = 'incrementfour(); updateballid();   pushdata();' >+4</button>
+    <button ion-button  color="danger" (click) = 'incrementsix(); updateballid();   pushdata();'>+6</button>
+     <button ion-button color ="danger" (click) = 'increment0(); updateballid();  pushdata();'> dot </button>
     <!--button ion-button  color="danger" (click) = 'dot();'>dot</button!-->
 
       </div>
-     <h1>The Score is {{score}} </h1>
+     <h1>The Score  for  ball {{ball}} is {{score}} </h1>
 
 </ion-content>

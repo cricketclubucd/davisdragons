@@ -68,10 +68,7 @@
             "cordova-plugin-device-orientation": {},
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-customurlscheme": {
-                "URL_SCHEME": "org.cricket.davisdragons",
-                "ANDROID_SCHEME": " ",
-                "ANDROID_HOST": " ",
-                "ANDROID_PATHPREFIX": "/"
+                "URL_SCHEME": "org.cricket.davisdragons"
             },
             "cordova-plugin-googleplus": {
                 "REVERSED_CLIENT_ID": "com.googleusercontent.apps.881322195809-k0dg7hbbk6q8rpo0tfdstrm5q9s2uufo"

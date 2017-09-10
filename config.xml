@@ -85,7 +85,6 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <allow-navigation href="http://172.17.110.126:8100" />
     <engine name="android" spec="^6.2.3" />
     <engine name="browser" spec="^5.0.0" />
     <engine name="ios" spec="^4.5.0" />
@@ -94,9 +93,6 @@
     <plugin name="cordova-plugin-buildinfo" spec="^1.1.0" />
     <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
         <variable name="URL_SCHEME" value="org.cricket.davisdragons" />
-        <variable name="ANDROID_SCHEME" value=" " />
-        <variable name="ANDROID_HOST" value=" " />
-        <variable name="ANDROID_PATHPREFIX" value="/" />
     </plugin>
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-device-motion" spec="^1.2.5" />
