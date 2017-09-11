@@ -1,7 +1,7 @@
 Davis Dragons® Official App License Terms and Conditions
 =========================================================
 
-Copyright © <2017> <The Cricket Club at UC Davis>
+Copyright © 2017 The Cricket Club at UC Davis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, (except for sell) copies of the Software, with appropriate credit given to author of particular source code, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
