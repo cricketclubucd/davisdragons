@@ -1,21 +1,20 @@
-<ion-content>
+<ion-content padding>
 <ion-fab right bottom>
-<button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
+<button ion-fab color="secondary" (click)="googleauth()"><ion-icon name="add"></ion-icon></button>
 </ion-fab>
-<ion-list>
-	<ion-list-header text-center class="headfont"> Sign In </ion-list-header>
-	<ion-item>
-		<ion-label floating>Username</ion-label>
-		<ion-input type="text"></ion-input>
-	</ion-item>
-	
-	<ion-item>
-		<ion-label floating>Password</ion-label>
-		<ion-input type="text"></ion-input>
-	</ion-item>
-</ion-list>
-
-<div padding>
-	<button block (click)="goToHome()">Sign In</button>
-</div>
+ 
+  <button ion-button large  color="danger" round (click)="googleauth()" *ngIf="!userProfile">
+    <ion-icon name="logo-googleplus"></ion-icon>
+    Login with Google
+  </button>
+ 
+  <ion-item *ngIf="userProfile">
+    <ion-avatar (click)="isloggedin()" item-left>
+      <img [src]="userProfile.photoURL">
+    </ion-avatar>
+    <h2 (click)="isloggedin()">{{ userProfile.displayName }}</h2>
+    <h3>{{ userProfile.email }}</h3>
+    <ion-icon name="remove" item-right (click)="logout()"></ion-icon>
+  </ion-item>
 </ion-content>
+

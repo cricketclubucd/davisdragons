@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="org.cricket.davisdragons" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>davisdragons</name>
+    <description>An Ionic/Cordova app with AngularFire2 to implement a live scoring app for The Cricket Club at UC Davis.</description>
+    <author email="jena.suraj.k@gmail.com" href="http://ionicframework.com/">Cricket Club at UC Davis</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -20,8 +20,9 @@
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreen" value="./oldcode/img/logo.png" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -46,6 +47,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <preference name="KeychainAccessibility" value="WhenUnlocked" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
         <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
@@ -77,18 +79,29 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
+    <universal-links>
+        <host name="y35n4.app.goo.gl" scheme="https" />
+        <host name="davisdragons-b41c9.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
     <engine name="android" spec="^6.2.3" />
-    <engine name="browser" spec="^4.1.0" />
-    <engine name="ios" spec="^4.4.0" />
+    <engine name="browser" spec="^5.0.0" />
+    <engine name="ios" spec="^4.5.0" />
     <plugin name="cordova-plugin-battery-status" spec="^1.2.4" />
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-plugin-buildinfo" spec="^1.1.0" />
-    <plugin name="cordova-plugin-console" spec="^1.0.5" />
-    <plugin name="cordova-plugin-device" spec="^1.1.4" />
+    <plugin name="cordova-plugin-customurlscheme" spec="^4.3.0">
+        <variable name="URL_SCHEME" value="org.cricket.davisdragons" />
+    </plugin>
+    <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-device-motion" spec="^1.2.5" />
     <plugin name="cordova-plugin-device-orientation" spec="^1.0.7" />
+    <plugin name="cordova-plugin-googleplus" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.881322195809-k0dg7hbbk6q8rpo0tfdstrm5q9s2uufo" />
+    </plugin>
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
-    <plugin name="cordova-plugin-statusbar" spec="^2.2.2" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
-    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
 </widget>

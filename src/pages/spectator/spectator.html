@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Spectator Screen</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="roster">
+        <ion-segment-button value="india">
+          India
+        </ion-segment-button>
+        <ion-segment-button value="aussies">
+          Austrailia
+        </ion-segment-button>
+        <ion-segment-button value="ducklings">
+          Ducklings
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div [ngSwitch]="roster">
+    <ion-list *ngSwitchCase="'india'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/virat.jpg">
+        </ion-thumbnail>
+        <h2>Virat Kohli</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/rohit.jpg">
+        </ion-thumbnail>
+        <h2>Rohit Sharma</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/ashwin.jpg">
+        </ion-thumbnail>
+        <h2>R Ashwin</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/jadeja.jpg">
+        </ion-thumbnail>
+        <h2>R Jadeja</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'aussies'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/steven.jpg">
+        </ion-thumbnail>
+        <h2>Steve Smith</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/finch.jpg">
+        </ion-thumbnail>
+        <h2>Aaron Finch</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/warner.jpg">
+        </ion-thumbnail>
+        <h2>David Warner</h2>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/maxwell.jpg">
+        </ion-thumbnail>
+        <h2>Glenn Maxwell</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'ducklings'">
+      <ion-item>
+        <!--ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-1.jpg">
+        </ion-thumbnail!-->
+        <h2>Daffy</h2>
+      </ion-item>
+      <ion-item>
+        <!--ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-2.jpg">
+        </ion-thumbnail!-->
+        <h2>Huey</h2>
+      </ion-item>
+      <ion-item>
+        <!--ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-3.jpg">
+        </ion-thumbnail!-->
+        <h2>Dewey</h2>
+      </ion-item>
+      <ion-item>
+        <!--ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-4.jpg">
+        </ion-thumbnail!-->
+        <h2>Louie</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+
+<!--ion-content padding class="action-sheets-basic-page">
+
+  <button ion-button block (click)="openMenu()">
+    Show Action Sheet
+  </button>
+</ion-content !-->
