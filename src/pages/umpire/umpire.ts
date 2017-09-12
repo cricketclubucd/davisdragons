@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 @Component({
@@ -12,10 +11,10 @@ export class UmpirePage
   score = 0;
   ball = 0;
   data : FirebaseListObservable<any>;
-  constructor(public navCtrl: NavController,  fdb: AngularFireDatabase)
+  constructor(public navCtrl: NavController, public fdb: AngularFireDatabase)
   {
     this.score = 0;
-    this. data = fdb.list('/balls');
+    this. data = fdb.list('/Matches/Match1/Balls');
   }
  updateballid()
  {
@@ -25,9 +24,11 @@ export class UmpirePage
  {
    var data1=
    {
-     runs : this.score
+     runs : this.score,
+     ballNumber: this.ball
    }
    this.data.push(data1);
+
   }
 incrementone()
 {
