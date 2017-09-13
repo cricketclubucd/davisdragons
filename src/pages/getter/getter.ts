@@ -18,13 +18,11 @@ export class GetterPage {
 
     player= {} as player;
 
-    playerRef$: FirebaseListObservable<player[]>;
-
     name:FirebaseListObservable<any[]>;
 
     constructor(public navCtrl: NavController, private data: AngularFireDatabase) {
 
-        this.playerRef$ = this.data.list('Players');
+
 
     }
 
