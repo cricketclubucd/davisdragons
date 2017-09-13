@@ -57,4 +57,8 @@ increment0()
 {
   UmpirePage.score = UmpirePage.score + 0;
 }
+wide()
+{
+  UmpirePage.score = UmpirePage.score + 1;
+}
 }
