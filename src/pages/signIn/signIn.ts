@@ -2,10 +2,15 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuth } from 'angularfire2/auth';
+
 import * as firebase from 'firebase';
 
 import { HomePage } from '../home/home';
 import { MyApp } from '../../app/app.component';
+
+import { GetterPage } from '../getter/getter';
+import { AddPage } from '../add/add';
+import { MatchesPage } from '../matches/matches';
 
 @Component({
   selector: 'page-signIn',
@@ -17,19 +22,19 @@ export class SignInPage {
 	constructor(public navCtrl: NavController, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform) {
 		this.fireauth.onAuthStateChanged( user => {
 			if (user){
-				this.userProfile = user; 
+				this.userProfile = user;
 			} else {
 				this.userProfile = null;
 			}
 		});
 	}
-	
+
 	googleauth() {
-		var clientInfo = { 
+		var clientInfo = {
 			'webClientId' : '881322195809-mrs1rnkn77qnovhm89h2uhqd2thrrbor.apps.googleusercontent.com',
 			'offline' : true
 		};
-		
+
 		if (this.platform.is('android'))
 		{
 			clientInfo.webClientId = '881322195809-mrs1rnkn77qnovhm89h2uhqd2thrrbor.apps.googleusercontent.com';
@@ -41,6 +46,7 @@ export class SignInPage {
 			 this.fireauth.signInWithCredential(firecreds).then((res) => {
 				  this.navCtrl.setRoot(HomePage);
 				  alert("Firebase success: " + JSON.stringify(res));
+
 				}).catch((err) => {
 					  alert('Firebase auth failed' + err);
 			})
@@ -48,11 +54,11 @@ export class SignInPage {
 				alert('Error' + err);
 			})
 	}
-	
+
 	isloggedin() {
 		this.navCtrl.setRoot(HomePage);
 	}
-	
+
 	logout()
 	{
 		alert("Are you sure you want to remove this account forever?");
@@ -62,4 +68,23 @@ export class SignInPage {
 		// this.googleauth();
 		// this.navCtrl.push(MyApp);
 	}
+
+  goToHome() {
+	  this.navCtrl.push(HomePage);
+  }
+
+  goToGetter() {
+	  this.navCtrl.push(GetterPage);
+  }
+
+  goToAdd() {
+	  this.navCtrl.push(AddPage);
+  }
+
+  goToMatches(){
+
+    this.navCtrl.push(MatchesPage);
+  }
+
+
 }

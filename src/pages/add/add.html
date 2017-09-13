@@ -15,32 +15,20 @@
 <ion-list>
 	<ion-list-header text-center class="headfont"> Add Player </ion-list-header>
 	<ion-item>
-		<ion-label floating>Jersey Number</ion-label>
-		<ion-input id ="jr" type="Number"[(ngModel)] = "user.Jersey_Number"></ion-input>
+    <ion-label floating>Jersey Number</ion-label>
+		<ion-input id ="jr" type="text"[(ngModel)] = "player.Jersey_Number"></ion-input>
 	</ion-item>
 
-	<ion-item>
-		<ion-label floating>Name</ion-label>
-		<ion-input id ="name" type="text" [(ngModel)] = "user.name"></ion-input>
-	</ion-item>
+    <ion-item>
+        <ion-label floating>Position</ion-label>
+        <ion-input id ="jr" type="text"[(ngModel)] = "player.role"></ion-input>
+    </ion-item>
 
-  <ion-item>
-		<ion-label floating>Email</ion-label>
-		<ion-input id ="email" type="text" [(ngModel)] = "user.email"></ion-input>
-	</ion-item>
-  <ion-item>
-		<ion-label floating>Password</ion-label>
-		<ion-input id ="pass" type="password"[(ngModel)] = "user.password"></ion-input>
-	</ion-item>
-  <ion-item>
-		<ion-label floating>Repeat Password</ion-label>
-		<ion-input id ="rpass" type="password"[(ngModel)] = "user.r_password"></ion-input>
-	</ion-item>
 
 </ion-list>
 
 <div padding>
-	<button ion-button  type="button" (click)="addPlayer(user)">Add</button>
-  <button ion-button  type="button" (click)="show()">Show all players</button>
+
+  <button ion-button  type="button" (click)="addPlayer(player)">Add Player</button>
 </div>
 </ion-content>

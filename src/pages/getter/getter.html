@@ -1,37 +1,28 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" ></ion-icon>
+        </button>
+        <ion-title class="bar">Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-<ion-fab right bottom>
-<button ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
-</ion-fab>
-<ion-list>
-	<ion-list-header text-center class="headfont"> Search </ion-list-header>
-	<ion-item>
-		<ion-label floating>Jersey Number</ion-label>
-		<ion-input type="text"></ion-input>
-	</ion-item>
+    <ion-fab right bottom>
+        <button ion-fab color="white"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <ion-list>
+        <ion-list-header text-center class="headfont"> Check </ion-list-header>
+        <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input id ="jr" type="text"[(ngModel)] = "player.email"></ion-input>
+        </ion-item>
 
-	<ion-item>
-		<ion-label floating>Name</ion-label>
-		<ion-input type="text"></ion-input>
-	</ion-item>
 
-  <ion-item>
-		<ion-label floating>Economy</ion-label>
-		<ion-input type="text"></ion-input>
-	</ion-item>
+    </ion-list>
 
-</ion-list>
-
-<div padding>
-	<button block (click)="goToHome()">Search</button>
-</div>
+    <div padding>
+        <button ion-button  type="button" (click)="check(player)">Check</button>
+    </div>
 </ion-content>

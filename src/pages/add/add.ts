@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { User } from '../../models/user';
-import { ShowPage } from '../show/show';
-import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { player } from '../../models/player';
+
+
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
+import {stringify} from "@angular/core/src/util";
+
+
 
 @Component({
   selector: 'page-add',
@@ -14,36 +18,28 @@ import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/databas
 export class AddPage {
 
 
-  user = {} as User;
+    player = {} as player;
+
+    playerRef$: FirebaseListObservable<player[]>;
+
+    constructor(public navCtrl: NavController, private data: AngularFireDatabase) {
+
+        this.playerRef$ = this.data.list('Players');
 
 
-  userRef$: FirebaseListObservable<User[]>
+    }
 
-  constructor(public navCtrl: NavController, private database: AngularFireDatabase) {
+    addPlayer(player: any) {
+        var pass = document.getElementById('pass');
+        var r_pass = document.getElementById('r_pass');
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var jn = document.getElementById('jn');
 
-    this.userRef$ = this.database.list('Players');
+        this.playerRef$.push(this.player);
+        this.player = {} as player;
 
-  }
-
-  addPlayer(user: User){
-    var pass = document.getElementById('pass');
-    var r_pass = document.getElementById('r_pass');
-    var name = document.getElementById('name');
-    var email = document.getElementById('email');
-    var jn = document.getElementById('jn');
-
-
-    this.userRef$.push(this.user);
-
-    this.user = {} as User;
-
-
-
-
-  }
-
-  show() {
-	  this.navCtrl.push(ShowPage);
-  }
+    }
 
 }
+

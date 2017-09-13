@@ -23,9 +23,12 @@
 </div>
 
 <ion-list>
-  <ion-item *ngFor ="let item of userRef$ | async" >
-    <h2>Player Name: {{item.name}}</h2>
-    <h3>Player Email: {{item.email}}</h3>
+  <ion-item *ngFor ="let date of userRef$ | async" (click) = "selectdate(date)" >
+  <ion-item *ngFor ="let player of playerRef$ | async" (click) = "selectuser(player)" >
+    <h2>Date: {{date.runs}} </h2>
+    <p> Player Name :{{player.name}} </p>
+    <p> Player Runs :{{player.runs}} </p>
+  </ion-item>
   </ion-item>
 </ion-list>
 </ion-content>
