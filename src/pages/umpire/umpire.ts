@@ -33,7 +33,7 @@ export class UmpirePage
   onTap(event): void {
             let x = event.srcEvent.offsetX;
             let y = event.srcEvent.offsetY;
-            alert("PosX: "+x+" PosY: "+y);
+            alert(x+", "+y);
         }
 incrementone()
 {

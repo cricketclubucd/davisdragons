@@ -42,8 +42,9 @@ $colors: (
   primary:    #002855,
   secondary:  #DAAA00,
   danger:     #f53d3d,
-  light:      goldenrod,
-  dark:       navy
+  live:          #2eb61a,
+  light:      white,
+  dark:       gray
 ) !default;
 
 $text-color: color($colors, secondary) !default;
