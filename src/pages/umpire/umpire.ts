@@ -8,53 +8,53 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 })
 export class UmpirePage
 {
-  score = 0;
-  ball = 0;
+  static score=0;
+  static ball = 0;
   data : FirebaseListObservable<any>;
   constructor(public navCtrl: NavController, public fdb: AngularFireDatabase)
   {
-    this.score = 0;
+
     this. data = fdb.list('/Matches/Match1/Balls');
   }
  updateballid()
  {
-   this.ball = this.ball+1;
+   UmpirePage.ball = UmpirePage.ball+1;
  }
  pushdata()
  {
    var data1=
    {
-     runs : this.score,
-     ballNumber: this.ball
+     runs : UmpirePage.score,
+     ballNumber: UmpirePage.ball
    }
    this.data.push(data1);
 
   }
 incrementone()
 {
-  this.score = this.score +1;
+  UmpirePage.score = UmpirePage.score +1;
 }
 
 increment2()
 {
-  this.score = this.score +2;
+  UmpirePage.score =UmpirePage.score +2;
 
 }
 incrementthree()
 {
-  this.score = this.score +3;
+  UmpirePage.score = UmpirePage.score +3;
 }
 
 incrementfour()
 {
-  this.score = this.score +4;
+UmpirePage.score = UmpirePage.score +4;
 }
 incrementsix()
 {
-  this.score = this.score +6;
+  UmpirePage.score = UmpirePage.score +6;
 }
 increment0()
 {
-  this.score = this.score + 0;
+  UmpirePage.score = UmpirePage.score + 0;
 }
 }
