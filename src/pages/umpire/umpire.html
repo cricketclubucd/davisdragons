@@ -11,15 +11,18 @@
 
   <ion-content>
     <div text-center>
-    <button ion-button  color="danger" (click) = 'incrementone(); updateballid();    pushdata();'>+1</button>
-    <button ion-button  color="danger" (click) = 'increment2(); updateballid();   pushdata();' >+2</button>
-    <button ion-button  color="danger" (click) = 'incrementthree(); updateballid();   pushdata();'>+3</button>
-    <button ion-button  color="danger" (click) = 'incrementfour(); updateballid();   pushdata();' >+4</button>
-    <button ion-button  color="danger" (click) = 'incrementsix(); updateballid();   pushdata();'>+6</button>
-     <button ion-button color ="danger" (click) = 'increment0(); updateballid();  pushdata();'> dot </button>
+    <button ion-button color ="danger" (click) = 'increment0(); updateballid();  pushdata();'> dot </button>
+    <button ion-button color ="danger" (click) = 'increment0(); updateballid();  pushdata();'> wicket </button>
+    <br />
+    <button ion-button  color="danger" clear (click) = 'incrementone(); updateballid();    pushdata();'>+1</button>
+    <button ion-button  color="danger" clear (click) = 'increment2(); updateballid();   pushdata();' >+2</button>
+    <button ion-button  color="danger" clear (click) = 'incrementthree(); updateballid();   pushdata();'>+3</button>
+    <button ion-button  color="danger" clear (click) = 'incrementfour(); updateballid();   pushdata();' >+4</button>
+    <button ion-button  color="danger" clear (click) = 'incrementsix(); updateballid();   pushdata();' >+6</button>
+
     <!--button ion-button  color="danger" (click) = 'dot();'>dot</button!-->
 
       </div>
-     <h1>The Score  for  ball {{ball}} is {{score}} </h1>
+
 
 </ion-content>
