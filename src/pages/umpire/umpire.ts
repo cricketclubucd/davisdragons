@@ -14,7 +14,7 @@ export class UmpirePage
   constructor(public navCtrl: NavController, public fdb: AngularFireDatabase)
   {
 
-    this. data = fdb.list('/Matches/Match1/Balls');
+    this.data = fdb.list('/Matches/Match1/Balls');
   }
  updateballid()
  {
@@ -30,6 +30,11 @@ export class UmpirePage
    this.data.push(data1);
 
   }
+  onTap(event): void {
+            let x = event.srcEvent.offsetX;
+            let y = event.srcEvent.offsetY;
+            alert("PosX: "+x+" PosY: "+y);
+        }
 incrementone()
 {
   UmpirePage.score = UmpirePage.score +1;

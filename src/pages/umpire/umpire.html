@@ -15,7 +15,9 @@
     <button ion-button color ="danger" (click) = 'increment0(); updateballid();  pushdata();'> wicket </button>
     <br />
   </div>
+  <div on-tap="onTap($event)">
   <img style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
+  </div>
   <div text-center>
     <button ion-button color="danger" clear (click) = 'incrementone(); updateballid();    pushdata();'>+1</button>
     <button ion-button color="danger" clear (click) = 'increment2(); updateballid();   pushdata();' >+2</button>
@@ -29,6 +31,5 @@
     <!--button ion-button  color="danger" (click) = 'dot();'>dot</button!-->
 
       </div>
-
 
 </ion-content>
