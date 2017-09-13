@@ -22,7 +22,7 @@ export class UmpirePage
  }
  pushdata()
  {
-   var data1=
+   var data1 =
    {
      runs : UmpirePage.score,
      ballNumber: UmpirePage.ball

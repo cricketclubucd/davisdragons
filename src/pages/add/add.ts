@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 
 import { player } from '../../models/player';
 
 
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import {stringify} from "@angular/core/src/util";
+import 'rxjs/add/operator/take';
 
 
 
@@ -20,11 +21,22 @@ export class AddPage {
 
     player = {} as player;
 
-    playerRef$: FirebaseListObservable<player[]>;
+    name:FirebaseListObservable<any[]>;
 
-    constructor(public navCtrl: NavController, private data: AngularFireDatabase) {
+    playerRef$: FirebaseListObservable<player[]>;
+    userRef$: FirebaseObjectObservable<player>;
+
+    constructor(public navCtrl: NavController,public navPrams: NavParams, private data: AngularFireDatabase) {
+
+        var user:any = null;
+        user = this.navPrams.get('playerInfo');
+        console.log(user.email);
+
+        this.player.email = user.email;
+
 
         this.playerRef$ = this.data.list('Players');
+        this.userRef$ = this.data.object('Players');
 
 
     }
@@ -36,8 +48,40 @@ export class AddPage {
         var email = document.getElementById('email');
         var jn = document.getElementById('jn');
 
-        this.playerRef$.push(this.player);
-        this.player = {} as player;
+        this.player.strikeRate = 0;
+
+        this.name = this.data.list("/Players",{
+            query: {
+                orderByChild: "Jersey_Number",
+                equalTo: player.Jersey_Number
+            }
+
+        });
+
+        this.name.take(1).subscribe(data =>
+        {
+            console.log(data.length);
+            if(data.length === 1) {
+
+                alert("Jersey Number is already taken enter a diffrent one");
+
+
+
+            }
+            if (data.length == 0){
+
+                this.playerRef$.push(this.player);
+                this.player = {} as player;
+
+            }
+        });
+
+
+
+
+
+        //this.playerRef$.push(this.player);
+        //this.player = {} as player;
 
     }
 

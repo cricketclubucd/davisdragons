@@ -14,14 +14,24 @@
 </ion-fab>
 <ion-list>
 	<ion-list-header text-center class="headfont"> Add Player </ion-list-header>
-	<ion-item>
+    <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input id ="Fname" type="text"[(ngModel)] = "player.FirstName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input id ="Lname" type="text"[(ngModel)] = "player.LastName"></ion-input>
+    </ion-item>
+
+    <ion-item>
     <ion-label floating>Jersey Number</ion-label>
 		<ion-input id ="jr" type="text"[(ngModel)] = "player.Jersey_Number"></ion-input>
 	</ion-item>
 
     <ion-item>
         <ion-label floating>Position</ion-label>
-        <ion-input id ="jr" type="text"[(ngModel)] = "player.role"></ion-input>
+        <ion-input id ="role" type="text"[(ngModel)] = "player.role"></ion-input>
     </ion-item>
 
 

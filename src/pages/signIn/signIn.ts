@@ -46,9 +46,9 @@ export class SignInPage {
 		  .then((res) => {
 			  const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);
 			 this.fireauth.signInWithCredential(firecreds).then((res) => {
-				  this.navCtrl.setRoot(HomePage);
 				  alert("Firebase success: " + JSON.stringify(res));
 				  this.check(this.userProfile);
+                 	//this.goToAdd(this.userProfile);
 
 				}).catch((err) => {
 					  alert('Firebase auth failed' + err);
@@ -74,7 +74,7 @@ export class SignInPage {
             if(data.length == 0) {
                 console.log('User does not exist');
                 console.log(data);
-                this.navCtrl.push(AddPage);
+                this.navCtrl.push(AddPage, {playerInfo: userprofile});
 
             } else {
                 console.log('User does exist');
@@ -102,8 +102,8 @@ export class SignInPage {
 	  this.navCtrl.push(GetterPage);
   }
 
-  goToAdd() {
-	  this.navCtrl.push(AddPage);
+  goToAdd(userprofile:any) {
+	  this.navCtrl.push(AddPage, {profile: userprofile});
   }
 
 

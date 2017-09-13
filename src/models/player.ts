@@ -1,6 +1,7 @@
 export interface player
 {
-  name: string;
+  FirstName: string;
+  LastName: string;
   Jersey_Number: number;
   runs: number;
   role : string;

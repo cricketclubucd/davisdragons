@@ -41,7 +41,7 @@ export class GetterPage {
             if(data.length == 0) {
                 console.log('User does not exist');
                 console.log(data);
-                this.navCtrl.push(AddPage);
+                this.navCtrl.push(AddPage, {playerInfo:player });
 
             } else {
                 console.log('User does exist');
