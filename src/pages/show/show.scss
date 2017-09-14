@@ -2,16 +2,17 @@ page-show{
 
   .card {
     position: relative;
+    left: 450px;
+    top: 200px;
     font-family: 'Titillium Web',sans-serif;
     .clubbadge, .nationflag, .avatar {
       position: absolute;
     }
   }
-
-  img {
-
-  }
   .card {
+
+
+
     .name {
       position: absolute;
       text-align: center;
@@ -106,15 +107,7 @@ page-show{
       max-width: 227px;
       display: block;
       margin: auto;
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-      .player-card {
-        width: 227px;
-        height: 10px;
-        align-items: center;
-      }
+
       &.toty, &.goldblue {
         color: #F9E99E !important;
       }
@@ -144,12 +137,6 @@ page-show{
         width: 133px;
         height: 133px;
       }
-      .player-card {
-
-        width: 227px;
-        height: auto;
-
-      }
 
       .clubbadge {
         top: 90px !important;
@@ -170,4 +157,5 @@ page-show{
       }
     }
   }
+
 }
