@@ -38,7 +38,7 @@ static overs = 0;
 static ballNum = 0;
 static overString = "";
 static height1 =0;
-static octant ="";
+static octant = 0;
 data : FirebaseListObservable<any>;
 constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, platform : Platform)
 {
@@ -97,12 +97,12 @@ computeOctant()
    if(xdiff > UmpirePage.secondXboundary &&  xdiff < UmpirePage.firstXboundary)
    {
      console.log("First Octant");
-     UmpirePage.octant ="First Octant";
+     UmpirePage.octant = 1;
    }
   else if(xdiff > UmpirePage.thirdXboundary &&  xdiff < UmpirePage.secondXboundary)
    {
      console.log("Second Octant");
-      UmpirePage.octant ="Second Octant";
+      UmpirePage.octant = 2;
    }
  }
  else if(xdiff <0 && ydiff >0 )
@@ -111,12 +111,12 @@ computeOctant()
    if(xdiff > UmpirePage.fourthXboundary &&  xdiff < UmpirePage.thirdXboundary)
    {
      console.log("Third Octant");
-     UmpirePage.octant ="Third Octant";
+     UmpirePage.octant = 3;
    }
   else if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.fourthXboundary)
    {
      console.log("Fourth Octant");
-     UmpirePage.octant ="Fourth Octant";
+     UmpirePage.octant = 4;
    }
  }
  else if(xdiff <0 && ydiff <0 )
@@ -125,12 +125,12 @@ computeOctant()
    if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.sixthXboundary)
    {
      console.log("Fifth Octant");
-     UmpirePage.octant ="Fifth Octant";
+     UmpirePage.octant = 5;
    }
   else if(xdiff > UmpirePage.sixthXboundary &&  xdiff < UmpirePage.seventhXboundary)
    {
      console.log("Sixth Octant");
-     UmpirePage.octant ="Sixth Octant";
+     UmpirePage.octant = 6;
    }
  }
 else if(xdiff >0 && ydiff <0)
@@ -139,12 +139,12 @@ else if(xdiff >0 && ydiff <0)
    if(xdiff > UmpirePage.seventhXboundary &&  xdiff < UmpirePage.eigthXboundary)
    {
      console.log("Seventh Octant");
-     UmpirePage.octant ="Seventh Octant";
+     UmpirePage.octant = 7;
    }
   else if(xdiff > UmpirePage.eigthXboundary &&  xdiff < UmpirePage.ninthXboundary)
    {
      console.log("Eighth Octant");
-     UmpirePage.octant ="Eighth Octant";
+     UmpirePage.octant = 8;
    }
  }
 
