@@ -4,7 +4,6 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 
 import { User } from '../../models/user';
-import { Score } from '../../models/score';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import 'rxjs/add/operator/do';
 
@@ -17,7 +16,6 @@ import 'rxjs/add/operator/do';
 
 export class SpectatorPage {
   
-  scorings = {} as Score;
 
   scoreRef$: FirebaseListObservable<any[]>
   playersTeamA$: FirebaseListObservable<any[]>
