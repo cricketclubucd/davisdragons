@@ -33,6 +33,7 @@ export class AddPage {
         console.log(user.email);
 
         this.player.email = user.email;
+        this.player.picture = user.photoURL;
 
 
         this.playerRef$ = this.data.list('Players');
@@ -49,6 +50,12 @@ export class AddPage {
         var jn = document.getElementById('jn');
 
         this.player.strikeRate = 0;
+        this.player.highscore = 0;
+        this.player.wickets = 0;
+        this.player.fours = 0;
+        this.player.sixes = 0;
+        this.player.runs = 0;
+
 
         this.name = this.data.list("/Players",{
             query: {

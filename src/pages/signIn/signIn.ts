@@ -11,6 +11,7 @@ import { MyApp } from '../../app/app.component';
 
 import { GetterPage } from '../getter/getter';
 import { AddPage } from '../add/add';
+import { SearchPage } from '../Search/search';
 
 @Component({
   selector: 'page-signIn',
@@ -98,6 +99,10 @@ export class SignInPage {
 	}
 
 
+    goTohome() {
+        this.navCtrl.push(HomePage);
+    }
+
   goToGetter() {
 	  this.navCtrl.push(GetterPage);
   }
@@ -105,6 +110,10 @@ export class SignInPage {
   goToAdd(userprofile:any) {
 	  this.navCtrl.push(AddPage, {profile: userprofile});
   }
+
+    goToSearch() {
+        this.navCtrl.push(SearchPage);
+    }
 
 
 

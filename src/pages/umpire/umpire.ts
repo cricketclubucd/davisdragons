@@ -104,6 +104,24 @@ export class UmpirePage
        console.log("Second Octant");
         UmpirePage.octant ="Second Octant";
      }
+ updateballid()
+ {
+   UmpirePage.ball = UmpirePage.ball+1;
+   UmpirePage.ballNum = UmpirePage.ballNum+1;
+   if(UmpirePage.ball % 6 == 0){
+      UmpirePage.ballNum = 0;
+      UmpirePage.overs = UmpirePage.overs + 1;
+   }
+   UmpirePage.overString = UmpirePage.overs.toString() + '.' + UmpirePage.ballNum.toString();
+ }
+ pushdata()
+ {
+   var data1 =
+   {
+     runs : UmpirePage.score,
+     ballNumber: UmpirePage.ball,
+     wickets : UmpirePage.wicket,
+     oversUp : UmpirePage.overString
    }
    else if(xdiff <0 && ydiff >0 )
    {
@@ -222,5 +240,8 @@ wide()
 wicket()
 {
  UmpirePage.wicket = UmpirePage.wicket + 1;
+}
+wicket(){
+  UmpirePage.wicket = UmpirePage.wicket + 1;
 }
 }

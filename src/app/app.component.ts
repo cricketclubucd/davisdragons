@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignInPage } from '../pages/signIn/signIn';
 import { GetterPage } from '../pages/getter/getter';
 import { AddPage } from '../pages/add/add';
+import { SearchPage } from '../pages/Search/search';
+import { ShowPage } from '../pages/show/show';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -34,6 +36,7 @@ export class MyApp {
       { title: 'Spectator', component: SpectatorPage },
         { title: 'Member', component: MemberPage },
         { title: 'Umpire', component: UmpirePage },
+        { title: 'Search Player', component: SearchPage },
     ];
 
   }
