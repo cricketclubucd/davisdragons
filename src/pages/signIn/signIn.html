@@ -2,12 +2,18 @@
 <ion-fab right bottom>
 <button ion-fab color="secondary" (click)="googleauth()"><ion-icon name="add"></ion-icon></button>
 </ion-fab>
- 
+
+<div padding>
+
+	<button ion-button (click)="goToSearch()">Search</button>
+	<button ion-button (click) = "goTohome()"> Home </button>
+</div>
+
   <button ion-button large  color="danger" round (click)="googleauth()" *ngIf="!userProfile">
     <ion-icon name="logo-googleplus"></ion-icon>
     Login with Google
   </button>
- 
+
   <ion-item *ngIf="userProfile">
     <ion-avatar (click)="isloggedin()" item-left>
       <img [src]="userProfile.photoURL">
@@ -16,5 +22,6 @@
     <h3>{{ userProfile.email }}</h3>
     <ion-icon name="remove" item-right (click)="logout()"></ion-icon>
   </ion-item>
-</ion-content>
 
+
+</ion-content>

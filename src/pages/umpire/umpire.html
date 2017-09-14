@@ -1,25 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Umpire</ion-title>
-  </ion-navbar>
-</ion-header>
-
-
 
   <ion-content>
-    <div text-center>
-    <button ion-button  color="danger" (click) = 'incrementone(); updateballid();    pushdata();'>+1</button>
-    <button ion-button  color="danger" (click) = 'increment2(); updateballid();   pushdata();' >+2</button>
-    <button ion-button  color="danger" (click) = 'incrementthree(); updateballid();   pushdata();'>+3</button>
-    <button ion-button  color="danger" (click) = 'incrementfour(); updateballid();   pushdata();' >+4</button>
-    <button ion-button  color="danger" (click) = 'incrementsix(); updateballid();   pushdata();'>+6</button>
-     <button ion-button color ="danger" (click) = 'increment0(); updateballid();  pushdata();'> dot </button>
+    <div>
+	<button ion-button color="secondary" clear menuToggle>
+		<ion-icon name="menu"></ion-icon>
+	</button>
+    <button ion-button center color ="danger" (click) = 'wicket(); updateballid()'>
+    			<img style="width: 15%;" src="assets/icon/wicket.svg" /> wicket
+    		</button>
+    <br />
+  </div>
+  <div on-tap="onTap($event)">
+  <img style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
+  </div>
+  <div text-center>
+    <button ion-button color="secondary" clear (click) = 'incrementone(); updateballid();   '>+1</button>
+    <button ion-button color="secondary" clear (click) = 'increment2(); updateballid();   ' >+2</button>
+    <button ion-button color="secondary" clear (click) = 'incrementthree(); updateballid(); '>+3</button>
+    <button ion-button color="secondary" clear (click) = 'incrementfour(); updateballid();  ' >+4</button>
+    <button ion-button color="secondary" clear (click) = 'incrementsix(); updateballid(); ' >+6</button>
+    <button ion-button color ="secondary" clear (click) = 'increment0(); updateballid(); '> dot </button>
+    <button ion-button color="dark" clear (click) = 'wide(); ' > wide</button>
+    <button ion-button color="danger" clear (click) = ' updateballid(); ' >Extras</button>
+    <button ion-button color="danger" full (click) = 'pushdata();' >Go!</button>
+
     <!--button ion-button  color="danger" (click) = 'dot();'>dot</button!-->
 
       </div>
-     <h1>The Score  for  ball {{ball}} is {{score}} </h1>
 
 </ion-content>
