@@ -37,12 +37,15 @@ export class UmpirePage
   static overs = 0;
   static ballNum = 0;
   static overString = "";
+  static height1 =0;
+  static octant ="";
   data : FirebaseListObservable<any>;
   constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, platform : Platform)
   {
     platform.ready().then((readySource) =>
      {
          UmpirePage.radius = platform.width()/2;
+         UmpirePage.height1= platform.height()/2;
          this.computeBoundaries();
     });
 
@@ -51,28 +54,28 @@ export class UmpirePage
   }
   computeBoundaries()
   {
-     UmpirePage.firstXboundary = (UmpirePage.radius * 1 ) + UmpirePage.radius; // rcos0
-     UmpirePage.firstYboundary = (UmpirePage.radius * 0 ) + UmpirePage.radius; //rsin0
-     UmpirePage.secondXboundary = (UmpirePage.radius * 0.70710678118 )+ UmpirePage.radius; //rcos45
-     UmpirePage.secondYboundary = (UmpirePage.radius * 0.70710678118 )+ UmpirePage.radius ; //rsin45
-     UmpirePage.thirdXboundary = (UmpirePage.radius * 0 ) + UmpirePage.radius; // rcos90
-     UmpirePage.thirdYboundary =  (UmpirePage.radius * 1) + UmpirePage.radius; // rsin90
-     UmpirePage.fourthXboundary = (UmpirePage.radius * -0.70710678118) + UmpirePage.radius; //rcos135
-     UmpirePage.fourthYboundary = (UmpirePage.radius *  0.70710678118) + UmpirePage.radius; //rsin135
-     UmpirePage.fifthXboundary = (UmpirePage.radius *-1) + UmpirePage.radius; //rcos180
-     UmpirePage.fifthYboundary =  (UmpirePage.radius * 0) + UmpirePage.radius; //rsin180
-     UmpirePage.sixthXboundary = (UmpirePage.radius * -0.70710678118) + UmpirePage.radius; //rcos225
-     UmpirePage.sixthYboundary =  (UmpirePage.radius * -0.70710678118) + UmpirePage.radius; //rsin225
-     UmpirePage.seventhXboundary = (UmpirePage.radius * 0) + UmpirePage.radius; //rcos270
-     UmpirePage.seventhYboundary =  (UmpirePage.radius * -1) + UmpirePage.radius;  //rsin270
-     UmpirePage.eigthXboundary = (UmpirePage.radius * 0.70710678118) + UmpirePage.radius; //rcos315
-     UmpirePage.eigthYboundary = ( UmpirePage.radius * -0.70710678118 )+ UmpirePage.radius; //rsin315
-     UmpirePage.ninthXboundary =( UmpirePage.radius * 1) + UmpirePage.radius; //rcos315
-     UmpirePage.ninthYboundary =  (UmpirePage.radius * 0 )+ UmpirePage.radius; //rsin315
-     this.computeQuadrant();
+     UmpirePage.firstXboundary = (UmpirePage.radius * 1 ) //+ UmpirePage.radius; // rcos0
+     UmpirePage.firstYboundary = (UmpirePage.radius * 0 ) //+ UmpirePage.radius; //rsin0
+     UmpirePage.secondXboundary = (UmpirePage.radius * 0.70710678118 ) //+ UmpirePage.radius; //rcos45
+     UmpirePage.secondYboundary = (UmpirePage.radius * 0.70710678118 )//+ UmpirePage.radius ; //rsin45
+     UmpirePage.thirdXboundary = (UmpirePage.radius * 0 )// + UmpirePage.radius; // rcos90
+     UmpirePage.thirdYboundary =  (UmpirePage.radius * 1) //+ UmpirePage.radius; // rsin90
+     UmpirePage.fourthXboundary = (UmpirePage.radius * -0.70710678118) //+ UmpirePage.radius; //rcos135
+     UmpirePage.fourthYboundary = (UmpirePage.radius *  0.70710678118) //+ UmpirePage.radius; //rsin135
+     UmpirePage.fifthXboundary = (UmpirePage.radius *-1) //+ UmpirePage.radius; //rcos180
+     UmpirePage.fifthYboundary =  (UmpirePage.radius * 0) //+ UmpirePage.radius; //rsin180
+     UmpirePage.sixthXboundary = (UmpirePage.radius * -0.70710678118)// + UmpirePage.radius; //rcos225
+     UmpirePage.sixthYboundary =  (UmpirePage.radius * -0.70710678118) //+ UmpirePage.radius; //rsin225
+     UmpirePage.seventhXboundary = (UmpirePage.radius * 0)// + UmpirePage.radius; //rcos270
+     UmpirePage.seventhYboundary =  (UmpirePage.radius * -1)// + UmpirePage.radius;  //rsin270
+     UmpirePage.eigthXboundary = (UmpirePage.radius * 0.70710678118)// + UmpirePage.radius; //rcos315
+     UmpirePage.eigthYboundary = ( UmpirePage.radius * -0.70710678118 )//+ UmpirePage.radius; //rsin315
+     UmpirePage.ninthXboundary =( UmpirePage.radius * 1) //+ UmpirePage.radius; //rcos315
+     UmpirePage.ninthYboundary =  (UmpirePage.radius * 0 )//+ UmpirePage.radius; //rsin315
+
 
   } // Computes the boundaries required to determine which on eof the eight quadrants
-  computeQuadrant ()
+  computeOctant()
   {
     console.log(UmpirePage.firstXboundary, UmpirePage.firstYboundary);
     console.log(UmpirePage.secondXboundary, UmpirePage.secondYboundary);
@@ -84,6 +87,67 @@ export class UmpirePage
     console.log(UmpirePage.eigthXboundary, UmpirePage.eigthYboundary);
     console.log(UmpirePage.ninthXboundary, UmpirePage.ninthYboundary);
     console.log(UmpirePage.radius, UmpirePage.radius);
+    var xdiff = this.x - UmpirePage.radius;
+    var ydiff = - this.y+ UmpirePage.height1;
+   console.log("The difference:");
+   console.log(xdiff, ydiff);
+   if(xdiff >0 && ydiff>0)
+   {
+     console.log("First Quadrant");
+     if(xdiff > UmpirePage.secondXboundary &&  xdiff < UmpirePage.firstXboundary)
+     {
+       console.log("First Octant");
+       UmpirePage.octant ="First Octant";
+     }
+    else if(xdiff > UmpirePage.thirdXboundary &&  xdiff < UmpirePage.secondXboundary)
+     {
+       console.log("Second Octant");
+        UmpirePage.octant ="Second Octant";
+     }
+   }
+   else if(xdiff <0 && ydiff >0 )
+   {
+     console.log("Second Quadrant");
+     if(xdiff > UmpirePage.fourthXboundary &&  xdiff < UmpirePage.thirdXboundary)
+     {
+       console.log("Third Octant");
+       UmpirePage.octant ="Third Octant";
+     }
+    else if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.fourthXboundary)
+     {
+       console.log("Fourth Octant");
+       UmpirePage.octant ="Fourth Octant";
+     }
+   }
+   else if(xdiff <0 && ydiff <0 )
+   {
+     console.log("Third Quadrant");
+     if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.sixthXboundary)
+     {
+       console.log("Fifth Octant");
+       UmpirePage.octant ="Fifth Octant";
+     }
+    else if(xdiff > UmpirePage.sixthXboundary &&  xdiff < UmpirePage.seventhXboundary)
+     {
+       console.log("Sixth Octant");
+       UmpirePage.octant ="Sixth Octant";
+     }
+   }
+  else if(xdiff >0 && ydiff <0)
+   {
+     console.log("Fourth Quadrant");
+     if(xdiff > UmpirePage.seventhXboundary &&  xdiff < UmpirePage.eigthXboundary)
+     {
+       console.log("Seventh Octant");
+       UmpirePage.octant ="Seventh Octant";
+     }
+    else if(xdiff > UmpirePage.eigthXboundary &&  xdiff < UmpirePage.ninthXboundary)
+     {
+       console.log("Eighth Octant");
+       UmpirePage.octant ="Eighth Octant";
+     }
+   }
+
 
   }
   updateballid()
@@ -107,16 +171,20 @@ export class UmpirePage
        ifWide: UmpirePage.wide,
        ifExtras: UmpirePage.extras,
        wickets : UmpirePage.wicket,
-       oversUp : UmpirePage.overString
+       oversUp : UmpirePage.overString,
+       octant: UmpirePage.octant
      }
      this.data.push(data1);
+    UmpirePage.wide = false;
 
     }
 
   onTap(event): void {
-            let x = event.srcEvent.offsetX;
-            let y = event.srcEvent.offsetY;
-            alert(x+", "+y);
+            this.x = event.srcEvent.offsetX;
+            this.y = event.srcEvent.offsetY;
+            alert(this.x + ", "+ this.y);
+            this.computeOctant();
+            //console.log(this.x, this.y);
         }
 incrementone()
 {
