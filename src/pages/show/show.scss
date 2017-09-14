@@ -7,6 +7,10 @@ page-show{
       position: absolute;
     }
   }
+
+  img {
+
+  }
   .card {
     .name {
       position: absolute;
@@ -100,9 +104,16 @@ page-show{
       color: #000;
       text-shadow: none !important;
       max-width: 227px;
+      display: block;
+      margin: auto;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
       .player-card {
         width: 227px;
         height: 10px;
+        align-items: center;
       }
       &.toty, &.goldblue {
         color: #F9E99E !important;
