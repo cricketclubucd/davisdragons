@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style>
+
+</head>
+
+<body class="player">
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div style="width: 300px; margin:auto">
+                <div class="card toty fifa17">
+                    <div class="player">
+                        <img src="../../assets/img/Player_Profile.jpg" class="player-card">
+
+                        <div class="avatarholder" style="width: 115px; resize: horizontal ">
+                            <img src= {{this.name[0].picture}} class="avatar">
+                        </div>
+                        <div class=" name">
+                            <span class="marquee">{{this.name[0].FirstName}}</span>
+                        </div>
+                        <div class="attributes ">
+                            <span class="loyalty">
+                            </span>
+                            <span class="runs">{{this.name[0].runs}}</span>
+                            <span class="wickets">{{this.name[0].wickets}}</span>
+                            <span class="highestScore">{{this.name[0].highscore}}</span>
+                            <span class="average">{{this.name[0].strikeRate}}</span>
+                            <span class="four">{{this.name[0].fours}}</span>
+                            <span class="six">{{this.name[0].sixes}}</span>
+
+                        </div>
+                    </div>
+                    <div class="chemstyle">
+                        <span class="chemstylename">{{this.name[0].role}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div style="height: 20px"></div>
+</body>
+</html>
