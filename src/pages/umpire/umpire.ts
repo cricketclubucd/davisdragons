@@ -8,53 +8,77 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 })
 export class UmpirePage
 {
-  score = 0;
-  ball = 0;
+  static score=0;
+  static ball = 0;
+  static wicket = 0;
+  static overs = 0;
+  static ballNum = 0;
+  static overString = "";
   data : FirebaseListObservable<any>;
   constructor(public navCtrl: NavController, public fdb: AngularFireDatabase)
   {
-    this.score = 0;
-    this. data = fdb.list('/Matches/Match1/Balls');
+
+    this.data = fdb.list('/Matches/Match1/Balls');
   }
  updateballid()
  {
-   this.ball = this.ball+1;
+   UmpirePage.ball = UmpirePage.ball+1;
+   UmpirePage.ballNum = UmpirePage.ballNum+1;
+   if(UmpirePage.ball % 6 == 0){
+      UmpirePage.ballNum = 0;
+      UmpirePage.overs = UmpirePage.overs + 1;
+   }
+   UmpirePage.overString = UmpirePage.overs.toString() + '.' + UmpirePage.ballNum.toString();
  }
  pushdata()
  {
-   var data1=
+   var data1 =
    {
-     runs : this.score,
-     ballNumber: this.ball
+     runs : UmpirePage.score,
+     ballNumber: UmpirePage.ball,
+     wickets : UmpirePage.wicket,
+     oversUp : UmpirePage.overString
    }
    this.data.push(data1);
 
   }
+  onTap(event): void {
+            let x = event.srcEvent.offsetX;
+            let y = event.srcEvent.offsetY;
+            alert(x+", "+y);
+        }
 incrementone()
 {
-  this.score = this.score +1;
+  UmpirePage.score = UmpirePage.score +1;
 }
 
 increment2()
 {
-  this.score = this.score +2;
+  UmpirePage.score =UmpirePage.score +2;
 
 }
 incrementthree()
 {
-  this.score = this.score +3;
+  UmpirePage.score = UmpirePage.score +3;
 }
 
 incrementfour()
 {
-  this.score = this.score +4;
+UmpirePage.score = UmpirePage.score +4;
 }
 incrementsix()
 {
-  this.score = this.score +6;
+  UmpirePage.score = UmpirePage.score +6;
 }
 increment0()
 {
-  this.score = this.score + 0;
+  UmpirePage.score = UmpirePage.score + 0;
+}
+wide()
+{
+  UmpirePage.score = UmpirePage.score + 1;
+}
+wicket(){
+  UmpirePage.wicket = UmpirePage.wicket + 1;
 }
 }

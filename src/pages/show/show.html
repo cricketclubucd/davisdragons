@@ -1,31 +1,47 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu" ></ion-icon>
-    </button>
-    <ion-title class="bar">Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" ></ion-icon>
+        </button>
+        <ion-title class="bar">Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-<ion-fab right bottom>
-<button ion-fab color="white"><ion-icon name="add"></ion-icon></button>
-</ion-fab>
-<ion-list>
-	<ion-list-header text-center class="headfont"> Show All Players </ion-list-header>
+<body class="player">
 
 
-</ion-list>
+    <div class="row">
+        <div class="col-md-3">
+            <div style="width: 300px; margin:auto">
+                <div class="card toty fifa17">
+                    <div class="player">
+                        <img src="../../assets/img/Player_Profile.jpg" id="player-card">
 
-<div padding>
+                        <div class="avatarholder" style="width: 115px; resize: horizontal ">
+                            <img src= {{this.name[0].picture}} class="avatar">
+                        </div>
+                        <div class=" name">
+                            <span class="marquee">{{this.name[0].FirstName}}</span>
+                        </div>
+                        <div class="attributes ">
+                            <span class="loyalty">
+                            </span>
+                            <span class="runs">{{this.name[0].runs}}</span>
+                            <span class="wickets">{{this.name[0].wickets}}</span>
+                            <span class="highestScore">{{this.name[0].highscore}}</span>
+                            <span class="average">{{this.name[0].strikeRate}}</span>
+                            <span class="four">{{this.name[0].fours}}</span>
+                            <span class="six">{{this.name[0].sixes}}</span>
 
-</div>
+                        </div>
+                    </div>
+                    <div class="chemstyle">
+                        <span class="chemstylename">{{this.name[0].role}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<ion-list>
-  <ion-item *ngFor ="let item of userRef$ | async" >
-    <h2>Player Name: {{item.name}}</h2>
-    <h3>Player Email: {{item.email}}</h3>
-  </ion-item>
-</ion-list>
-</ion-content>
+        <div style="height: 20px"></div>
+</body>

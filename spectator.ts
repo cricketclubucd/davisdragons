@@ -20,7 +20,8 @@ export class SpectatorPage {
   scorings = {} as Score;
 
   scoreRef$: FirebaseListObservable<any[]>
-  values: any[]
+  playersTeamA$: FirebaseListObservable<any[]>
+  playersTeamB$: FirebaseListObservable<any[]>
 
   roster: string = "Scoring";
   isAndroid: boolean = false;
@@ -31,10 +32,11 @@ export class SpectatorPage {
     private database: AngularFireDatabase
   ) 
   {
-    this.values = [];
     this.isAndroid = platform.is('android');
     this.scoreRef$ = this.database.list('Matches/Match1/Balls');
-    console.log(this.scoreRef$);
+    this.playersTeamA$ = this.database.list('Matches/Match1/PlayerRoster/Team1');
+    this.playersTeamB$ = this.database.list('Matches/Match1/PlayerRoster/Team2');
+    this.playersTeamA$.subscribe(x => console.log(x))
     // this.scoreRef$.last().subscribe(keys => console.log("keys are", keys));
     // this.database.list('Matches/Match1/Balls').subscribe(list => this.scoreRef$ = list);
 

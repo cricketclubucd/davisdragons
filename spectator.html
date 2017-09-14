@@ -29,56 +29,14 @@
       </div>
 
     <ion-list *ngSwitchCase="'First Innings'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="assets/img/steven.jpg">
-        </ion-thumbnail>
-        <h2>Steve Smith</h2>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="assets/img/finch.jpg">
-        </ion-thumbnail>
-        <h2>Aaron Finch</h2>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="assets/img/warner.jpg">
-        </ion-thumbnail>
-        <h2>David Warner</h2>
-      </ion-item>
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="assets/img/maxwell.jpg">
-        </ion-thumbnail>
-        <h2>Glenn Maxwell</h2>
+      <ion-item *ngFor="let items of playersTeamA$ | async;">
+        <h2>{{items.$key}} Number: {{items.$value}}</h2>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'Second Innings'">
-      <ion-item>
-        <!--ion-thumbnail item-start>
-          <img src="assets/img/thumbnail-duckling-1.jpg">
-        </ion-thumbnail!-->
-        <h2>Daffy</h2>
-      </ion-item>
-      <ion-item>
-        <!--ion-thumbnail item-start>
-          <img src="assets/img/thumbnail-duckling-2.jpg">
-        </ion-thumbnail!-->
-        <h2>Huey</h2>
-      </ion-item>
-      <ion-item>
-        <!--ion-thumbnail item-start>
-          <img src="assets/img/thumbnail-duckling-3.jpg">
-        </ion-thumbnail!-->
-        <h2>Dewey</h2>
-      </ion-item>
-      <ion-item>
-        <!--ion-thumbnail item-start>
-          <img src="assets/img/thumbnail-duckling-4.jpg">
-        </ion-thumbnail!-->
-        <h2>Louie</h2>
+      <ion-item *ngFor="let items of playersTeamB$ | async;">
+        <h2>{{items.$key}} Number: {{items.$value}}</h2>
       </ion-item>
     </ion-list>
   </div>

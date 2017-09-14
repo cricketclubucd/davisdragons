@@ -7,11 +7,14 @@ import { FIREBASE_CONFIG } from './app.firebase.cofig';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
+
 import { MyApp } from './app.component';
 import { SignInPage } from '../pages/signIn/signIn';
 import { GetterPage } from '../pages/getter/getter';
 import { AddPage } from '../pages/add/add';
-import { ShowPage } from '../pages/show/show';
+import {SearchPage} from "../pages/Search/search";
+import {ShowPage} from "../pages/show/show";
+
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SpectatorPage } from '../pages/spectator/spectator';
@@ -24,12 +27,14 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import * as firebase from 'firebase';
 import {UmpirePage} from '../pages/umpire/umpire';
 
+
 @NgModule({
   declarations: [
     MyApp,
     SignInPage,
     GetterPage,
     AddPage,
+    SearchPage,
     ShowPage,
     HomePage,
     ListPage,
@@ -50,6 +55,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     SignInPage,
     GetterPage,
     AddPage,
+    SearchPage,
     ShowPage,
     HomePage,
     ListPage,
