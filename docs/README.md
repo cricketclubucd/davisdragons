@@ -1,4 +1,4 @@
-Davis Dragons® Official App - Apache Cordova Project
+Davis Dragons® Official App - Ionic Cordova AngularJS Firebase Project
 ======================================================
 
 See [LICENSE.md](<LICENSE.md>) for license terms and conditions.
