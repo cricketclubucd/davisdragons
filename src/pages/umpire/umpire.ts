@@ -89,7 +89,7 @@ export class UmpirePage
   updateballid()
   {
      UmpirePage.ball = UmpirePage.ball+1;
-     
+
      UmpirePage.ballNum = UmpirePage.ballNum+1;
      if(UmpirePage.ball % 6 == 0)
      {
