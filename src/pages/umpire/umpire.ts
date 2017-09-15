@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {Platform} from 'ionic-angular';
+import { key } from '../../models/match';
+import { balls } from '../../models/balls';
+import { team} from '../../models/team';
+import { score} from '../../models/Score';
 @Component({
 
 templateUrl: 'umpire.html'
@@ -10,6 +14,8 @@ export class UmpirePage
 {
 x=0;
 y=0;
+balls = {} as balls;
+key = {} as key;
 static score = 0;
 static extras = false;
 static ballid = 0;
@@ -164,17 +170,14 @@ updateballid()
 }
 pushdata()
  {
-   var data1 =
-   {
-     runs : UmpirePage.score,
-     ballNumber: UmpirePage.ballid,
-     ifExtras: UmpirePage.extras,
-     wickets : UmpirePage.wicket,
-     oversUp : UmpirePage.overString,
-     octant: UmpirePage.octant
-   }
-   this.fdb.object(`Matches/Match1/Balls/` + UmpirePage.ballid.toString())
-        .set(data1);
+   this.balls.runs= UmpirePage.score;
+   this.balls.ballNumber = UmpirePage.ballid;
+   this.balls.ifExtras= "false";
+   this.balls.wickets= UmpirePage.wicket;
+   this.balls.oversUp = UmpirePage.overString ;
+   this.balls.octant=  UmpirePage.octant;
+   this.fdb.object(`Matches/`+ this.key.MatchKey+ `Balls/` + this.key.ballKey)
+        .set(this.balls);
    this.updateTotalScore();
   }
 

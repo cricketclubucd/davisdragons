@@ -38,6 +38,7 @@ export class CreatePage {
 
     create(key:key) {
 
+
         this.balls.runs= 0;
         this.balls.ballNumber = 0;
         this.balls.ifWide = "false";
@@ -45,7 +46,7 @@ export class CreatePage {
         this.balls.wickets= 0 ;
         this.balls.oversUp = "false" ;
         this.balls.octant= 0 ;
-
+        key.ballKey = this.balls.ballNumber;
         this.team.captain =0;
         this.team.p1=0;
         this.team.p2=0;
@@ -69,7 +70,7 @@ export class CreatePage {
         this.score.totalWickets=0;
 
 
-        this.data.object(`Matches/`+ key.MatchKey + `/Balls/0/`)
+        this.data.object(`Matches/`+ key.MatchKey + `/Balls/`+key.ballKey)
             .set(this.balls);
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
