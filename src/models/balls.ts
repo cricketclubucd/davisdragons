@@ -1,9 +1,11 @@
 export interface balls
 {
-  run: number;
-  action: string;
-  batter: string;
-  bowler: string;
-  wicket: string;
+  runs : number,
+  ballNumber: number,
+  ifWide: string,
+  ifExtras: string,
+  wickets : number,
+  oversUp : string,
+  octant: number
 
 }
