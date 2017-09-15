@@ -3,6 +3,7 @@ import { balls } from '../models/balls';
 export interface key{
 
     MatchKey: string;
+    ballKey: number;
 
 }
 

@@ -79,7 +79,7 @@ export class CreatePage {
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/`)
             .set(this.team);
 
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Score/`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/Score/`)
             .set(this.score);
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/Toss/`)
