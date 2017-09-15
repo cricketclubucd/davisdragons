@@ -29,7 +29,7 @@ export class SearchPage {
 
 
     check(player: player){
-        this.name = this.data.list("/Players",{
+        this.name = this.data.list("/ClubParams/ClubRoster",{
             query: {
                 orderByChild: "Jersey_Number",
                 equalTo: player.Jersey_Number
@@ -41,7 +41,7 @@ export class SearchPage {
         {
             if(data.length == 0) {
                 console.log('User does not exist');
-                alert("Player with this email is not in our databasee")
+                alert("Player with this Jersey Number is not in our databasee")
 
             } else {
                 console.log('User does exist');
