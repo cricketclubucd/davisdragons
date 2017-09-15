@@ -62,7 +62,7 @@ export class SignInPage {
 	check(userprofile:any)
 	{
 
-        this.name = this.data.list("/Players",{
+        this.name = this.data.list("/ClubParams/ClubRoster",{
             query: {
                 orderByChild: "email",
                 equalTo: userprofile.email
