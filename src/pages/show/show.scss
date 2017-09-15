@@ -2,8 +2,8 @@ page-show{
 
   .card {
     position: relative;
-    left: 450px;
-    top: 200px;
+    left: 20px;
+    top: 150px;
     font-family: 'Titillium Web',sans-serif;
     .clubbadge, .nationflag, .avatar {
       position: absolute;
@@ -105,8 +105,7 @@ page-show{
       color: #000;
       text-shadow: none !important;
       max-width: 227px;
-      display: block;
-      margin: auto;
+
 
       &.toty, &.goldblue {
         color: #F9E99E !important;
