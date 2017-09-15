@@ -35,7 +35,7 @@ export class AddPage {
         this.player.email = user.email;
         this.player.picture = user.photoURL;
 
-        this.userRef$ = this.data.object('Players');
+        //this.userRef$ = this.data.object('Players');
 
 
     }
@@ -74,7 +74,6 @@ export class AddPage {
 
             }
             if (data.length == 0){
-
 
                 this.data.object(`ClubParams/ClubRoster/` + player.Jersey_Number)
                 .set(player);

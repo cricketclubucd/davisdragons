@@ -15,4 +15,7 @@ export interface team
   p11: number;
   vcaptain: number;
   wk: number;
+
+  toss: string;
+
 }

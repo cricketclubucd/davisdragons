@@ -12,6 +12,7 @@ import { MyApp } from '../../app/app.component';
 import { GetterPage } from '../getter/getter';
 import { AddPage } from '../add/add';
 import { SearchPage } from '../Search/search';
+import {CreatePage} from "../createMatch/createMatch";
 
 @Component({
   selector: 'page-signIn',
@@ -113,6 +114,10 @@ export class SignInPage {
 
     goToSearch() {
         this.navCtrl.push(SearchPage);
+    }
+
+    goToCreate() {
+        this.navCtrl.push(CreatePage);
     }
 
 
