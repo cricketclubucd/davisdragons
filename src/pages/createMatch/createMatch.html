@@ -16,13 +16,29 @@
         <ion-list-header text-center class="headfont"> Create Match </ion-list-header>
         <ion-item>
             <ion-label floating>Match Key</ion-label>
-            <ion-input id ="jr" type="text"[(ngModel)] = "key.MatchKey"></ion-input>
+            <ion-input type="text"[(ngModel)] = "key.MatchKey"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Umpire</ion-label>
+            <ion-input type="text"[(ngModel)] = "team.umpire"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label floating>Home Team Captain</ion-label>
+            <ion-input type="text"[(ngModel)] = "captains.Homecaptain"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Away Team Captain</ion-label>
+            <ion-input type="text"[(ngModel)] = "captains.Awaycaptain"></ion-input>
         </ion-item>
 
 
     </ion-list>
 
     <div padding>
-        <button ion-button  type="button" (click)="create(key)">Start Match</button>
+        <button ion-button  type="button" (click)="create(key,captains,team)">Start Match</button>
     </div>
 </ion-content>

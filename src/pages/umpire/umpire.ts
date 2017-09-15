@@ -18,8 +18,8 @@ y=0;
 balls = {} as balls;
 key = {} as key;
 
-static totalRuns =0;
-static score = 0;
+//static totalRuns =0;
+//static score = 0;
 static extras = false;
 static ballid = 0;
 static radius = 0;
@@ -41,6 +41,7 @@ static eigthXboundary = 0;
 static eigthYboundary = 0;
 static ninthXboundary = 0;
 static ninthYboundary = 0;
+
 static wicket = 0;
 static overs = 0;
 static ballNum = 0;
@@ -59,7 +60,27 @@ constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, plat
   });
 
   this.data = fdb.list('/Matches/Match1/Balls');
+    this.balls.ballid = 0;
+    this.balls.ballinOver = 0;
+    this.balls.overs = 0;
+    this.balls.score = 0;
 
+    this.balls.runs= 0;
+    this.balls.ifWide = "false";
+    this.balls.ifExtras= "false";
+    this.balls.wickets= 0 ;
+    this.balls.oversUp = "false" ;
+    this.balls.octant= 0 ;
+
+    this.key.MatchKey = "0";
+
+    this.name = this.fdb.object('/ClubParams/LiveMatchState/');
+    this.name.take(1).subscribe(data =>
+    {
+        console.log(data);
+        this.key.MatchKey= data.matchPtr;
+
+    });
 
 }
 computeBoundaries()
@@ -107,12 +128,12 @@ computeOctant()
    if(xdiff > UmpirePage.secondXboundary &&  xdiff < UmpirePage.firstXboundary)
    {
      console.log("First Octant");
-     UmpirePage.octant = 1;
+     this.balls.octant = 1;
    }
   else if(xdiff > UmpirePage.thirdXboundary &&  xdiff < UmpirePage.secondXboundary)
    {
      console.log("Second Octant");
-      UmpirePage.octant = 2;
+       this.balls.octant = 2;
    }
  }
  else if(xdiff <0 && ydiff >0 )
@@ -121,12 +142,12 @@ computeOctant()
    if(xdiff > UmpirePage.fourthXboundary &&  xdiff < UmpirePage.thirdXboundary)
    {
      console.log("Third Octant");
-     UmpirePage.octant = 3;
+       this.balls.octant = 3;
    }
   else if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.fourthXboundary)
    {
      console.log("Fourth Octant");
-     UmpirePage.octant = 4;
+       this.balls.octant = 4;
    }
  }
  else if(xdiff <0 && ydiff <0 )
@@ -135,12 +156,12 @@ computeOctant()
    if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.sixthXboundary)
    {
      console.log("Fifth Octant");
-     UmpirePage.octant = 5;
+     this.balls.octant = 5;
    }
   else if(xdiff > UmpirePage.sixthXboundary &&  xdiff < UmpirePage.seventhXboundary)
    {
      console.log("Sixth Octant");
-     UmpirePage.octant = 6;
+       this.balls.octant = 6;
    }
  }
 else if(xdiff >0 && ydiff <0)
@@ -149,48 +170,35 @@ else if(xdiff >0 && ydiff <0)
    if(xdiff > UmpirePage.seventhXboundary &&  xdiff < UmpirePage.eigthXboundary)
    {
      console.log("Seventh Octant");
-     UmpirePage.octant = 7;
+       this.balls.octant = 7;
    }
   else if(xdiff > UmpirePage.eigthXboundary &&  xdiff < UmpirePage.ninthXboundary)
    {
      console.log("Eighth Octant");
-     UmpirePage.octant = 8;
+       this.balls.octant = 8;
    }
  }
 
 
 }
-updateballid()
+updateballid(i)
 {
-   UmpirePage.ballid = UmpirePage.ballid+1;
+    this.balls.score = i;
+   this.balls.ballid = this.balls.ballid+1;
 
-   UmpirePage.ballNum = UmpirePage.ballNum+1;
-   if(UmpirePage.ballid % 6 == 0)
+
+    this.balls.ballinOver = this.balls.ballinOver+1;
+   if(this.balls.ballid % 6 == 0)
    {
-      UmpirePage.ballNum = 0;
-      UmpirePage.overs = UmpirePage.overs + 1;
+       this.balls.ballinOver = 0;
+       this.balls.overs = this.balls.overs + 1;
    }
-   UmpirePage.overString = UmpirePage.overs.toString() + '.' + UmpirePage.ballNum.toString();
+   UmpirePage.overString = this.balls.overs.toString() + '.' + this.balls.ballinOver.toString();
+   this.balls.totalBalls = UmpirePage.overString;
 }
-pushdata(key:key)
+pushdata()
  {
-   this.balls.runs= UmpirePage.score;
-   this.balls.ballNumber = UmpirePage.ballid;
-   this.balls.ifExtras= "false";
-   this.balls.wickets= UmpirePage.wicket;
-   this.balls.oversUp = UmpirePage.overString ;
-   this.balls.octant=  UmpirePage.octant;
-  this.name = this.fdb.object('/ClubParams/LiveMatchState/');
-   this.name.take(1).subscribe(data =>
-   {
-       console.log(data);
-       this.key.MatchKey= data.matchPtr;
-       this.key2 = data.matchPtr;
-
-   });
- var key1= this.balls.ballNumber;
-
-   this.fdb.object(`/Matches/`+ this.key2+ `/Balls/` + key1)
+   this.fdb.object(`/Matches/`+ this.key.MatchKey + `/Balls/` + this.balls.ballid)
         .set(this.balls);
    this.updateTotalScore();
   }
@@ -204,41 +212,27 @@ onTap(event): void {
       }
 increment(i)
 {
-  UmpirePage.score = i;
 }
 
 updateTotalScore()
 {
-   UmpirePage.totalRuns = UmpirePage.totalRuns + UmpirePage.score;
+   this.balls.runs = this.balls.runs + this.balls.score;
    console.log(this.key.MatchKey);
 
-  this.name= this.fdb.list(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/` ), {
-
-    query: {
-        orderByChild: "totalRuns"
-
-    }
-
-  };
-   this.name.take(1).subscribe(data =>
-   {
-       console.log(data);
-       //console.log(data[4].key);
-
-
-   });
+  this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalRuns/` )
+      .set(this.balls.runs);
 
   //CurrentMatch.updateScore(UmpirePage.score);
 }
 
 wide()
 {
-  UmpirePage.score = 1;
+  this.balls.score = 1;
   this.updateTotalScore();
 }
 
 wicket()
 {
-UmpirePage.wicket = UmpirePage.wicket + 1;
+    this.balls.wickets = this.balls.wickets + 1;
 }
 }
