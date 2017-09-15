@@ -12,10 +12,13 @@ templateUrl: 'umpire.html'
 })
 export class UmpirePage
 {
+  name: any;
 x=0;
 y=0;
 balls = {} as balls;
 key = {} as key;
+
+static totalRuns =0;
 static score = 0;
 static extras = false;
 static ballid = 0;
@@ -45,6 +48,7 @@ static overString = "";
 static height1 =0;
 static octant = 0;
 data : FirebaseListObservable<any>;
+key2 ="";
 constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, platform : Platform)
 {
   platform.ready().then((readySource) =>
@@ -168,7 +172,7 @@ updateballid()
    }
    UmpirePage.overString = UmpirePage.overs.toString() + '.' + UmpirePage.ballNum.toString();
 }
-pushdata()
+pushdata(key:key)
  {
    this.balls.runs= UmpirePage.score;
    this.balls.ballNumber = UmpirePage.ballid;
@@ -176,7 +180,17 @@ pushdata()
    this.balls.wickets= UmpirePage.wicket;
    this.balls.oversUp = UmpirePage.overString ;
    this.balls.octant=  UmpirePage.octant;
-   this.fdb.object(`Matches/`+ this.key.MatchKey+ `Balls/` + this.key.ballKey)
+  this.name = this.fdb.object('/ClubParams/LiveMatchState/');
+   this.name.take(1).subscribe(data =>
+   {
+       console.log(data);
+       this.key.MatchKey= data.matchPtr;
+       this.key2 = data.matchPtr;
+
+   });
+ var key1= this.balls.ballNumber.toString();
+
+   this.fdb.object(`/Matches/`+ this.key2+ `/Balls/` + key1)
         .set(this.balls);
    this.updateTotalScore();
   }
@@ -195,6 +209,25 @@ increment(i)
 
 updateTotalScore()
 {
+   UmpirePage.totalRuns = UmpirePage.totalRuns + UmpirePage.score;
+   console.log(this.key.MatchKey);
+
+  this.name= this.fdb.list(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/` ), {
+
+    query: {
+        orderByChild: "totalRuns"
+
+    }
+
+  };
+   this.name.take(1).subscribe(data =>
+   {
+       console.log(data);
+       //console.log(data[4].key);
+
+
+   });
+
   //CurrentMatch.updateScore(UmpirePage.score);
 }
 
