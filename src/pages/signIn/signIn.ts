@@ -12,6 +12,7 @@ import { MyApp } from '../../app/app.component';
 import { GetterPage } from '../getter/getter';
 import { AddPage } from '../add/add';
 import { SearchPage } from '../Search/search';
+import {CreatePage} from "../createMatch/createMatch";
 
 @Component({
   selector: 'page-signIn',
@@ -62,7 +63,7 @@ export class SignInPage {
 	check(userprofile:any)
 	{
 
-        this.name = this.data.list("/Players",{
+        this.name = this.data.list("/ClubParams/ClubRoster",{
             query: {
                 orderByChild: "email",
                 equalTo: userprofile.email
@@ -113,6 +114,10 @@ export class SignInPage {
 
     goToSearch() {
         this.navCtrl.push(SearchPage);
+    }
+
+    goToCreate() {
+        this.navCtrl.push(CreatePage);
     }
 
 

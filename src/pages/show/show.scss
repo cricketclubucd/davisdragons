@@ -1,8 +1,13 @@
 page-show{
 
+  body{
+
+    background: #08315E;
+  }
+
   .card {
     position: relative;
-    left: 20px;
+    left: 15px;
     top: 150px;
     font-family: 'Titillium Web',sans-serif;
     .clubbadge, .nationflag, .avatar {

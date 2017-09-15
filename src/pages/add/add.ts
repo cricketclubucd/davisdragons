@@ -35,9 +35,7 @@ export class AddPage {
         this.player.email = user.email;
         this.player.picture = user.photoURL;
 
-
-        this.playerRef$ = this.data.list('Players');
-        this.userRef$ = this.data.object('Players');
+        //this.userRef$ = this.data.object('Players');
 
 
     }
@@ -57,7 +55,7 @@ export class AddPage {
         this.player.runs = 0;
 
 
-        this.name = this.data.list("/Players",{
+        this.name = this.data.list("/ClubParams/ClubRoster/",{
             query: {
                 orderByChild: "Jersey_Number",
                 equalTo: player.Jersey_Number
@@ -77,19 +75,13 @@ export class AddPage {
             }
             if (data.length == 0){
 
-                this.playerRef$.push(this.player);
+                this.data.object(`ClubParams/ClubRoster/` + player.Jersey_Number)
+                .set(player);
+
                 this.player = {} as player;
 
             }
         });
-
-
-
-
-
-        //this.playerRef$.push(this.player);
-        //this.player = {} as player;
-
     }
 
 }

@@ -14,6 +14,7 @@ import { GetterPage } from '../pages/getter/getter';
 import { AddPage } from '../pages/add/add';
 import {SearchPage} from "../pages/Search/search";
 import {ShowPage} from "../pages/show/show";
+import {CreatePage} from "../pages/createMatch/createMatch";
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -36,6 +37,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     AddPage,
     SearchPage,
     ShowPage,
+    CreatePage,
     HomePage,
     ListPage,
     SpectatorPage,
@@ -57,6 +59,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     AddPage,
     SearchPage,
     ShowPage,
+    CreatePage,
     HomePage,
     ListPage,
     SpectatorPage,

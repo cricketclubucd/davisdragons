@@ -8,6 +8,7 @@ import { GetterPage } from '../pages/getter/getter';
 import { AddPage } from '../pages/add/add';
 import { SearchPage } from '../pages/Search/search';
 import { ShowPage } from '../pages/show/show';
+import { CreatePage } from '../pages/createMatch/createMatch';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -31,9 +32,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Spectator', component: SpectatorPage },
+        { title: 'Home', component: HomePage },
+        { title: 'Start Match', component: CreatePage },
+        { title: 'List', component: ListPage },
+        { title: 'Spectator', component: SpectatorPage },
         { title: 'Member', component: MemberPage },
         { title: 'Umpire', component: UmpirePage },
         { title: 'Search Player', component: SearchPage },

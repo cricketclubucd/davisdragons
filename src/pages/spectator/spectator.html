@@ -3,38 +3,56 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Spectator Screen</ion-title>
+    <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+    		<ion-title *ngIf="i == 1">{{item.totalRuns}} / {{item.totalWickets}} ({{item.totalOvers}}.{{item.ballsInOver}})</ion-title>
+    </div>
   </ion-navbar>
   <ion-toolbar no-border-top>
       <ion-segment [(ngModel)]="roster">
-        <ion-segment-button value="Scoring">
-          Score
+        <ion-segment-button value="Home">
+          Home
         </ion-segment-button>
-        <ion-segment-button value="First Innings">
-          First Innings
+        <ion-segment-button value="vs.">
+          vs.
         </ion-segment-button>
-        <ion-segment-button value="Second Innings">
-          Second Innings
+        <ion-segment-button value="Away">
+          Away
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
 </ion-header>
 <ion-content>
   <div [ngSwitch]="roster">
-    <div *ngSwitchCase="'Scoring'">
-        <div *ngFor ="let item of scoreRef$ | async; let i = index; let lst = last">
-          <h2 *ngIf="lst">Runs Scored: {{item.runs}}</h2>
-          <h2 *ngIf="lst">Ball Number: {{item.ballNumber}}</h2>
-        </div>
-      </div>
-
-    <ion-list *ngSwitchCase="'First Innings'">
-      <ion-item *ngFor="let items of playersTeamA$ | async;">
+    <div *ngSwitchCase="'Home'">
+        <ion-item *ngFor="let items of playersTeamA$ | async;">
         <h2>{{items.$key}} Number: {{items.$value}}</h2>
       </ion-item>
+    </div>
+
+    <ion-list *ngSwitchCase="'vs.'">
+      <div *ngFor ="let item of scoreRef$ | async; let i = index; let lst = last">
+          <h2 *ngIf="lst">Runs Scored: {{item.runs}}</h2>
+          <h2 *ngIf="lst">Ball Number: {{item.ballNumber}}</h2>
+      </div>
+      
+      <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+      <ion-grid>
+      <ion-row>
+    		<ion-col>
+			<div *ngIf="i == 1">{{item.totalRuns}}</div>
+		</ion-col>
+		<ion-col col-auto>
+    		    <div>Variable width content</div>
+		</ion-col>
+		<ion-col>
+    		    <div>3 of 3</div>
+		</ion-col>
+	  </ion-row>
+    </ion-grid>
+      </div>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'Second Innings'">
+    <ion-list *ngSwitchCase="'Away'">
       <ion-item *ngFor="let items of playersTeamB$ | async;">
         <h2>{{items.$key}} Number: {{items.$value}}</h2>
       </ion-item>

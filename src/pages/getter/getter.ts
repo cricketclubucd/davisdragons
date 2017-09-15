@@ -28,7 +28,7 @@ export class GetterPage {
 
 
     check(player: player){
-        this.name = this.data.list("/Players",{
+        this.name = this.data.list("/ClubParams/ClubRoster",{
             query: {
                 orderByChild: "email",
                 equalTo: player.email
@@ -46,7 +46,8 @@ export class GetterPage {
             } else {
                 console.log('User does exist');
                 console.log(data);
-                this.navCtrl.push(HomePage);
+                alert("This email is taken");
+                //this.navCtrl.push(HomePage);
             }
         });
     }

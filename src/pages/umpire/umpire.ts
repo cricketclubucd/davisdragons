@@ -10,10 +10,9 @@ export class UmpirePage
 {
 x=0;
 y=0;
-static wide = false;
+static score = 0;
 static extras = false;
-static score=0;
-static ball = 0;
+static ballid = 0;
 static radius = 0;
 static firstXboundary = 0;
 static firstYboundary = 0;
@@ -50,6 +49,7 @@ constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, plat
   });
 
   this.data = fdb.list('/Matches/Match1/Balls');
+
 
 }
 computeBoundaries()
@@ -152,10 +152,10 @@ else if(xdiff >0 && ydiff <0)
 }
 updateballid()
 {
-   UmpirePage.ball = UmpirePage.ball+1;
+   UmpirePage.ballid = UmpirePage.ballid+1;
 
    UmpirePage.ballNum = UmpirePage.ballNum+1;
-   if(UmpirePage.ball % 6 == 0)
+   if(UmpirePage.ballid % 6 == 0)
    {
       UmpirePage.ballNum = 0;
       UmpirePage.overs = UmpirePage.overs + 1;
@@ -167,16 +167,15 @@ pushdata()
    var data1 =
    {
      runs : UmpirePage.score,
-     ballNumber: UmpirePage.ball,
-     ifWide: UmpirePage.wide,
+     ballNumber: UmpirePage.ballid,
      ifExtras: UmpirePage.extras,
      wickets : UmpirePage.wicket,
      oversUp : UmpirePage.overString,
      octant: UmpirePage.octant
    }
-   this.data.push(data1);
-  UmpirePage.wide = false;
-
+   this.fdb.object(`Matches/Match1/Balls/` + UmpirePage.ballid.toString())
+        .set(data1);
+   this.updateTotalScore();
   }
 
 onTap(event): void {
@@ -186,39 +185,22 @@ onTap(event): void {
           this.computeOctant();
           //console.log(this.x, this.y);
       }
-incrementone()
+increment(i)
 {
-UmpirePage.score = UmpirePage.score +1;
+  UmpirePage.score = i;
 }
 
-increment2()
+updateTotalScore()
 {
-UmpirePage.score =UmpirePage.score +2;
-
-}
-incrementthree()
-{
-UmpirePage.score = UmpirePage.score +3;
+  //CurrentMatch.updateScore(UmpirePage.score);
 }
 
-incrementfour()
-{
-UmpirePage.score = UmpirePage.score +4;
-}
-incrementsix()
-{
-UmpirePage.score = UmpirePage.score +6;
-}
-increment0()
-{
-UmpirePage.score = UmpirePage.score + 0;
-}
 wide()
 {
-UmpirePage.wide = true;
-UmpirePage.score = UmpirePage.score + 1;
-//UmpirePage.wide = false;
+  UmpirePage.score = 1;
+  this.updateTotalScore();
 }
+
 wicket()
 {
 UmpirePage.wicket = UmpirePage.wicket + 1;
