@@ -188,7 +188,7 @@ pushdata(key:key)
        this.key2 = data.matchPtr;
 
    });
- var key1= this.balls.ballNumber.toString();
+ var key1= this.balls.ballNumber;
 
    this.fdb.object(`/Matches/`+ this.key2+ `/Balls/` + key1)
         .set(this.balls);

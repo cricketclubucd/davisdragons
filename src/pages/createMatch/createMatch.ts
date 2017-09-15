@@ -70,8 +70,8 @@ export class CreatePage {
         this.score.totalWickets=0;
 
 
-        this.data.object(`Matches/`+ key.MatchKey + `/Balls/`+key.ballKey)
-            .set(this.balls);
+        //this.data.object(`Matches/`+ key.MatchKey + `/Balls/`+key.ballKey)
+        //    .set(this.balls);
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
             .set(this.team);
