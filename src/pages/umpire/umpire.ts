@@ -10,6 +10,7 @@ export class UmpirePage
 {
 x=0;
 y=0;
+ballScore = 0;
 static wide = false;
 static extras = false;
 static score=0;
@@ -50,6 +51,7 @@ constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, plat
   });
 
   this.data = fdb.list('/Matches/Match1/Balls');
+
 
 }
 computeBoundaries()
@@ -167,6 +169,7 @@ pushdata()
    var data1 =
    {
      runs : UmpirePage.score,
+     runsperBall: this.ballScore,
      ballNumber: UmpirePage.ball,
      ifWide: UmpirePage.wide,
      ifExtras: UmpirePage.extras,
@@ -174,8 +177,11 @@ pushdata()
      oversUp : UmpirePage.overString,
      octant: UmpirePage.octant
    }
-   this.data.push(data1);
+   this.fdb.object(`Matches/Match1/Balls/` + UmpirePage.ball.toString())
+        .set(data1);
+
   UmpirePage.wide = false;
+  this.ballScore = 0;
 
   }
 
@@ -189,29 +195,35 @@ onTap(event): void {
 incrementone()
 {
 UmpirePage.score = UmpirePage.score +1;
+this.ballScore = this.ballScore + 1;
+
 }
 
 increment2()
 {
 UmpirePage.score =UmpirePage.score +2;
-
+this.ballScore = this.ballScore + 2;
 }
 incrementthree()
 {
 UmpirePage.score = UmpirePage.score +3;
+this.ballScore = this.ballScore + 3;
 }
 
 incrementfour()
 {
 UmpirePage.score = UmpirePage.score +4;
+this.ballScore = this.ballScore + 4;
 }
 incrementsix()
 {
 UmpirePage.score = UmpirePage.score +6;
+this.ballScore = this.ballScore + 5;
 }
 increment0()
 {
 UmpirePage.score = UmpirePage.score + 0;
+this.ballScore = this.ballScore +0;
 }
 wide()
 {
