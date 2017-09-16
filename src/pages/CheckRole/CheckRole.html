@@ -3,7 +3,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu" ></ion-icon>
         </button>
-        <ion-title class="bar">Create</ion-title>
+        <ion-title class="bar">My Team</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -13,10 +13,10 @@
         <button ion-fab color="white"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
     <ion-list>
-        <ion-list-header text-center class="headfont"> Create Match </ion-list-header>
+        <ion-list-header text-center class="headfont">  Add Players to My Team </ion-list-header>
         <ion-item>
             <ion-label floating>Match Key</ion-label>
-            <ion-input type="text"[(ngModel)] = "key.MatchKey"></ion-input>
+            <ion-input type="text"[(ngModel)] = "side.startKey"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -26,24 +26,20 @@
 
 
         <ion-item>
-            <ion-label floating>Home Team Captain Jersey Number</ion-label>
+            <ion-label floating>Home Team Captain</ion-label>
             <ion-input type="text"[(ngModel)] = "captains.Homecaptain"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Away Team Captain JerseyNumber</ion-label>
+            <ion-label floating>Away Team Captain</ion-label>
             <ion-input type="text"[(ngModel)] = "captains.Awaycaptain"></ion-input>
         </ion-item>
 
-        <ion-item>
-            <ion-label floating>How many players</ion-label>
-            <ion-input type="text"[(ngModel)] = "key.numPlayers"></ion-input>
-        </ion-item>
 
 
     </ion-list>
 
     <div padding>
-        <button ion-button  type="button" (click)="create(key,captains)">Start Match</button>
+        <button ion-button  type="button" (click)="check(side,captains)">Start Match</button>
     </div>
 </ion-content>

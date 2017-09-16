@@ -33,7 +33,7 @@ export class AddPage {
         console.log(user.email);
 
         this.player.email = user.email;
-        this.player.picture = user.photoURL;
+        //this.player.picture = user.photoURL;
 
         //this.userRef$ = this.data.object('Players');
 

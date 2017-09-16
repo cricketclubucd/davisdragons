@@ -31,7 +31,8 @@ export class CreatePage {
     captains = {} as captains;
 
 
-    name:FirebaseObjectObservable<any>;
+    name:FirebaseListObservable<any>;
+    Home:FirebaseListObservable<any>;
 
     constructor(public navCtrl: NavController, private data: AngularFireDatabase) {
 
@@ -40,6 +41,58 @@ export class CreatePage {
 
 
     create(key:key, captains: captains) {
+
+
+        this.name = this.data.list("/ClubParams/ClubRoster",{
+            query: {
+                orderByChild: "Jersey_Number",
+                equalTo: captains.Awaycaptain
+            }
+
+        });
+
+        this.name.subscribe(data =>
+        {
+            if(data.length == 0) {
+                console.log('User does not exist');
+                alert("The Away Team's Captain's Jersey Number is not in our databasee")
+
+            } else {
+                console.log('User does exist');
+                //console.log(data);
+                this.captains.Awaycaptain = captains.Awaycaptain;
+            }
+        });
+
+
+        this.name = this.data.list("/ClubParams/ClubRoster",{
+            query: {
+                orderByChild: "Jersey_Number",
+                equalTo: captains.Awaycaptain
+            }
+
+        });
+
+        this.Home = this.data.list("/ClubParams/ClubRoster",{
+            query: {
+                orderByChild: "Jersey_Number",
+                equalTo: captains.Homecaptain
+            }
+
+        });
+
+        this.Home.subscribe(data =>
+        {
+            if(data.length == 0) {
+                console.log('User does not exist');
+                alert("The Home Team's Captain's Jersey Number is not in our database")
+
+            } else {
+                console.log('User does exist');
+                //console.log(data);
+                this.captains.Homecaptain = captains.Homecaptain;
+            }
+        });
 
 
         this.balls.runs= 0;
@@ -52,7 +105,7 @@ export class CreatePage {
 
         key.ballKey = this.balls.ballid;
 
-        this.team.p1=0;
+        /*this.team.p1=0;
         this.team.p2=0;
         this.team.p3=0;
         this.team.p4=0;
@@ -62,14 +115,12 @@ export class CreatePage {
         this.team.p8=0;
         this.team.p9=0;
         this.team.p10=0;
-        this.team.p11=0;
+        this.team.p11=0;*/
 
         this.captains.Homevcaptain = 0;
         this.captains.Awayvcaptain = 0;
         this.captains.Homewk = 0;
         this.captains.Awaywk = 0;
-        //this.captains.Homecaptain = 0;
-        //this.captains.Awaycaptain = 0;
 
 
         this.team.toss = "Team";
@@ -80,23 +131,35 @@ export class CreatePage {
         this.score.totalRuns=0;
         this.score.totalWickets=0;
 
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
-            .set(this.team);
+        for (var i = 1 ; i <= key.numPlayers; i++ ){
+            this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/check/p`+ i + `/`)
+                .set(-1);
 
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/Awaycaptain`)
+        }
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/check/amountofPlayers`)
+            .set(key.numPlayers);
+
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awaycaptain`)
             .set(this.captains.Awaycaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/Awayvcaptain`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awayvcaptain`)
             .set(this.captains.Awayvcaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/Awaywk`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awaywk`)
             .set(this.captains.Awaywk);
 
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/`)
-            .set(this.team);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/HomeCaptain/`)
+        for (var i = 1 ; i <= key.numPlayers; i++ ){
+            this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/check/p`+ i + `/`)
+                .set(-1);
+
+        }
+
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/check/amoutofPlayers`)
+            .set(key.numPlayers);
+
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/HomeCaptain/`)
             .set(this.captains.Homecaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/Homevcaptain/`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/Homevcaptain/`)
             .set(this.captains.Homevcaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/Homewk/`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/Homewk/`)
             .set(this.captains.Homewk);
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/Score/`)
             .set(this.score);
