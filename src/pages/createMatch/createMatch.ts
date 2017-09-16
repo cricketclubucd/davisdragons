@@ -95,28 +95,14 @@ export class CreatePage {
         });
 
 
-        this.balls.runs= 0;
         this.balls.ballid = 0;
-        this.balls.ifWide = "false";
+        //this.balls.ifWide = "false";
         this.balls.ifExtras= "false";
         this.balls.wickets= 0 ;
-        this.balls.oversUp = "false" ;
         this.balls.octant= 0 ;
 
         key.ballKey = this.balls.ballid;
-
-        /*this.team.p1=0;
-        this.team.p2=0;
-        this.team.p3=0;
-        this.team.p4=0;
-        this.team.p5=0;
-        this.team.p6=0;
-        this.team.p7=0;
-        this.team.p8=0;
-        this.team.p9=0;
-        this.team.p10=0;
-        this.team.p11=0;*/
-
+        
         this.captains.Homevcaptain = 0;
         this.captains.Awayvcaptain = 0;
         this.captains.Homewk = 0;
@@ -126,7 +112,7 @@ export class CreatePage {
         this.team.toss = "Team";
         //this.captains.umpire = 0;
 
-        this.score.ballsnOver=0;
+        //this.score.ballsnOver=0;
         this.score.totalOvers=0;
         this.score.totalRuns=0;
         this.score.totalWickets=0;
