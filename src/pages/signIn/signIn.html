@@ -6,7 +6,7 @@
 <div text-center>
 	<img src="assets/img/Welcome.jpg" />
 	<h1 color="secondary"> Davis Dragons ®
-	</h1> 
+	</h1>
 	<h3 color="live"> The Official App for the Cricket Club at UC Davis.
 		</h3>
   <button ion-button color="danger" large round (click)="googleauth()" *ngIf="!userProfile">
@@ -14,6 +14,7 @@
     Login with Google
   </button>
 </div>
+<button ion-button (click) = "goToGetter()"> Getter </button>
 
   <ion-item *ngIf="userProfile">
     <ion-avatar (click)="isloggedin()" item-left>
