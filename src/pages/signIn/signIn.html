@@ -1,18 +1,19 @@
 <ion-content padding>
 <ion-fab right bottom>
-<button ion-fab color="live" (click)="goTohome()"><ion-icon name="tennisball"></ion-icon></button>
+<button ion-fab color="secondary" large (click)="goTohome()"><ion-icon color="live" name="tennisball"></ion-icon></button>
 </ion-fab>
 
-<div padding>
-
-    <button ion-button (click)="goToSearch()">Search</button>
-	<button ion-button (click) = "goTohome()"> Home </button>
-</div>
-
-  <button ion-button large  color="danger" round (click)="googleauth()" *ngIf="!userProfile">
+<div text-center>
+	<img src="assets/img/Welcome.jpg" />
+	<h1 color="secondary"> Davis Dragons ®
+	</h1> 
+	<h3 color="live"> The Official App for the Cricket Club at UC Davis.
+		</h3>
+  <button ion-button color="danger" large round (click)="googleauth()" *ngIf="!userProfile">
     <ion-icon name="logo-googleplus"></ion-icon>
     Login with Google
   </button>
+</div>
 
   <ion-item *ngIf="userProfile">
     <ion-avatar (click)="isloggedin()" item-left>
