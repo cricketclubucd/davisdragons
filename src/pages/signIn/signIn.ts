@@ -101,7 +101,7 @@ export class SignInPage {
 
 
     goTohome() {
-        this.navCtrl.push(HomePage);
+        this.navCtrl.setRoot(HomePage);
     }
 
   goToGetter() {
