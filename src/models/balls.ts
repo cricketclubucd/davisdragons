@@ -1,15 +1,20 @@
 export interface balls
 {
-  runs : number,
-  ifWide: string,
+  //runs : number,
   ifExtras: string,
   wickets : number,
-  oversUp : string,
+  //oversUp : string,
   octant: number
   ballid: number;
   ballinOver: number;
-  overs: number;
+  //overs: number;
   score: number;
   totalBalls: string;
 
+}
+export interface totalRuns
+{
+    totalruns : number;
+    totalwickets: number;
+    totalovers: number;
 }

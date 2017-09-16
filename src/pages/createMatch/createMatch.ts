@@ -42,12 +42,12 @@ export class CreatePage {
     create(key:key, captains: captains) {
 
 
-        this.balls.runs= 0;
+        //this.balls.runs= 0;
         this.balls.ballid = 0;
-        this.balls.ifWide = "false";
+        //this.balls.ifWide = "false";
         this.balls.ifExtras= "false";
         this.balls.wickets= 0 ;
-        this.balls.oversUp = "false" ;
+        //this.balls.oversUp = "false" ;
         this.balls.octant= 0 ;
 
         key.ballKey = this.balls.ballid;
@@ -75,7 +75,7 @@ export class CreatePage {
         this.team.toss = "Team";
         //this.captains.umpire = 0;
 
-        this.score.ballsnOver=0;
+        //this.score.ballsnOver=0;
         this.score.totalOvers=0;
         this.score.totalRuns=0;
         this.score.totalWickets=0;
