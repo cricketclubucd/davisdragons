@@ -39,11 +39,11 @@ export class CreatePage {
     }
 
 
-    create(key:key, captains: captains,team:team) {
+    create(key:key, captains: captains) {
 
 
         this.balls.runs= 0;
-        this.balls.ballNumber = 0;
+        this.balls.ballid = 0;
         this.balls.ifWide = "false";
         this.balls.ifExtras= "false";
         this.balls.wickets= 0 ;
@@ -73,35 +73,31 @@ export class CreatePage {
 
 
         this.team.toss = "Team";
-        this.team.umpire = 0;
+        //this.captains.umpire = 0;
 
         this.score.ballsnOver=0;
         this.score.totalOvers=0;
         this.score.totalRuns=0;
         this.score.totalWickets=0;
 
-
-        //this.data.object(`Matches/`+ key.MatchKey + `/Balls/`+key.ballKey)
-            //.set(this.balls);
-
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
             .set(this.team);
-        /*this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
+
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/Awaycaptain`)
             .set(this.captains.Awaycaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/Awayvcaptain`)
             .set(this.captains.Awayvcaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/Awaywk`)
             .set(this.captains.Awaywk);
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/`)
             .set(this.team);
-
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
-            .update(this.captains.Homecaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
-            .update(this.captains.Homevcaptain);
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/`)
-            .update(this.captains.Homewk);*/
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/HomeCaptain/`)
+            .set(this.captains.Homecaptain);
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/Homevcaptain/`)
+            .set(this.captains.Homevcaptain);
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/Homewk/`)
+            .set(this.captains.Homewk);
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/Score/`)
             .set(this.score);
 
@@ -109,7 +105,7 @@ export class CreatePage {
             .set(this.team.toss);
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/Umpire/`)
-            .set(this.team.umpire);
+            .set(this.captains.umpire);
 
 
         this.data.object(`ClubParams/LiveMatchState/matchPtr` )

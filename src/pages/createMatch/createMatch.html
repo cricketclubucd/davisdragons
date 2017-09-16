@@ -21,7 +21,7 @@
 
         <ion-item>
             <ion-label floating>Umpire</ion-label>
-            <ion-input type="text"[(ngModel)] = "team.umpire"></ion-input>
+            <ion-input type="text"[(ngModel)] = "captains.umpire"></ion-input>
         </ion-item>
 
 
@@ -39,6 +39,6 @@
     </ion-list>
 
     <div padding>
-        <button ion-button  type="button" (click)="create(key,captains,team)">Start Match</button>
+        <button ion-button  type="button" (click)="create(key,captains)">Start Match</button>
     </div>
 </ion-content>

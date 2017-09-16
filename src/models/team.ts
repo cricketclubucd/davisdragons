@@ -17,8 +17,6 @@ export interface team
 
   toss: string;
 
-  umpire: number;
-
 }
 
 export interface captains{
@@ -29,6 +27,8 @@ export interface captains{
     Awaywk: number;
     Homecaptain: number;
     Awaycaptain: number;
+
+    umpire: number;
 
 
 }
