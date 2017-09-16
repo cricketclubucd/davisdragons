@@ -5,7 +5,6 @@
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
 
-
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
@@ -41,10 +40,10 @@ $app-direction: ltr;
 $colors: (
   primary:    #002855,
   secondary:  #DAAA00,
-  danger:     #f53d3d,
-  live:          #2eb61a,
+  danger:     #ff0000,
+  live:          #2a900e,
   light:      white,
-  dark:       gray
+  dark:       #002855
 ) !default;
 
 $text-color: color($colors, secondary) !default;
