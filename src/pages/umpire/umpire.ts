@@ -15,6 +15,7 @@ export class UmpirePage
   name: any;
 x=0;
 y=0;
+coin = "";
 balls = {} as balls;
 key = {} as key;
 
@@ -49,6 +50,7 @@ static overString = "";
 static height1 =0;
 static octant = 0;
 data : FirebaseListObservable<any>;
+val : FirebaseListObservable<any>;
 key2 ="";
 constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, platform : Platform)
 {
@@ -60,6 +62,7 @@ constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, plat
   });
 
   this.data = fdb.list('/Matches/Match1/Balls');
+  this.val = fdb.list('/Matches/M1/MatchStats/Toss');
     this.balls.ballid = 0;
     this.balls.ballinOver = 0;
     this.balls.overs = 0;
@@ -195,6 +198,20 @@ updateballid(i)
    }
    UmpirePage.overString = this.balls.overs.toString() + '.' + this.balls.ballinOver.toString();
    this.balls.totalBalls = UmpirePage.overString;
+}
+computeToss()
+{
+  var heads = 0;
+  var tails = 0;
+  var x;
+  x = (Math.floor(Math.random() * 2) == 0);
+  if(x){
+    this.coin = "heads"
+  }else{
+    this.coin = "tails"
+  }
+  alert('It\'s ' + this.coin)
+  this.val.push(this.coin);
 }
 pushdata()
  {
