@@ -6,6 +6,7 @@ import { key } from '../../models/match';
 import { balls } from '../../models/balls';
 import { team} from '../../models/team';
 import { score} from '../../models/Score';
+import {totalRuns} from '../../models/balls';
 @Component({
 
 templateUrl: 'umpire.html'
@@ -18,6 +19,7 @@ y=0;
 coin = "";
 balls = {} as balls;
 key = {} as key;
+totalRuns = {} as totalRuns;
 
 //static totalRuns =0;
 //static score = 0;
@@ -65,15 +67,18 @@ constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, plat
   this.val = fdb.list('/Matches/M1/MatchStats/Toss');
     this.balls.ballid = 0;
     this.balls.ballinOver = 0;
-    this.balls.overs = 0;
+    //this.balls.overs = 0;
     this.balls.score = 0;
 
-    this.balls.runs= 0;
-    this.balls.ifWide = "false";
+    //this.balls.runs= 0;
+    //this.balls.ifWide = "false";
     this.balls.ifExtras= "false";
     this.balls.wickets= 0 ;
-    this.balls.oversUp = "false" ;
+    //this.balls.oversUp = "false" ;
     this.balls.octant= 0 ;
+    this.totalRuns.totalruns =0;
+    this.totalRuns.totalovers =0;
+    this.totalRuns.totalwickets =0;
 
     this.key.MatchKey = "0";
 
@@ -187,17 +192,7 @@ else if(xdiff >0 && ydiff <0)
 updateballid(i)
 {
     this.balls.score = i;
-   this.balls.ballid = this.balls.ballid+1;
 
-
-    this.balls.ballinOver = this.balls.ballinOver+1;
-   if(this.balls.ballid % 6 == 0)
-   {
-       this.balls.ballinOver = 0;
-       this.balls.overs = this.balls.overs + 1;
-   }
-   UmpirePage.overString = this.balls.overs.toString() + '.' + this.balls.ballinOver.toString();
-   this.balls.totalBalls = UmpirePage.overString;
 }
 computeToss()
 {
@@ -215,9 +210,19 @@ computeToss()
 }
 pushdata()
  {
+   this.balls.ballid = this.balls.ballid+1;
+    this.balls.ballinOver = this.balls.ballinOver+1;
+   if(this.balls.ballid % 6 == 0)
+   {
+       this.balls.ballinOver = 0;
+       this.totalRuns.totalovers = this.totalRuns.totalovers + 1;
+   }
+   UmpirePage.overString = this.totalRuns.totalovers.toString() + '.' + this.balls.ballinOver.toString();
+   this.balls.totalBalls = UmpirePage.overString;
    this.fdb.object(`/Matches/`+ this.key.MatchKey + `/Balls/` + this.balls.ballid)
         .set(this.balls);
    this.updateTotalScore();
+   this.balls.wickets = 0;
   }
 
 onTap(event): void {
@@ -233,12 +238,15 @@ increment(i)
 
 updateTotalScore()
 {
-   this.balls.runs = this.balls.runs + this.balls.score;
+   this.totalRuns.totalruns = this.totalRuns.totalruns + this.balls.score;
    console.log(this.key.MatchKey);
 
   this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalRuns/` )
-      .set(this.balls.runs);
-
+      .set(this.totalRuns.totalruns);
+  this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalWickets/` )
+          .set(this.totalRuns.totalwickets);
+  this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalOvers/` )
+                  .set(this.totalRuns.totalovers);
   //CurrentMatch.updateScore(UmpirePage.score);
 }
 
@@ -250,6 +258,7 @@ wide()
 
 wicket()
 {
-    this.balls.wickets = this.balls.wickets + 1;
+    this.balls.wickets = 1;
+    this.totalRuns.totalwickets = this.totalRuns.totalwickets + this.balls.wickets;
 }
 }
