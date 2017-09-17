@@ -34,8 +34,11 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
       var helloVal = localStorage.getItem("hello");
-      this.access_val = helloVal.toString();
-      localStorage.removeItem("hello");
+      if(helloVal)
+      {
+        this.access_val = helloVal.toString();
+        localStorage.removeItem("hello");
+      }
 
     // used for an example of ngFor and navigation
     this.pages_0 = [

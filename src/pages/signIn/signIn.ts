@@ -96,7 +96,10 @@ export class SignInPage {
 		{
 			this.data.object("ClubParams/AccessLevel/" + SignInPage.jersey_num).subscribe(data => {
 				alert("AccessLevel: "+ data.$value);
-				localStorage.setItem("hello", data.$value)
+				if(data.$value){
+					localStorage.setItem("hello", data.$value);
+					window.location.reload();
+				}
 			});
 		}
 		//this.data.object('/ClubParams/AccessLevel/' + SignInPage.jersey_num + "/").subscribe(data => console.log("Value: " + data))
