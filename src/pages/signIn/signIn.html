@@ -1,29 +1,42 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Sign In</ion-title>
+    </ion-navbar>
+  </ion-header>
+
 <ion-content padding>
 <ion-fab right bottom>
-<button ion-fab color="secondary" large (click)="goTohome()"><ion-icon color="live" name="tennisball"></ion-icon></button>
+<button ion-fab color="secondary" (click)="googleauth()"><ion-icon name="add"></ion-icon></button>
 </ion-fab>
 
-<div text-center>
-	<img src="assets/img/Welcome.jpg" />
-	<h1 color="secondary"> Davis Dragons ®
-	</h1>
-	<h3 color="live"> The Official App for the Cricket Club at UC Davis.
-		</h3>
-  <button ion-button color="danger" large round (click)="googleauth()" *ngIf="!userProfile">
-    <ion-icon name="logo-googleplus"></ion-icon>
-    Login with Google
-  </button>
+<div padding>
+
+  <button ion-button (click)="goToSearch()">Search</button>
+  <button ion-button (click)="goToGetter()">Getter</button>
+  <button ion-button (click) = "goTohome()"> Home </button>
 </div>
-<button ion-button (click) = "goToGetter()"> Getter </button>
+
+  <button ion-button large  color="danger" round (click)="googleauth()" *ngIf="!userProfile">
+    <ion-icon name="logo-googleplus"></ion-icon>
+     Login with Google
+  </button>
 
   <ion-item *ngIf="userProfile">
     <ion-avatar (click)="isloggedin()" item-left>
       <img [src]="userProfile.photoURL">
     </ion-avatar>
     <h2 (click)="isloggedin()">{{ userProfile.displayName }}</h2>
-    <h3>{{ userProfile.email }}</h3>
+    <h3>There it is: {{ userProfile.email }}</h3>
     <ion-icon name="remove" item-right (click)="logout()"></ion-icon>
   </ion-item>
+
+  <button ion-button large  color="danger" round (click)="authorize()" *ngIf="userProfile">
+      <ion-icon name="logo-googleplus"></ion-icon>
+       &nbsp; Get Access Level
+    </button>
 
 
 </ion-content>

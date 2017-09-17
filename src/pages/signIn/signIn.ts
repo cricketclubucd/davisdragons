@@ -12,18 +12,25 @@ import { MyApp } from '../../app/app.component';
 import { GetterPage } from '../getter/getter';
 import { AddPage } from '../add/add';
 import { SearchPage } from '../Search/search';
-import {CreatePage} from "../createMatch/createMatch";
 
 @Component({
   selector: 'page-signIn',
   templateUrl: 'signIn.html'
 })
+
 export class SignInPage {
 
-    name:FirebaseListObservable<any[]>;
+	name:FirebaseListObservable<any[]>;
+	bleh:FirebaseListObservable<any[]>;
+	items:FirebaseListObservable<any[]>;
+	jerseyshore:FirebaseListObservable<any[]>;
+	// j_no:FirebaseListObservable<any[]>;
+	accessNo$: FirebaseListObservable<any[]>;
+	static jersey_num = 0;
+	static emailId = "";
 	userProfile: any = null;
 	fireauth = firebase.auth();
-	constructor(public navCtrl: NavController, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform, private data: AngularFireDatabase) {
+	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform, private data: AngularFireDatabase) {
 		this.fireauth.onAuthStateChanged( user => {
 			if (user){
 				this.userProfile = user;
@@ -31,7 +38,11 @@ export class SignInPage {
 				this.userProfile = null;
 			}
 		});
+		//alert(SignInPage.emailId)
+		// alert(this.userProfile.email);
+		this.accessNo$ = this.database.list('ClubParams/ClubRoster');
 	}
+	
 
 	googleauth() {
 		var clientInfo = {
@@ -48,7 +59,7 @@ export class SignInPage {
 		  .then((res) => {
 			  const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);
 			 this.fireauth.signInWithCredential(firecreds).then((res) => {
-				  alert("Firebase success: " + JSON.stringify(res));
+				  // alert("Firebase success: " + JSON.stringify(res));
 				  this.check(this.userProfile);
                  	//this.goToAdd(this.userProfile);
 
@@ -60,26 +71,62 @@ export class SignInPage {
 			})
 	}
 
+	authorize() {
+		this.bleh = this.data.list("/ClubParams/ClubRoster",{
+            query: {
+                orderByChild: "email",
+                equalTo: this.userProfile.email
+            }
+
+        });
+
+        this.bleh.subscribe(data =>
+        {
+            if(data.length == 0) {
+                console.log('User does not exist');
+                alert("Player with this email is not in our database")
+
+            } else {
+                console.log('User does exist');
+				console.log(data);
+				SignInPage.jersey_num = data[0].Jersey_Number;
+			}
+		});
+		if(SignInPage.jersey_num)
+		{
+			this.data.object("ClubParams/AccessLevel/" + SignInPage.jersey_num).subscribe(data => {
+				alert("AccessLevel: "+ data.$value);
+				localStorage.setItem("hello", data.$value)
+			});
+		}
+		//this.data.object('/ClubParams/AccessLevel/' + SignInPage.jersey_num + "/").subscribe(data => console.log("Value: " + data))
+	}
+
 	check(userprofile:any)
 	{
 
-        this.name = this.data.list("/ClubParams/ClubRoster",{
+        this.name = this.data.list("/Players",{
             query: {
                 orderByChild: "email",
                 equalTo: userprofile.email
             }
 
-        });
-
+		});
+		
+		// this.j_no = this.database.list("/ClubParams/ClubRoster");
+		//alert(SignInPage.emailId);
+		
+		//alert("j_no: " + this.j_no);
+		//alert(this.accessNo$);
         this.name.subscribe(data =>
         {
-            if(data.length == 0) {
+            if(data.length == 0 && !userprofile) {
                 console.log('User does not exist');
                 console.log(data);
                 this.navCtrl.push(AddPage, {playerInfo: userprofile});
 
             } else {
-                console.log('User does exist');
+                alert('User does exist');
                 console.log(data);
                 this.navCtrl.push(HomePage);
             }
@@ -101,7 +148,7 @@ export class SignInPage {
 
 
     goTohome() {
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.push(HomePage);
     }
 
   goToGetter() {
@@ -114,10 +161,6 @@ export class SignInPage {
 
     goToSearch() {
         this.navCtrl.push(SearchPage);
-    }
-
-    goToCreate() {
-        this.navCtrl.push(CreatePage);
     }
 
 
