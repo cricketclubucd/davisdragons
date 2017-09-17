@@ -85,7 +85,7 @@ constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, plat
     this.name = this.fdb.object('/ClubParams/LiveMatchState/');
     this.name.take(1).subscribe(data =>
     {
-        console.log(data);
+        console.log("Match Ptr: " + data);
         this.key.MatchKey= data.matchPtr;
 
     });
@@ -201,12 +201,15 @@ computeToss()
   var x;
   x = (Math.floor(Math.random() * 2) == 0);
   if(x){
-    this.coin = "heads"
+    this.coin = "Heads"
   }else{
-    this.coin = "tails"
+    this.coin = "Tails"
   }
   alert('It\'s ' + this.coin)
   this.val.push(this.coin);
+  this.fdb.object(`/Matches/`+ this.key.MatchKey + `/MatchStats/Toss`)
+  .set(this.coin);
+  document.getElementById('toss').style.display = 'none';
 }
 pushdata()
  {
