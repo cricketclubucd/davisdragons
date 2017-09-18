@@ -44,7 +44,6 @@ export class UmpirePage
   static height1 =0;
   static octant = 0;
   data : FirebaseListObservable<any>;
-  val : FirebaseListObservable<any>;
   key2 ="";
   constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, platform : Platform)
   {
@@ -55,7 +54,6 @@ export class UmpirePage
        this.computeBoundaries();
     }); //accesses platform to find its height and width
     this.data = fdb.list('/Matches/Match1/Balls');
-    this.val = fdb.list('/Matches/M1/MatchStats/Toss');
     this.balls.ballid = 0;
     this.balls.score = 0;
     this.balls.ifExtras= "false";
@@ -195,7 +193,6 @@ export class UmpirePage
       this.coin = "Tails"
     }
     alert('It\'s ' + this.coin)
-    this.val.push(this.coin);
     this.fdb.object(`/Matches/`+ this.key.MatchKey + `/MatchStats/Toss`)
     .set(this.coin);
     document.getElementById('toss').style.display = 'none';
@@ -205,7 +202,8 @@ export class UmpirePage
 	this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score`).take(1).subscribe(data =>
     {
 	    console.log("Get ball ptr: " + data.ballPtr);
-	    this.score.ballPtr = data.ballPtr;
+      this.score.ballPtr = data.ballPtr;
+      console.log("Match: " + this.key.MatchKey);
     });
     this.balls.ballid = this.score.ballPtr;
     this.score.ballPtr = this.score.ballPtr + 1;
@@ -253,6 +251,104 @@ export class UmpirePage
   {
     this.balls.score = 1;
     this.updateTotalScore();
+  }
+  clear(){
+    document.getElementById('run_button6').style.color = 'goldenrod';
+    document.getElementById('run_button6').style.background = '#002855';
+    document.getElementById('run_button0').style.color = 'goldenrod';
+    document.getElementById('run_button0').style.background = '#002855';
+    document.getElementById('run_button1').style.color = 'goldenrod';
+    document.getElementById('run_button1').style.background = '#002855';
+    document.getElementById('run_button2').style.color = 'goldenrod';
+    document.getElementById('run_button2').style.background = '#002855';
+    document.getElementById('run_button3').style.color = 'goldenrod';
+    document.getElementById('run_button3').style.background = '#002855';
+    document.getElementById('run_button4').style.color = 'goldenrod';
+    document.getElementById('run_button4').style.background = '#002855';
+  }
+  run_button0(){
+    document.getElementById('run_button0').style.color = '#002855';
+    document.getElementById('run_button0').style.background = 'goldenrod';
+    document.getElementById('run_button1').style.color = 'goldenrod';
+    document.getElementById('run_button1').style.background = '#002855';
+    document.getElementById('run_button2').style.color = 'goldenrod';
+    document.getElementById('run_button2').style.background = '#002855';
+    document.getElementById('run_button3').style.color = 'goldenrod';
+    document.getElementById('run_button3').style.background = '#002855';
+    document.getElementById('run_button4').style.color = 'goldenrod';
+    document.getElementById('run_button4').style.background = '#002855';
+    document.getElementById('run_button6').style.color = 'goldenrod';
+    document.getElementById('run_button6').style.background = '#002855';
+  }
+  run_button1(){
+    document.getElementById('run_button1').style.color = '#002855';
+    document.getElementById('run_button1').style.background = 'goldenrod';
+    document.getElementById('run_button0').style.color = 'goldenrod';
+    document.getElementById('run_button0').style.background = '#002855';
+    document.getElementById('run_button2').style.color = 'goldenrod';
+    document.getElementById('run_button2').style.background = '#002855';
+    document.getElementById('run_button3').style.color = 'goldenrod';
+    document.getElementById('run_button3').style.background = '#002855';
+    document.getElementById('run_button4').style.color = 'goldenrod';
+    document.getElementById('run_button4').style.background = '#002855';
+    document.getElementById('run_button6').style.color = 'goldenrod';
+    document.getElementById('run_button6').style.background = '#002855';
+  }
+  run_button2(){
+    document.getElementById('run_button2').style.color = '#002855';
+    document.getElementById('run_button2').style.background = 'goldenrod';
+    document.getElementById('run_button0').style.color = 'goldenrod';
+    document.getElementById('run_button0').style.background = '#002855';
+    document.getElementById('run_button1').style.color = 'goldenrod';
+    document.getElementById('run_button1').style.background = '#002855';
+    document.getElementById('run_button3').style.color = 'goldenrod';
+    document.getElementById('run_button3').style.background = '#002855';
+    document.getElementById('run_button4').style.color = 'goldenrod';
+    document.getElementById('run_button4').style.background = '#002855';
+    document.getElementById('run_button6').style.color = 'goldenrod';
+    document.getElementById('run_button6').style.background = '#002855';
+  }
+  run_button3(){
+    document.getElementById('run_button3').style.color = '#002855';
+    document.getElementById('run_button3').style.background = 'goldenrod';
+    document.getElementById('run_button0').style.color = 'goldenrod';
+    document.getElementById('run_button0').style.background = '#002855';
+    document.getElementById('run_button1').style.color = 'goldenrod';
+    document.getElementById('run_button1').style.background = '#002855';
+    document.getElementById('run_button2').style.color = 'goldenrod';
+    document.getElementById('run_button2').style.background = '#002855';
+    document.getElementById('run_button4').style.color = 'goldenrod';
+    document.getElementById('run_button4').style.background = '#002855';
+    document.getElementById('run_button6').style.color = 'goldenrod';
+    document.getElementById('run_button6').style.background = '#002855';
+  }
+  run_button4(){
+    document.getElementById('run_button4').style.color = '#002855';
+    document.getElementById('run_button4').style.background = 'goldenrod';
+    document.getElementById('run_button0').style.color = 'goldenrod';
+    document.getElementById('run_button0').style.background = '#002855';
+    document.getElementById('run_button1').style.color = 'goldenrod';
+    document.getElementById('run_button1').style.background = '#002855';
+    document.getElementById('run_button2').style.color = 'goldenrod';
+    document.getElementById('run_button2').style.background = '#002855';
+    document.getElementById('run_button3').style.color = 'goldenrod';
+    document.getElementById('run_button3').style.background = '#002855';
+    document.getElementById('run_button6').style.color = 'goldenrod';
+    document.getElementById('run_button6').style.background = '#002855';
+  }
+  run_button6(){
+    document.getElementById('run_button6').style.color = '#002855';
+    document.getElementById('run_button6').style.background = 'goldenrod';
+    document.getElementById('run_button0').style.color = 'goldenrod';
+    document.getElementById('run_button0').style.background = '#002855';
+    document.getElementById('run_button1').style.color = 'goldenrod';
+    document.getElementById('run_button1').style.background = '#002855';
+    document.getElementById('run_button2').style.color = 'goldenrod';
+    document.getElementById('run_button2').style.background = '#002855';
+    document.getElementById('run_button3').style.color = 'goldenrod';
+    document.getElementById('run_button3').style.background = '#002855';
+    document.getElementById('run_button4').style.color = 'goldenrod';
+    document.getElementById('run_button4').style.background = '#002855';
   }
   wicket()
   {

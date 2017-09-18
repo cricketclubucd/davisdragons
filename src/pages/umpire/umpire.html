@@ -13,16 +13,16 @@
   <img style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
   </div>
   <div text-center>
-    <button ion-button color="secondary" clear (click) = 'increment(1);'>+1</button>
-    <button ion-button color="secondary" clear (click) = 'increment(2);' >+2</button>
-    <button ion-button color="secondary" clear (click) = 'increment(3);'>+3</button>
-    <button ion-button color="secondary" clear (click) = 'increment(4);' >+4</button>
-    <button ion-button color="secondary" clear (click) = 'increment(6);' >+6</button>
-    <button ion-button color ="secondary" clear (click) = 'dot();'> Dot </button>
+    <button ion-button color="secondary" id="run_button1" clear (click) = 'increment(1); run_button1();'>+1</button>
+    <button ion-button color="secondary" id="run_button2" clear (click) = 'increment(2); run_button2();' >+2</button>
+    <button ion-button color="secondary" id="run_button3" clear (click) = 'increment(3); run_button3();'>+3</button>
+    <button ion-button color="secondary" id="run_button4" clear (click) = 'increment(4); run_button4();' >+4</button>
+    <button ion-button color="secondary" id="run_button6" clear (click) = 'increment(6); run_button6();'>+6</button>
+    <button ion-button color ="secondary" id="run_button0" clear (click) = 'increment(0); run_button0();'> Dot </button>
     <button ion-button color="danger" id="toss" clear (click) = ' computeToss() ' >Toss</button>
     <button ion-button color="dark" clear (click) = 'wide();' > wide</button>
     <button ion-button color="danger" clear (click) = 'increment(); ' >Extras</button>
-    <button ion-button color="danger" full (click) = 'pushdata();' >Go!</button>
+    <button ion-button color="danger" full (click) = 'clear(); pushdata();' >Go!</button>
 
   </div>
 
