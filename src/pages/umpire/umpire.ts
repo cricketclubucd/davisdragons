@@ -61,6 +61,7 @@ export class UmpirePage
     this.balls.ifExtras= "false";
     this.balls.isWicket= "false";
     this.balls.octant= 0 ;
+    this.score.ballPtr = 0;
     this.score.totalRuns =0;
     this.score.totalOvers = "";
     this.score.totalWickets =0;
@@ -70,6 +71,15 @@ export class UmpirePage
     {
         console.log("Match Ptr: " + data);
         this.key.MatchKey= data.matchPtr;
+    });// Finds out the corrent matchPtr
+    this.name = this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`);
+    this.name.take(1).subscribe(data =>
+    {
+	    console.log("constructor ball Ptr: " + data.ballPtr);
+	    this.score.ballPtr = data.ballPtr;
+	    this.score.totalOvers = data.totalOvers;
+        this.score.totalRuns = data.totalRuns;
+		this.score.totalWickets = data.totalWickets;
     });// Finds out the corrent matchPtr
   }
   computeBoundaries()
@@ -192,6 +202,11 @@ export class UmpirePage
   }
   pushdata()
   {
+	this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score`).take(1).subscribe(data =>
+    {
+	    console.log("Get ball ptr: " + data.ballPtr);
+	    this.score.ballPtr = data.ballPtr;
+    });
     this.balls.ballid = this.score.ballPtr;
     this.score.ballPtr = this.score.ballPtr + 1;
     UmpirePage.overString = ((Math.floor(this.balls.ballid/6)).toString()) + '.'+ ((this.balls.ballid %6).toString());
@@ -216,7 +231,7 @@ export class UmpirePage
    {
      this.score.totalWickets = this.score.totalWickets + 1;
    }
-
+   console.log("Ball ptr local" + this.score.ballPtr);
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalRuns/` )
     .set(this.score.totalRuns);
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalWickets/` )
@@ -227,6 +242,13 @@ export class UmpirePage
     .set(this.score.ballPtr);
    this.balls.isWicket = "false";
   }
+  dot()
+  {
+	this.balls.ifExtras = "false";
+    this.balls.isWicket = "false";
+    this.balls.octant = 0;
+    this.balls.score =0;
+  }
   wide()
   {
     this.balls.score = 1;
@@ -234,9 +256,9 @@ export class UmpirePage
   }
   wicket()
   {
+    this.balls.ifExtras = "false";
     this.balls.isWicket = "true";
     this.balls.octant = 0;
     this.balls.score =0;
-    this.pushdata();
   }
 } // end of class
