@@ -97,12 +97,12 @@ export class CreatePage {
 
         this.balls.ballid = 0;
         //this.balls.ifWide = "false";
-        this.balls.ifExtras= "false";
-        this.balls.wickets= 0 ;
+        this.balls.ifExtras = "false";
+        this.balls.isWicket = "false" ;
         this.balls.octant= 0 ;
 
         key.ballKey = this.balls.ballid;
-        
+
         this.captains.Homevcaptain = 0;
         this.captains.Awayvcaptain = 0;
         this.captains.Homewk = 0;
@@ -113,7 +113,7 @@ export class CreatePage {
         //this.captains.umpire = 0;
 
         //this.score.ballsnOver=0;
-        this.score.totalOvers=0;
+        this.score.totalOvers= "";
         this.score.totalRuns=0;
         this.score.totalWickets=0;
 
