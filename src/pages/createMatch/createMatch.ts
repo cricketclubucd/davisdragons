@@ -116,6 +116,7 @@ export class CreatePage {
         this.score.totalOvers= "";
         this.score.totalRuns=0;
         this.score.totalWickets=0;
+        this.score.ballPtr=1;
 
         for (var i = 1 ; i <= key.numPlayers; i++ ){
             this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/check/p`+ i + `/`)

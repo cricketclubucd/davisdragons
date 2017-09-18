@@ -15,6 +15,7 @@ import {SpectatorPage} from '../pages/spectator/spectator';
 import{MemberPage} from '../pages/member/member';
 //import{TabBasicContentPage} from '../pages/member/TabBasicContentPage';
 import {UmpirePage} from '../pages/umpire/umpire';
+import {CreatePage} from '../pages/createMatch/createMatch';
 
 @Component({
   templateUrl: 'app.html'
@@ -49,6 +50,7 @@ export class MyApp {
         { title: 'Member', component: MemberPage },
         { title: 'Umpire', component: UmpirePage },
         { title: 'Search Player', component: SearchPage },
+        { title: 'Create Match', component: CreatePage }
     ];
     this.pages_1 = [
       { title: 'Home', component: HomePage },
@@ -58,6 +60,7 @@ export class MyApp {
         { title: 'Member', component: MemberPage },
         { title: 'Umpire', component: UmpirePage },
         { title: 'Search Player', component: SearchPage },
+        { title: 'Create Match', component: CreatePage },
     ];
     this.pages_2 = [
       { title: 'Home', component: HomePage },

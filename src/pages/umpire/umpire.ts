@@ -192,7 +192,8 @@ export class UmpirePage
   }
   pushdata()
   {
-    this.balls.ballid = this.balls.ballid+1;
+    this.balls.ballid = this.score.ballPtr;
+    this.score.ballPtr = this.score.ballPtr + 1;
     UmpirePage.overString = ((Math.floor(this.balls.ballid/6)).toString()) + '.'+ ((this.balls.ballid %6).toString());
     this.score.totalOvers = UmpirePage.overString;
     this.fdb.object(`/Matches/`+ this.key.MatchKey + `/Balls/` + this.balls.ballid)
@@ -215,12 +216,15 @@ export class UmpirePage
    {
      this.score.totalWickets = this.score.totalWickets + 1;
    }
+
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalRuns/` )
     .set(this.score.totalRuns);
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalWickets/` )
     .set(this.score.totalWickets);
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalOvers/` )
     .set(this.score.totalOvers);
+   this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/ballPtr/` )
+    .set(this.score.ballPtr);
    this.balls.isWicket = "false";
   }
   wide()
@@ -231,6 +235,8 @@ export class UmpirePage
   wicket()
   {
     this.balls.isWicket = "true";
+    this.balls.octant = 0;
+    this.balls.score =0;
     this.pushdata();
   }
 } // end of class
