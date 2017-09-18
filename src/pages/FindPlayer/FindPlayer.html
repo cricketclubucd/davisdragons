@@ -16,18 +16,43 @@
         <ion-list-header text-center class="headfont"> Search </ion-list-header>
         <ion-item>
             <ion-label floating>Jersey Number</ion-label>
-            <ion-input id ="jr" type="text"[(ngModel)] = "player.Jersey_Number"></ion-input>
+            <ion-input id ="jr" type="text"[(ngModel)] = "SidePlayer.Jersey_Number"></ion-input>
         </ion-item>
 
 
     </ion-list>
 
     <div padding>
-        <button ion-button  type="button" (click)="check(player)">Check</button>
+        <button ion-button  type="button" (click)="check(SidePlayer)">Check</button>
 
     </div>
 
-    <div *ngFor ="let item of playerRef$ | async">
-        <h2> Jersey Number: {{item.Jersey_Number}} </h2>
+    <div *ngFor ="let item of Checker">
+            <div class="card toty fifa17">
+                <div class="player">
+                    <img src="assets/img/Player_Profile.jpg" id="player-card">
+
+                    <div class="avatarholder" style="width: 115px; resize: horizontal ">
+                        <img src= "../../assets/img/virat.jpg" class="avatar">
+                    </div>
+                    <div class=" name">
+                        <span class="marquee">{{item.FirstName}}</span>
+                    </div>
+                    <div class="attributes ">
+                            <span class="loyalty">
+                            </span>
+                        <span class="runs">{{item.runs}}</span>
+                        <span class="wickets">{{item.wickets}}</span>
+                        <span class="highestScore">{{item.highscore}}</span>
+                        <span class="average">{{item.strikeRate}}</span>
+                        <span class="four">{{item.fours}}</span>
+                        <span class="six">{{item.sixes}}</span>
+
+                    </div>
+                </div>
+                <div class="chemstyle">
+                    <span class="chemstylename">{{item.role}}</span>
+                </div>
+            </div>
     </div>
 </ion-content>

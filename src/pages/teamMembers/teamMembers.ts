@@ -3,6 +3,7 @@ import {NavController, NavParams} from 'ionic-angular';
 
 import { player } from '../../models/player';
 import { key } from '../../models/match';
+import { side } from '../../models/match';
 import {FindPlayerPage} from "../FindPlayer/FindPlayer";
 
 
@@ -26,6 +27,8 @@ export class TeamMembersPage {
     name:FirebaseObjectObservable<player>;
     NumofPlayers: any;
     numPlayer: any;
+    thePlayer: any;
+    sideTeam = {} as side;
 
     open:any;
 
@@ -33,32 +36,30 @@ export class TeamMembersPage {
 
     constructor(public navCtrl: NavController,public navPrams: NavParams, private data: AngularFireDatabase) {
 
+        this.thePlayer = this.navPrams.get('playerInfo');
+        console.log("ThePlayer Squad: " + this.thePlayer.squad);
+        console.log("ThePlayer key: " + this.thePlayer.startKey);
 
-        this.name = this.navPrams.get('playerInfo');
-        console.log(this.name[0].FirstName);
-
-        this.data.object("Matches/M3/MatchStats/PlayerRoster/Away/check/amountofPlayers")
+        this.data.object("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/" + this.thePlayer.squad + "/check/amountofPlayers/")
             .subscribe(data =>
             {
                 this.NumofPlayers = data.$value;
-
             });
 
 
-        this.playerInfo = this.data.list("/Matches/M3/MatchStats/PlayerRoster/Away/",{
+        this.playerInfo = this.data.list("/Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/" + this.thePlayer.squad + "/",{
             query: {
                 orderByChild: "Jersey_Number",
-                equalTo: this.name[0].Jersey_Number
+                equalTo: this.thePlayer.Jersey_Number
             }
 
         });
 
         this.playerInfo.take(1).subscribe(data =>
         {
-            console.log(data.length);
             if(data.length === 1) {
 
-                alert("Jersey Number is already taken enter a diffrent one");
+                alert("Player with this Jersey Number is already part of the team.");
 
 
 
@@ -67,12 +68,10 @@ export class TeamMembersPage {
 
                 var test = 0;
 
-                //console.log(this.NumofPlayers);
 
-                this.numPlayer = this.data.list("Matches/M3/MatchStats/PlayerRoster/Home/check/");
+                this.numPlayer = this.data.list("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/"+ this.thePlayer.squad +"/check/");
                 this.numPlayer.subscribe(val => {
                     this.open = val;
-                    console.log(this.open);
 
                 });
             }
@@ -81,12 +80,9 @@ export class TeamMembersPage {
 
     }
 
-
     goToaddPlayer(){
 
         this.check(this.open);
-
-
 
     }
 
@@ -94,37 +90,42 @@ export class TeamMembersPage {
         var test: number = 1;
         var stop:number = 0;
         stop += this.NumofPlayers;
+        this.sideTeam.startKey = this.thePlayer.startKey;
+        this.sideTeam.squad = this.thePlayer.squad;
 
 
 
         while ( test <= this.NumofPlayers) {
+            //console.log("user value: "+ user[test].$key);
 
             if(user[test].$value == -1){
-                console.log("Test: " + test);
-                console.log("Value: " + user[test].$value);
-                var save = test;
+                var save;
+                save = user[test].$key;
+                //console.log("Save: " + save);
                 this.add(save);
-                console.log("Save: "+ save);
                 break;
             }
             test += 1;
             if(test == stop)
             {
                 alert("You cannot enter more players");
-                this.navCtrl.push(FindPlayerPage);
+                this.navCtrl.push(FindPlayerPage, {team: this.sideTeam});
 
             }
         }
-        this.navCtrl.push(FindPlayerPage);
+        this.navCtrl.push(FindPlayerPage, {team: this.sideTeam});
     }
 
     add(placeholder: number){
 
-        this.data.object(`Matches/M3/MatchStats/PlayerRoster/Home/Players/p`+ placeholder + `/`)
-        .set(this.name[0].Jersey_Number);
 
-        this.data.object(`Matches/M3/MatchStats/PlayerRoster/Home/check/p`+ placeholder + `/`)
-            .set(this.name[0].Jersey_Number);
+
+        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/`+ this.thePlayer.squad+`/Players/`+ placeholder + `/`)
+        .set(this.thePlayer.Jersey_Number);
+
+        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/`+ this.thePlayer.squad+`/check/`+ placeholder + `/`)
+            .set(this.thePlayer.Jersey_Number);
+
 
 
     }

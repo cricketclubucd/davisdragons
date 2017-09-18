@@ -18,25 +18,25 @@
                     <img src="assets/img/Player_Profile.jpg" id="player-card">
 
                     <div class="avatarholder" style="width: 115px; resize: horizontal ">
-                        <img src= {{this.name[0].picture}} class="avatar">
+                        //<img src= "../../assets/img/virat.jpg" class="avatar">
                     </div>
                     <div class=" name">
-                        <span class="marquee">{{this.name[0].FirstName}}</span>
+                        <span class="marquee">{{this.thePlayer.FirstName}}</span>
                     </div>
                     <div class="attributes ">
                             <span class="loyalty">
                             </span>
-                        <span class="runs">{{this.name[0].runs}}</span>
-                        <span class="wickets">{{this.name[0].wickets}}</span>
-                        <span class="highestScore">{{this.name[0].highscore}}</span>
-                        <span class="average">{{this.name[0].strikeRate}}</span>
-                        <span class="four">{{this.name[0].fours}}</span>
-                        <span class="six">{{this.name[0].sixes}}</span>
+                        <span class="runs">{{this.thePlayer.runs}}</span>
+                        <span class="wickets">{{this.thePlayer.wickets}}</span>
+                        <span class="highestScore">{{this.thePlayer.highscore}}</span>
+                        <span class="average">{{this.thePlayer.strikeRate}}</span>
+                        <span class="four">{{this.thePlayer.fours}}</span>
+                        <span class="six">{{this.thePlayer.sixes}}</span>
 
                     </div>
                 </div>
                 <div class="chemstyle">
-                    <span class="chemstylename">{{this.name[0].role}}</span>
+                    <span class="chemstylename">{{this.thePlayer.role}}</span>
                 </div>
             </div>
             <button ion-button (click) = "goToaddPlayer()"> Add </button>

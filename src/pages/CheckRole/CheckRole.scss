@@ -11,6 +11,14 @@ page-CheckRole {
     background: goldenrod;
   }
 
+  .OR{
+
+    font-family: 'exoregular';
+    font-size: 35px;
+    font-weight: bold;
+
+  }
+
 
   ion-navbar {
     font-family: 'MyFontFamily';
@@ -18,13 +26,6 @@ page-CheckRole {
     background-color: red;
   }
 
-
-
-  input[type="text"] {
-    font-family: 'exoregular';
-    font-style: normal;
-    font-size: 15px;
-  }
 
   .button {
     background-color: black;

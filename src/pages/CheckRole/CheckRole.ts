@@ -34,6 +34,7 @@ export class CheckRolePage {
     cap = {} as captains;
     side = {} as side;
 
+    save: side;
     Matchname:any;
     CaptainCheckHome: any;
     CaptainCheckAway: any;
@@ -58,8 +59,6 @@ export class CheckRolePage {
 
     check(key:side, capt: captains){
 
-        var verHome = false;
-        var verAway = false;
         var verMatch = false;
 
         this.side.startKey = key.startKey;
@@ -108,9 +107,10 @@ export class CheckRolePage {
 
                 confirm1 = true;
                 console.log("Match exists");
+                break;
             }
                 i += 1;
-            if(i > this.NumMatches)
+            if(i == this.NumMatches)
             {
                 alert("A match with that ID does not exist");
             }
@@ -127,7 +127,6 @@ export class CheckRolePage {
 
             this.data.object("/Matches/"+ key.startKey + "/MatchStats/PlayerRoster/Away/MainRoles/Awaycaptain/").subscribe(data => {
 
-
                 this.CaptainCheckAway = data.$value;
             });
 
@@ -138,10 +137,9 @@ export class CheckRolePage {
 
                 if (this.CaptainCheckHome == captain.Homecaptain) {
                     alert("Congrats! You are the Captain of the Home Team");
-                    this.side.squad = "Home";
-                    save = this.side;
-                    console.log("Saved Value: " + save);
-                    this.navCtrl.push(FindPlayerPage, {team: save});
+                    key.squad = "Home";
+                    console.log("Saved Value: " + key.squad);
+                    this.navCtrl.push(FindPlayerPage, {team: key});
                 }
                 else {
                     alert("You Jersey Number does not match the Captain's Jersey Number in our database.");
@@ -153,15 +151,14 @@ export class CheckRolePage {
             if(captain.Awaycaptain != null) {
 
                 console.log("Away Captain is not Null");
-                var save: any;
+
 
 
                 if (this.CaptainCheckAway == captain.Awaycaptain) {
                     alert("Congrats! You are the Captain of the Away Team");
-                    this.side.squad = "Away";
-                    save = this.side;
-                    console.log("Saved Value: " + save);
-                    this.navCtrl.push(FindPlayerPage, {team: save} );
+                    key.squad = "Away";
+                    console.log("Saved Value: " + key.squad);
+                    this.navCtrl.push(FindPlayerPage, {team: key} );
                 }
                 else {
                     alert("You Jersey Number does not match the Captain's Jersey Number in our database.");

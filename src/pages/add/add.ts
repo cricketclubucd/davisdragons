@@ -34,6 +34,7 @@ export class AddPage {
 
         this.player.email = user.email;
         //this.player.picture = user.photoURL;
+        this.player.picture = null;
 
         //this.userRef$ = this.data.object('Players');
 

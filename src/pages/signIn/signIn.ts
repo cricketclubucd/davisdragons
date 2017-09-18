@@ -166,6 +166,4 @@ export class SignInPage {
         this.navCtrl.push(SearchPage);
     }
 
-
-
 }

@@ -8,6 +8,8 @@ import { GetterPage } from '../pages/getter/getter';
 import { AddPage } from '../pages/add/add';
 import { SearchPage } from '../pages/Search/search';
 import { ShowPage } from '../pages/show/show';
+import { CheckRolePage } from '../pages/CheckRole/CheckRole';
+
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -25,7 +27,7 @@ export class MyApp {
 
   rootPage: any = SignInPage;
 
-  pages_0: Array<{title: string, component: any}>;
+  pages_0: Array<{title: string, component: any}>
   pages_1: Array<{title: string, component: any}>;
   pages_2: Array<{title: string, component: any}>;
   pages_3: Array<{title: string, component: any}>;
@@ -45,6 +47,7 @@ export class MyApp {
     this.pages_0 = [
       { title: 'Home', component: HomePage },
       { title: 'Add', component: AddPage },
+        { title: 'Add to Team', component: CheckRolePage },
       { title: 'List', component: ListPage },
       { title: 'Spectator', component: SpectatorPage },
         { title: 'Member', component: MemberPage },
@@ -56,6 +59,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Add', component: AddPage },
       { title: 'List', component: ListPage },
+        { title: 'Add to Team', component: CheckRolePage },
       { title: 'Spectator', component: SpectatorPage },
         { title: 'Member', component: MemberPage },
         { title: 'Umpire', component: UmpirePage },

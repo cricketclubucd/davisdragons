@@ -98,7 +98,7 @@ export class CreatePage {
         this.balls.ballid = 0;
         //this.balls.ifWide = "false";
         this.balls.ifExtras = "false";
-        this.balls.isWicket = "false" ;
+        //this.balls.isWicket = "false" ;
         this.balls.octant= 0 ;
 
         key.ballKey = this.balls.ballid;
@@ -113,7 +113,7 @@ export class CreatePage {
         //this.captains.umpire = 0;
 
         //this.score.ballsnOver=0;
-        this.score.totalOvers= "";
+        //this.score.totalOvers= "";
         this.score.totalRuns=0;
         this.score.totalWickets=0;
         this.score.ballPtr=1;
@@ -125,6 +125,7 @@ export class CreatePage {
         }
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/check/amountofPlayers`)
             .set(key.numPlayers);
+
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awaycaptain`)
             .set(this.captains.Awaycaptain);
@@ -139,7 +140,7 @@ export class CreatePage {
 
         }
 
-        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/check/amoutofPlayers`)
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/check/amountofPlayers`)
             .set(key.numPlayers);
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/HomeCaptain/`)
