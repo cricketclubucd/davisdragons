@@ -3,8 +3,8 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
-    		<ion-title *ngIf="i == 1">{{item.totalRuns}} / {{item.totalWickets}} ({{item.totalOvers}}.{{item.ballsInOver}})</ion-title>
+    <div text-center *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+    		<ion-title *ngIf="i == 1">{{item.totalRuns}} / {{item.totalWickets}} ({{item.totalOvers}})</ion-title>
     </div>
   </ion-navbar>
   <ion-toolbar no-border-top>
@@ -31,8 +31,10 @@
 
     <ion-list *ngSwitchCase="'vs.'">
       <div *ngFor ="let item of scoreRef$ | async; let i = index; let lst = last">
-          <h2 *ngIf="lst">Runs Scored: {{item.runs}}</h2>
-          <h2 *ngIf="lst">Ball Number: {{item.ballNumber}}</h2>
+          <h2 *ngIf="i==1">Overs: {{ item.$value }}</h2>
+          <h2 *ngIf="i==2">Runs: {{ item.$value }}</h2>
+          <h2 *ngIf="i==3">Wickets: {{ item.$value }}</h2>
+          <h2 *ngIf="i==lst">Next Ball: {{ item.$value }}</h2>
       </div>
       
       <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
@@ -42,10 +44,10 @@
 			<div *ngIf="i == 1">{{item.totalRuns}}</div>
 		</ion-col>
 		<ion-col col-auto>
-    		    <div>Variable width content</div>
+    		    <div *ngIf="i == 1">{{item.totalWickets}}</div>
 		</ion-col>
 		<ion-col>
-    		    <div>3 of 3</div>
+    		    <div *ngIf="i == 1">{{item.totalOvers}}</div>
 		</ion-col>
 	  </ion-row>
     </ion-grid>
