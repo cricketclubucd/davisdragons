@@ -4,7 +4,7 @@
 	<button ion-button color="secondary" clear menuToggle>
 		<ion-icon name="menu"></ion-icon>
 	</button>
-    <button ion-button center color ="danger" (click) = 'wicket(); updateballid(0)'>
+    <button ion-button center color ="danger" (click) = 'wicket(); increment(0)'>
     			<img style="width: 15%;" src="assets/icon/wicket.svg" /> wicket
     		</button>
     <br />
@@ -21,7 +21,7 @@
     <button ion-button color ="secondary" clear (click) = 'increment(0);'> Dot </button>
     <button ion-button color="danger" id="toss" clear (click) = ' computeToss() ' >Toss</button>
     <button ion-button color="dark" clear (click) = 'wide();' > wide</button>
-    <button ion-button color="danger" clear (click) = 'updateballid(); ' >Extras</button>
+    <button ion-button color="danger" clear (click) = 'increment(); ' >Extras</button>
     <button ion-button color="danger" full (click) = 'pushdata();' >Go!</button>
 
   </div>
