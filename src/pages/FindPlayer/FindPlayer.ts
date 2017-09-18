@@ -70,12 +70,11 @@ export class FindPlayerPage {
 
         this.Checker = this.spot;
 
-        var loop = function() {
             var x:number = 0;
             var y:number = 0;
             var z: number = 0;
-            while (this.x < this.roster) {
-                while (this.y < this.players) {
+            while (x < this.roster) {
+                while (y < this.players) {
                     console.log("X: " + x);
                     console.log("y: " + y);
                     console.log("this.roster$[x].Jersey_Number: " + this.roster$[x].Jersey_Number);
@@ -94,8 +93,7 @@ export class FindPlayerPage {
                 y = 0;
 
             }
-        }
-        loop();
+
         //console.log("Checker: " + this.Checker[0]);
 
 
