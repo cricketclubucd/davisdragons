@@ -30,28 +30,35 @@
     </div>
 
     <ion-list *ngSwitchCase="'vs.'">
-      <div *ngFor ="let item of scoreRef$ | async; let i = index; let lst = last">
-          <h2 *ngIf="i==1">Overs: {{ item.$value }}</h2>
-          <h2 *ngIf="i==2">Runs: {{ item.$value }}</h2>
-          <h2 *ngIf="i==3">Wickets: {{ item.$value }}</h2>
-          <h2 *ngIf="i==lst">Next Ball: {{ item.$value }}</h2>
-      </div>
-      
       <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
       <ion-grid>
       <ion-row>
     		<ion-col>
-			<div *ngIf="i == 1">{{item.totalRuns}}</div>
-		</ion-col>
-		<ion-col col-auto>
-    		    <div *ngIf="i == 1">{{item.totalWickets}}</div>
+			<h2 text-center *ngIf="i == 1">| Runs |</h2>
 		</ion-col>
 		<ion-col>
-    		    <div *ngIf="i == 1">{{item.totalOvers}}</div>
+    		    <h2 text-center *ngIf="i == 1">| Wickets |</h2>
+		</ion-col>
+		<ion-col>
+    		    <h2 text-center *ngIf="i == 1">| Overs |</h2>
+		</ion-col>
+	  </ion-row>
+      <ion-row>
+    		<ion-col>
+			<h2 text-center *ngIf="i == 1">{{item.totalRuns}}</h2>
+		</ion-col>
+		<ion-col>
+    		    <h2 text-center *ngIf="i == 1">{{item.totalWickets}}</h2>
+		</ion-col>
+		<ion-col>
+    		    <h2 text-center *ngIf="i == 1">{{item.totalOvers}}</h2>
 		</ion-col>
 	  </ion-row>
     </ion-grid>
       </div>
+    <div *ngFor ="let item of scoreRef$ | async; let i = index; let lst = last">
+          <h2 *ngIf="i==lst">Next Ball: {{ item.$value }}</h2>
+    </div>
     </ion-list>
 
     <ion-list *ngSwitchCase="'Away'">
