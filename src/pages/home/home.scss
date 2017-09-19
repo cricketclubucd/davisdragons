@@ -2,6 +2,10 @@ page-home {
 
 .card-background-page {
 
+  img {
+    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+    filter: blur(5px);
+}
   ion-card {
     position: relative;
     text-align: center;
@@ -13,7 +17,7 @@ page-home {
     font-size: 2.0em;
     width: 100%;
     font-weight: bold;
-    color: #fff;
+    color: #DAAA00;
   }
 
   .card-subtitle {
