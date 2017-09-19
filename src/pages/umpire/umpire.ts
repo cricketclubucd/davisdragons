@@ -44,6 +44,8 @@ export class UmpirePage
   static height1 =0;
   static octant = 0;
   data : FirebaseListObservable<any>;
+  scoreRef$: FirebaseListObservable<any[]>
+  toss_val: any;
   key2 ="";
   constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, platform : Platform)
   {
@@ -65,6 +67,8 @@ export class UmpirePage
     this.score.totalWickets =0;
     this.key.MatchKey = "0";
     this.name = this.fdb.object('/ClubParams/LiveMatchState/');
+    //this.toss_val = this.fdb.list('/Matches/' + this.key.MatchKey + '/MatchStats/Score/Toss');
+    this.scoreRef$ = this.fdb.list(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`);
     this.name.take(1).subscribe(data =>
     {
         console.log("Match Ptr: " + data);
@@ -193,9 +197,20 @@ export class UmpirePage
       this.coin = "Tails"
     }
     alert('It\'s ' + this.coin)
+    
     this.fdb.object(`/Matches/`+ this.key.MatchKey + `/MatchStats/Toss`)
     .set(this.coin);
     document.getElementById('toss').style.display = 'none';
+  }
+  showData(){
+    var string = this.score.totalRuns.toString() + " / " + this.score.totalWickets.toString();
+    document.getElementById('showScore').innerHTML = string;
+    return string;
+  }
+  showOvers(){
+    var str = this.score.totalOvers + " overs";
+    document.getElementById('showOvers').innerHTML = str;
+    return str;
   }
   pushdata()
   {
