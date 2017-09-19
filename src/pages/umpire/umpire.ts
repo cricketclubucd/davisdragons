@@ -202,16 +202,6 @@ export class UmpirePage
     .set(this.coin);
     document.getElementById('toss').style.display = 'none';
   }
-  showData(){
-    var string = this.score.totalRuns.toString() + " / " + this.score.totalWickets.toString();
-    document.getElementById('showScore').innerHTML = string;
-    return string;
-  }
-  showOvers(){
-    var str = this.score.totalOvers + " overs";
-    document.getElementById('showOvers').innerHTML = str;
-    return str;
-  }
   pushdata()
   {
 	this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score`).take(1).subscribe(data =>
