@@ -13,7 +13,7 @@
         <button ion-fab color="white"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
     <ion-list>
-        <ion-list-header text-center class="headfont"> Search </ion-list-header>
+        <ion-list-header text-center class="headfont"> Search Away </ion-list-header>
         <ion-item>
             <ion-label floating>Jersey Number</ion-label>
             <ion-input id ="jr" type="text"[(ngModel)] = "SidePlayer.Jersey_Number"></ion-input>
@@ -32,7 +32,7 @@
 
     <ion-grid>
         <ion-row>
-            <ion-col col-6 col-md-4 col-xl-3 *ngFor ="let item of Checker" >
+            <ion-col col-6 col-md-4 col-xl-3 *ngFor ="let item of AwayChecker" >
                 <div class="card toty fifa17">
                     <div class="player">
                         <img src="assets/img/Player_Profile.jpg" id="player-card">

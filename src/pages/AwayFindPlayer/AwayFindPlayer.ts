@@ -9,14 +9,14 @@ import { HomePage } from '../home/home';
 import { AddPage } from '../add/add';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import {ShowPage} from "../show/show";
-import {TeamMembersPage} from "../teamMembers/teamMembers";
+import {AwayTeamMembersPage} from "../AwayTeamMembers/AwayteamMembers";
 
 
 @Component({
-    selector: 'page-find',
-    templateUrl: 'FindPlayer.html'
+    selector: 'page-Awayfind',
+    templateUrl: 'AwayFindPlayer.html'
 })
-export class FindPlayerPage {
+export class AwayFindPlayerPage {
 
 
 
@@ -25,7 +25,7 @@ export class FindPlayerPage {
     side = {} as side;
 
     forNow:any;
-    HomePlayers:any;
+    AwayPlayers:any;
 
 
     name:FirebaseListObservable<any>;
@@ -35,11 +35,11 @@ export class FindPlayerPage {
     roster: number;
 
     roster$:any;
-    Checker: any;
+    AwayChecker: any;
 
     constructor(public navCtrl: NavController,public navPrams: NavParams, private data: AngularFireDatabase)
     {
-        this.Checker = null;
+        this.AwayChecker = null;
 
         this.data.object("ClubParams/LiveMatchState/matchPtr").subscribe(data => {
 
@@ -51,13 +51,13 @@ export class FindPlayerPage {
         //console.log("Find Player Squad: " + this.forNow.squad);
 
 
-        this.data.list("Matches/" + this.forNow + "/MatchStats/PlayerRoster/Home/Players/")
+        this.data.list("Matches/" + this.forNow + "/MatchStats/PlayerRoster/Away/Players/")
             .subscribe(data => {
 
-                this.HomePlayers = data;
+                this.AwayPlayers = data;
                 this.players = data.length;
                 console.log("Player: " + data.length);
-                console.log("Home Players: " + this.HomePlayers);
+                console.log("Away Players: " + this.AwayPlayers);
 
 
             });
@@ -74,7 +74,7 @@ export class FindPlayerPage {
 
 
 
-        this.Checker = this.HomePlayers;
+        this.AwayChecker = this.AwayPlayers;
 
             var x:number;
             var y:number ;
@@ -88,14 +88,14 @@ export class FindPlayerPage {
                     console.log("X: " + x);
                     console.log("y: " + y);
                     console.log("this.roster$[x].Jersey_Number: " + this.roster$[x].Jersey_Number);
-                    console.log("this.HomePlayers[y].$value: " + this.HomePlayers[y].$value);
+                    console.log("this.AwayPlayers[y].$value: " + this.AwayPlayers[y].$value);
 
-                    if (this.roster$[x].Jersey_Number == this.HomePlayers[y].$value) {
+                    if (this.roster$[x].Jersey_Number == this.AwayPlayers[y].$value) {
 
                         console.log("this.roster$[x]: " + this.roster$[x]);
-                        console.log("this.Checker[z]: " + this.Checker[z]);
+                        console.log("this.AwayChecker[z]: " + this.AwayChecker[z]);
 
-                        this.Checker[y] = this.roster$[x];
+                        this.AwayChecker[y] = this.roster$[x];
                     }
                     y += 1;
                 }
@@ -137,7 +137,7 @@ export class FindPlayerPage {
                 console.log("Startkey: " + this.forNow);
                 console.log("SidePlayer Name: " + this.SidePlayer.FirstName);
                 this.SidePlayer.picture = " ";
-                this.navCtrl.push(TeamMembersPage, {playerInfo:this.SidePlayer });
+                this.navCtrl.push(AwayTeamMembersPage, {playerInfo:this.SidePlayer });
             }
         });
 
@@ -148,7 +148,7 @@ export class FindPlayerPage {
 
     reload(){
 
-        this.navCtrl.push(FindPlayerPage);
+        this.navCtrl.push(AwayFindPlayerPage);
 
 
 

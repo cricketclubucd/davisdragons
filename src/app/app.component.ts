@@ -9,6 +9,7 @@ import { AddPage } from '../pages/add/add';
 import { SearchPage } from '../pages/Search/search';
 import { ShowPage } from '../pages/show/show';
 import { CheckRolePage } from '../pages/CheckRole/CheckRole';
+import {AwayTeamMembersPage} from "../pages/AwayTeamMembers/AwayteamMembers";
 
 
 import { HomePage } from '../pages/home/home';
@@ -18,6 +19,9 @@ import{MemberPage} from '../pages/member/member';
 //import{TabBasicContentPage} from '../pages/member/TabBasicContentPage';
 import {UmpirePage} from '../pages/umpire/umpire';
 import {CreatePage} from '../pages/createMatch/createMatch';
+import {FindPlayerPage} from "../pages/FindPlayer/FindPlayer";
+import {AwayFindPlayerPage} from "../pages/AwayFindPlayer/AwayFindPlayer";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -46,8 +50,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages_0 = [
       { title: 'Home', component: HomePage },
-      { title: 'Add', component: AddPage },
-        { title: 'Add to Team', component: CheckRolePage },
+        { title: 'Add to Home Team', component: FindPlayerPage },
+        { title: 'Add to Away Team', component: AwayFindPlayerPage },
       { title: 'List', component: ListPage },
       { title: 'Spectator', component: SpectatorPage },
         { title: 'Member', component: MemberPage },
@@ -57,9 +61,9 @@ export class MyApp {
     ];
     this.pages_1 = [
       { title: 'Home', component: HomePage },
-      { title: 'Add', component: AddPage },
       { title: 'List', component: ListPage },
-        { title: 'Add to Team', component: CheckRolePage },
+        { title: 'Add to Home Team', component: FindPlayerPage },
+        { title: 'Add to Away Team', component: AwayFindPlayerPage },
       { title: 'Spectator', component: SpectatorPage },
         { title: 'Member', component: MemberPage },
         { title: 'Umpire', component: UmpirePage },

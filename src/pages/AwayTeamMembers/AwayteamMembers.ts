@@ -10,15 +10,16 @@ import {FindPlayerPage} from "../FindPlayer/FindPlayer";
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import {stringify} from "@angular/core/src/util";
 import 'rxjs/add/operator/take';
+import {AwayFindPlayerPage} from "../AwayFindPlayer/AwayFindPlayer";
 
 
 @Component({
-    selector: 'page-team',
-    templateUrl: 'teamMembers.html'
+    selector: 'page-Awayteam',
+    templateUrl: 'AwayteamMembers.html'
 })
 
 
-export class TeamMembersPage {
+export class AwayTeamMembersPage {
 
 
     player = {} as player;
@@ -39,14 +40,14 @@ export class TeamMembersPage {
         this.thePlayer = this.navPrams.get('playerInfo');
         console.log("ThePlayer key: " + this.thePlayer.startKey);
 
-        this.data.object("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Home/check/amountofPlayers/")
+        this.data.object("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Away/check/amountofPlayers/")
             .subscribe(data =>
             {
                 this.NumofPlayers = data.$value;
             });
 
 
-        this.playerInfo = this.data.list("/Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Home/",{
+        this.playerInfo = this.data.list("/Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Away/",{
             query: {
                 orderByChild: "Jersey_Number",
                 equalTo: this.thePlayer.Jersey_Number
@@ -68,7 +69,7 @@ export class TeamMembersPage {
                 var test = 0;
 
 
-                this.numPlayer = this.data.list("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Home/check/");
+                this.numPlayer = this.data.list("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Away/check/");
                 this.numPlayer.subscribe(val => {
                     this.open = val;
 
@@ -107,21 +108,21 @@ export class TeamMembersPage {
             if(test == stop)
             {
                 alert("You cannot enter more players");
-                this.navCtrl.push(FindPlayerPage, {team: this.sideTeam});
+                this.navCtrl.push(AwayFindPlayerPage, {team: this.sideTeam});
 
             }
         }
-        this.navCtrl.push(FindPlayerPage, {team: this.sideTeam});
+        this.navCtrl.push(AwayFindPlayerPage, {team: this.sideTeam});
     }
 
     add(placeholder: number){
 
 
 
-        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/Home/Players/`+ placeholder + `/`)
+        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/Away/Players/`+ placeholder + `/`)
         .set(this.thePlayer.Jersey_Number);
 
-        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/Home/check/`+ placeholder + `/`)
+        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/Away/check/`+ placeholder + `/`)
             .set(this.thePlayer.Jersey_Number);
 
 

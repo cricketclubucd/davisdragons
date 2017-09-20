@@ -18,6 +18,8 @@ import {CreatePage} from "../pages/createMatch/createMatch";
 import {CheckRolePage} from '../pages/CheckRole/CheckRole';
 import {TeamMembersPage} from "../pages/teamMembers/teamMembers";
 import {FindPlayerPage} from "../pages/FindPlayer/FindPlayer";
+import {AwayFindPlayerPage} from "../pages/AwayFindPlayer/AwayFindPlayer";
+import {AwayTeamMembersPage} from "../pages/AwayTeamMembers/AwayteamMembers";
 
 
 import { HomePage } from '../pages/home/home';
@@ -44,6 +46,8 @@ import {UmpirePage} from '../pages/umpire/umpire';
     CreatePage,
     TeamMembersPage,
     FindPlayerPage,
+    AwayFindPlayerPage,
+    AwayTeamMembersPage,
     CheckRolePage,
     HomePage,
     ListPage,
@@ -69,7 +73,9 @@ import {UmpirePage} from '../pages/umpire/umpire';
     CreatePage,
     TeamMembersPage,
     FindPlayerPage,
-    CheckRolePage,
+      AwayFindPlayerPage,
+      AwayTeamMembersPage,
+      CheckRolePage,
     HomePage,
     ListPage,
     SpectatorPage,

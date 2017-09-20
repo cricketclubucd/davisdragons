@@ -1,39 +1,73 @@
-page-team{
+
+page-Awayfind {
+  .headfont {
+    font-family: 'exoregular';
+    font-size: 35px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 38px;
+    color: white;
+    background: goldenrod;
+  }
+
+
+  ion-navbar {
+    font-family: 'MyFontFamily';
+    text-transform: uppercase;
+    background-color: red;
+  }
+
+
+
+  input[type="text"] {
+    font-family: 'exoregular';
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  .button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+
+  }
+
+  .button:hover {background-color: red}
+
+  .button:active {
+    background-color: white;
+    transform: translateY(4px);
+  }
 
   body{
 
     background: #08315E;
   }
 
-  .button{
-
-    left: 55px;
-    top:80px;
-    background-color: black;
-    font-size: 35px;
-  }
-
   .card {
     position: relative;
-    left: 15px;
-    top: 70px;
     font-family: 'Titillium Web',sans-serif;
-    .clubbadge, .nationflag, .avatar {
+    .avatar {
       position: absolute;
+
     }
   }
   .card {
+
+
 
     .name {
       position: absolute;
       text-align: center;
       overflow: hidden;
-      line-height: 28px;
       text-transform: uppercase;
-      top: 174px;
+      top: 50%;
       left: 0px;
       width: 100%;
-      font-size: 20px;
+      font-size: 10px;
       font-family: 'Open Sans Condensed',sans-serif;
       font-weight: bold;
       .marquee {
@@ -43,66 +77,59 @@ page-team{
     }
     .runs {
       position: absolute;
-      top: 209px;
-      left: 36px;
+      top: 60%;
+      left: 20%;
       &:after {
         content: ' RNS';
-        font-weight: 300;
+        font-weight: bold;
       }
     }
     .wickets {
       position: absolute;
-      top: 235px;
-      left: 36px;
+      top: 69%;
+      left: 20%;
       &:after {
         content: ' WKTS';
-        font-weight: 300;
+        font-weight: bold;
       }
     }
+
+    .four {
+      position: absolute;
+      top: 76%;
+      left: 20%;
+      &:after {
+        content: ' 4s';
+        font-weight: bold;
+      }
+    }
+
     .highestScore {
       position: absolute;
-      top: 235px;
-      left: 136px;
+      top: 60%;
+      left: 60%;
       &:after {
         content: ' HS';
-        font-weight: 300;
+        font-weight: bold;
       }
     }
     .average {
       position: absolute;
-      top: 209px;
-      left: 136px;
+      top: 69%;
+      left: 60%;
       &:after {
         content: ' AVG';
-        font-weight: 300;
-      }
-    }
-    .defending {
-      position: absolute;
-      top: 235px;
-      left: 136px;
-      &:after {
-        content: ' DEF';
-        font-weight: 300;
-      }
-    }
-    .four {
-      position: absolute;
-      top: 261px;
-      left: 36px;
-      &:after {
-        content: ' 4s';
-        font-weight: 300;
+        font-weight: bold;
       }
     }
 
     .six {
       position: absolute;
-      top: 261px;
-      left: 136px;
+      top: 76%;
+      left: 60%;
       &:after {
         content: ' 6s';
-        font-weight: 300;
+        font-weight: bold;
       }
     }
   }
@@ -122,50 +149,34 @@ page-team{
         color: #F9E99E !important;
       }
       .avatarholder {
-        top: 41px;
-        left: 88px;
-        width: 133px;
-        height: 133px;
+        top: 7%;
+        left: 28%;
+        width: 50%;
         position: absolute;
       }
       .chemstyle {
         line-height: 28px;
-        text-transform: uppercase;
-        top: 293px;
-        right: 10px;
-        width: 220px;
-        font-size: 20px;
+
         position: absolute;
         text-align: center;
-      }
-      .chemstylename {
-        padding-left: 4px;
-      }
-      .avatar {
-        bottom: 10px;
-        right: 30px;
-        width: 133px;
-        height: 133px;
+        overflow: hidden;
+        text-transform: uppercase;
+        top: 80%;
+        width: 100%;
+        font-size: 10px;
+        font-family: 'Open Sans Condensed',sans-serif;
+        font-weight: bold;
+
       }
 
-      .clubbadge {
-        top: 90px !important;
-        left: 39px;
-        width: 46px;
-        height: 46px;
-      }
-      .nationflag {
-        top: 140px !important;
-        left: 38px;
-        height: 29px;
-        width: auto;
-      }
       .attributes {
         font-family: 'Lato',sans-serif;
 
-        font-size: 20px;
+        font-size: 10px;
       }
     }
   }
+
+
 
 }
