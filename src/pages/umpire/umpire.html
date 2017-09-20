@@ -20,7 +20,7 @@
     <button ion-button color="secondary" id="run_button6" clear (click) = 'increment(6); run_button6();'>+6</button>
     <button ion-button color ="secondary" id="run_button0" clear (click) = 'increment(0); run_button0();'> Dot </button>
     <button ion-button color="danger" id="toss" clear (click) = ' computeToss(); ' >Toss</button>
-    <button ion-button color="dark" clear (click) = 'wide();' > wide</button>
+    <button ion-button color="dark" (click) = 'wide();' > Wide</button>
     <button ion-button color="danger" clear (click) = 'increment(); ' >Extras</button>
     <button ion-button color="danger" full (click) = 'clear(); pushdata();' >Go!</button>
   </div>

@@ -7,6 +7,7 @@ import { key } from '../../models/match';
 import { balls } from '../../models/balls';
 import { team} from '../../models/team';
 import {score} from '../../models/Score';
+import {SpectatorPage} from '../spectator/spectator';
 //import {totalStats} from '../../models/balls';
 @Component({
 
@@ -66,6 +67,7 @@ export class UmpirePage
     this.score.totalRuns =0;
     this.score.totalOvers = "";
     this.score.totalWickets =0;
+    this.score.numOfOvers = 0;
     this.key.MatchKey = "0";
     this.name = this.fdb.object('/ClubParams/LiveMatchState/');
     //this.toss_val = this.fdb.list('/Matches/' + this.key.MatchKey + '/MatchStats/Score/Toss');
@@ -83,7 +85,7 @@ export class UmpirePage
         this.score.totalRuns = data2.totalRuns;
 		this.score.totalWickets = data2.totalWickets;
 		let toast = this.toastCtrl.create({
-      message: 'Welcome! Match:  '+this.key.MatchKey+'Next Ball ID: '+this.score.ballPtr+' Current Score: '+this.score.totalRuns+'/'+this.score.totalWickets+'('+this.score.totalOvers+')',
+      message: 'Welcome! Match:  '+this.key.MatchKey+' Next Ball ID: '+this.score.ballPtr+'\nCurrent Score: '+this.score.totalRuns+'/'+this.score.totalWickets+' ('+this.score.totalOvers+')',
       duration: 5000,
       position: 'middle'
        });
@@ -211,11 +213,19 @@ export class UmpirePage
   }
   pushdata()
   {
+    var val = 0;
 	this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score`).take(1).subscribe(data =>
     {
-	    console.log("Get ball ptr: " + data.ballPtr);
+      console.log("Get ball ptr: " + data.ballPtr);
+      val = data.numOfOvers*6;
+      console.log("Num: " + val);
+      this.score.numOfOvers = data.numOfOvers;
       this.score.ballPtr = data.ballPtr;
       console.log("Match: " + this.key.MatchKey);
+      if(this.balls.ballid == val){
+        alert("The Innings have ended!");
+        this.navCtrl.push(SpectatorPage);
+      }
     });
     this.balls.ballid = this.score.ballPtr;
     this.score.ballPtr = this.score.ballPtr + 1;
@@ -253,6 +263,10 @@ export class UmpirePage
    if(this.balls.isWicket == "true")
    {
      this.score.totalWickets = this.score.totalWickets + 1;
+     if(this.score.totalWickets == 10){
+       alert('This Innings has ended!');
+       this.navCtrl.push(SpectatorPage);
+     }
    }
    console.log("Ball ptr local" + this.score.ballPtr);
    let toast = this.toastCtrl.create({
