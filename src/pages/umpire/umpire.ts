@@ -227,6 +227,19 @@ export class UmpirePage
     this.computeOctant();
     //console.log(this.x, this.y);
   }
+  toastScoreFromDB()
+  {
+	 let tempscore = {} as score;
+	this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`).take(1).subscribe(data =>
+    {
+	    console.log("toast ball Ptr: " + data.ballPtr);
+	    tempscore.ballPtr = data.ballPtr;
+	    tempscore.totalOvers = data.totalOvers;
+        tempscore.totalRuns = data.totalRuns;
+		tempscore.totalWickets = data.totalWickets;
+    });// Finds out the corrent matchPtr
+	 
+  }
   updateTotalScore()
   {
    this.score.totalRuns = this.score.totalRuns + this.balls.score;
@@ -236,10 +249,11 @@ export class UmpirePage
      this.score.totalWickets = this.score.totalWickets + 1;
    }
    console.log("Ball ptr local" + this.score.ballPtr);
-   this.toastCtrl.create({
+   let toast = this.toastCtrl.create({
       message: 'Added! New score: '+this.score.totalRuns+'/'+this.score.totalWickets+'('+this.score.totalOvers+')',
       duration: 3000
-    }).present();
+    });
+    toast.present();
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalRuns/` )
     .set(this.score.totalRuns);
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalWickets/` )
