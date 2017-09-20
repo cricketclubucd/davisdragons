@@ -3,6 +3,7 @@ export interface team
 {
 
   toss: string;
+  TeamName: string;
 
 }
 

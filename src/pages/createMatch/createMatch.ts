@@ -110,6 +110,7 @@ export class CreatePage {
 
 
         this.team.toss = "Team";
+        this.team.TeamName = " ";
         //this.captains.umpire = 0;
 
         //this.score.ballsnOver=0;
@@ -154,6 +155,9 @@ export class CreatePage {
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/Toss/`)
             .set(this.team.toss);
+
+        this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/TeamName/`)
+            .set(this.team.TeamName);
 
         this.data.object(`Matches/`+ key.MatchKey + `/MatchStats/Umpire/`)
             .set(this.captains.umpire);
