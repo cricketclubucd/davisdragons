@@ -74,15 +74,15 @@ export class UmpirePage
     {
         console.log("Match Ptr: " + data);
         this.key.MatchKey= data.matchPtr;
-    });// Finds out the corrent matchPtr
     this.name = this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`);
-    this.name.take(1).subscribe(data =>
+    this.name.take(1).subscribe(data2 =>
     {
-	    console.log("constructor ball Ptr: " + data.ballPtr);
-	    this.score.ballPtr = data.ballPtr;
-	    this.score.totalOvers = data.totalOvers;
-        this.score.totalRuns = data.totalRuns;
-		this.score.totalWickets = data.totalWickets;
+	    console.log("constructor ball Ptr: " + data2.ballPtr);
+	    this.score.ballPtr = data2.ballPtr;
+	    this.score.totalOvers = data2.totalOvers;
+        this.score.totalRuns = data2.totalRuns;
+		this.score.totalWickets = data2.totalWickets;
+    });// Finds out the corrent matchPtr
     });// Finds out the corrent matchPtr
   }
   computeBoundaries()
