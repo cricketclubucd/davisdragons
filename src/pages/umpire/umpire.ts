@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {Platform} from 'ionic-angular';
 import { key } from '../../models/match';
@@ -47,7 +48,7 @@ export class UmpirePage
   scoreRef$: FirebaseListObservable<any[]>
   toss_val: any;
   key2 ="";
-  constructor(public navCtrl: NavController, public fdb: AngularFireDatabase, platform : Platform)
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public fdb: AngularFireDatabase, platform : Platform)
   {
     platform.ready().then((readySource) =>
     {
@@ -235,6 +236,10 @@ export class UmpirePage
      this.score.totalWickets = this.score.totalWickets + 1;
    }
    console.log("Ball ptr local" + this.score.ballPtr);
+   this.toastCtrl.create({
+      message: 'Added! New score: '+this.score.totalRuns+'/'+this.score.totalWickets+'('+this.score.totalOvers+')',
+      duration: 3000
+    }).present();
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalRuns/` )
     .set(this.score.totalRuns);
    this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/totalWickets/` )
