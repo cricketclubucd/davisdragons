@@ -36,6 +36,8 @@ export class MyApp {
   pages_2: Array<{title: string, component: any}>;
   pages_3: Array<{title: string, component: any}>;
   pages_4: Array<{title: string, component: any}>;
+  pages_5: Array<{title: string, component: any}>;
+  pages_6: Array<{title: string, component: any}>;
   access_val: any;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
@@ -86,6 +88,22 @@ export class MyApp {
       { title: 'Spectator', component: SpectatorPage },
         { title: 'Search Player', component: SearchPage },
     ];
+      this.pages_5 = [
+          { title: 'Home', component: HomePage },
+          { title: 'List', component: ListPage },
+          { title: 'Add to Home Team', component: FindPlayerPage },
+          { title: 'Member', component: MemberPage },
+          { title: 'Search Player', component: SearchPage },
+      ];
+
+      this.pages_6 = [
+          { title: 'Home', component: HomePage },
+          { title: 'List', component: ListPage },
+          { title: 'Add to Away Team', component: AwayFindPlayerPage },
+          { title: 'Member', component: MemberPage },
+          { title: 'Search Player', component: SearchPage },
+      ];
+
 
   }
 
