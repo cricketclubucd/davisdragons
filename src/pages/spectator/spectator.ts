@@ -6,7 +6,6 @@ import { NavController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { key } from '../../models/match';
 import {score} from '../../models/Score';
-import { HomePage } from '../home/home';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import 'rxjs/add/operator/do';
 
