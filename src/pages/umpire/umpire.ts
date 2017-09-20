@@ -82,6 +82,12 @@ export class UmpirePage
 	    this.score.totalOvers = data2.totalOvers;
         this.score.totalRuns = data2.totalRuns;
 		this.score.totalWickets = data2.totalWickets;
+		let toast = this.toastCtrl.create({
+      message: 'Welcome! Match:  '+this.key.MatchKey+'Next Ball ID: '+this.score.ballPtr+' Current Score: '+this.score.totalRuns+'/'+this.score.totalWickets+'('+this.score.totalOvers+')',
+      duration: 5000,
+      position: 'middle'
+       });
+       toast.present();
     });// Finds out the corrent matchPtr
     });// Finds out the corrent matchPtr
   }
