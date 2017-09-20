@@ -6,6 +6,7 @@ import { NavController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { key } from '../../models/match';
 import {score} from '../../models/Score';
+import { HomePage } from '../home/home';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import 'rxjs/add/operator/do';
 
@@ -33,7 +34,7 @@ export class SpectatorPage
     public platform: Platform,
     public actionsheetCtrl: ActionSheetController,
     public navCtrl: NavController,
-    private database: AngularFireDatabase
+    public database: AngularFireDatabase
   )
   {
     this.isAndroid = platform.is('android');
@@ -44,19 +45,24 @@ export class SpectatorPage
     this.score.totalWickets =0;
     this.key.MatchKey = "0";
     this.name = this.database.object('/ClubParams/LiveMatchState/');
+
+    this.playersTeamA$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Home');
+    this.playersTeamB$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Away');
     this.name.take(1).subscribe(data =>
     {
         console.log("Match Ptr: " + data.matchPtr);
         this.key.MatchKey= data.matchPtr;
-    });// Finds out the current matchPtr
-
-    this.scoreRef$ = this.database.list(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`);
-    this.matchStats$ = this.database.list(`/Matches/` + this.key.MatchKey + `/MatchStats/`);
-    this.playersTeamA$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Home');
-    this.playersTeamB$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Away');
-    this.playersTeamA$.subscribe(x => console.log(x))
+        this.setMatchStats(this.key.MatchKey);
+    });// Finds out the corrent matchPtr
+    // this.playersTeamA$.subscribe(x => console.log(x))
     // this.scoreRef$.last().subscribe(keys => console.log("keys are", keys));
     // this.database.list('Matches/Match1/Balls').subscribe(list => this.scoreRef$ = list);
 
+  }
+  setMatchStats(key)
+  {
+	  console.log(key);
+	this.scoreRef$ = this.database.list(`/Matches/` + key + `/MatchStats/Score/`);
+    this.matchStats$ = this.database.list(`/Matches/` + key + `/MatchStats/`);
   }
 }
