@@ -31,6 +31,7 @@
 
     <ion-list *ngSwitchCase="'vs.'">
       <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+	  <h4 *ngIf="i == 1"> Aap dekh rahe hain match number: {{ key.MatchKey }} </h4>
       <ion-grid>
       <ion-row>
     		<ion-col>
