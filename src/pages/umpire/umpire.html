@@ -13,6 +13,7 @@
   <img style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
   </div>
   <div text-center>
+    <div style="display: none" id="lastMan"><input padding type="checkbox" id="cb">Last Man Standing</div><br>
     <button ion-button color="secondary" id="run_button1" clear (click) = 'increment(1); run_button1();'>+1</button>
     <button ion-button color="secondary" id="run_button2" clear (click) = 'increment(2); run_button2();' >+2</button>
     <button ion-button color="secondary" id="run_button3" clear (click) = 'increment(3); run_button3();'>+3</button>
@@ -23,6 +24,9 @@
     <button ion-button color="dark" (click) = 'wide();' > Wide</button>
     <button ion-button color="danger" clear (click) = 'increment(); ' >Extras</button>
     <button ion-button color="danger" full (click) = 'clear(); pushdata();' >Go!</button>
+    <button ion-button style="height: 20px;"color ="danger" (click) = 'endMatch(); '>
+        End Match
+      </button>
   </div>
 
 </ion-content>

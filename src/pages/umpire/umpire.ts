@@ -197,6 +197,7 @@ export class UmpirePage
     var heads = 0;
     var tails = 0;
     var x;
+    var val = "";
     x = (Math.floor(Math.random() * 2) == 0);
     if(x)
     {
@@ -210,6 +211,7 @@ export class UmpirePage
     
     this.fdb.object(`/Matches/`+ this.key.MatchKey + `/MatchStats/Toss`)
     .set(this.coin);
+    
     document.getElementById('toss').style.display = 'none';
   }
   pushdata()
@@ -257,11 +259,19 @@ export class UmpirePage
     });// Finds out the corrent matchPtr
 	 
   }
+  endMatch(){
+    var boolean = confirm("End Match?");
+    if(boolean){
+      this.navCtrl.setRoot(MatchOfflinePage);
+    }
+  }
   updateTotalScore()
   {
    this.score.totalRuns = this.score.totalRuns + this.balls.score;
    console.log(this.key.MatchKey);
    var val = 0;
+   var wickets = 0;
+   var answer = false;
    if(this.balls.isWicket == "true")
    {
      this.score.totalWickets = this.score.totalWickets + 1;
@@ -271,8 +281,18 @@ export class UmpirePage
        console.log("Match: " + this.key.MatchKey);
        val = parseInt(data.amountofPlayers);
        console.log(val);
+       wickets = parseInt(data.amountofPlayers) - 1;
+       if(this.score.totalWickets == val-1){
+        answer = confirm("Last Man Standing?");
+        if(!answer){
+          if(this.score.totalWickets == (val-1) || this.score.totalWickets > (val-1)){
+            alert('This Innings have ended!');
+            this.navCtrl.setRoot(MatchOfflinePage);
+          }
+        }
+      }
       if(this.score.totalWickets == val || this.score.totalWickets > val){
-        alert('This Innings has ended!');
+        alert('This Innings have ended!');
         this.navCtrl.setRoot(MatchOfflinePage);
       }
      });
