@@ -20,6 +20,7 @@ import {TeamMembersPage} from "../pages/teamMembers/teamMembers";
 import {FindPlayerPage} from "../pages/FindPlayer/FindPlayer";
 import {AwayFindPlayerPage} from "../pages/AwayFindPlayer/AwayFindPlayer";
 import {AwayTeamMembersPage} from "../pages/AwayTeamMembers/AwayteamMembers";
+import {MatchOfflinePage} from "../pages/matchOffline/matchOffline";
 
 
 import { HomePage } from '../pages/home/home';
@@ -51,6 +52,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     CheckRolePage,
     HomePage,
     ListPage,
+    MatchOfflinePage,
     SpectatorPage,
     MemberPage,
     TabBasicContentPage,
@@ -69,6 +71,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     GetterPage,
     AddPage,
     SearchPage,
+    MatchOfflinePage,
     ShowPage,
     CreatePage,
     TeamMembersPage,

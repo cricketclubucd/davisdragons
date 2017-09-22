@@ -8,6 +8,7 @@ import { balls } from '../../models/balls';
 import { team} from '../../models/team';
 import {score} from '../../models/Score';
 import {SpectatorPage} from '../spectator/spectator';
+import {MatchOfflinePage} from "../matchOffline/matchOffline";
 //import {totalStats} from '../../models/balls';
 @Component({
 
@@ -224,7 +225,7 @@ export class UmpirePage
       console.log("Match: " + this.key.MatchKey);
       if(this.balls.ballid == val){
         alert("The Innings have ended!");
-        this.navCtrl.push(SpectatorPage);
+        this.navCtrl.push(MatchOfflinePage);
       }
     });
     this.balls.ballid = this.score.ballPtr;
@@ -260,14 +261,21 @@ export class UmpirePage
   {
    this.score.totalRuns = this.score.totalRuns + this.balls.score;
    console.log(this.key.MatchKey);
+   var val = 0;
    if(this.balls.isWicket == "true")
    {
      this.score.totalWickets = this.score.totalWickets + 1;
-     if(this.score.totalWickets == 10){
-       alert('This Innings has ended!');
-       this.navCtrl.push(SpectatorPage);
-     }
    }
+   this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/PlayerRoster/Away/check/`).take(1).subscribe(data =>
+     {
+       console.log("Match: " + this.key.MatchKey);
+       val = parseInt(data.amountofPlayers);
+       console.log(val);
+      if(this.score.totalWickets == val || this.score.totalWickets > val){
+        alert('This Innings has ended!');
+        this.navCtrl.setRoot(MatchOfflinePage);
+      }
+     });
    console.log("Ball ptr local" + this.score.ballPtr);
    let toast = this.toastCtrl.create({
       message: 'Added! New score: '+this.score.totalRuns+'/'+this.score.totalWickets+'('+this.score.totalOvers+')',
