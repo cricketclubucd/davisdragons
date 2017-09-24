@@ -9,6 +9,7 @@ import { team} from '../../models/team';
 import {score} from '../../models/Score';
 import {SpectatorPage} from '../spectator/spectator';
 import {MatchOfflinePage} from "../matchOffline/matchOffline";
+import {ExtrasPage} from "../extras/extras";
 //import {totalStats} from '../../models/balls';
 @Component({
 
@@ -208,10 +209,10 @@ export class UmpirePage
       this.coin = "Tails"
     }
     alert('It\'s ' + this.coin)
-    
+
     this.fdb.object(`/Matches/`+ this.key.MatchKey + `/MatchStats/Toss`)
     .set(this.coin);
-    
+
     document.getElementById('toss').style.display = 'none';
   }
   pushdata()
@@ -257,7 +258,7 @@ export class UmpirePage
         tempscore.totalRuns = data.totalRuns;
 		tempscore.totalWickets = data.totalWickets;
     });// Finds out the corrent matchPtr
-	 
+
   }
   endMatch(){
     var boolean = confirm("End Match?");
@@ -428,5 +429,9 @@ export class UmpirePage
     this.balls.isWicket = "true";
     this.balls.octant = 0;
     this.balls.score =0;
+  }
+  goToExtras()
+  {
+    this.navCtrl.push(ExtrasPage);
   }
 } // end of class

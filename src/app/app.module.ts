@@ -21,6 +21,7 @@ import {FindPlayerPage} from "../pages/FindPlayer/FindPlayer";
 import {AwayFindPlayerPage} from "../pages/AwayFindPlayer/AwayFindPlayer";
 import {AwayTeamMembersPage} from "../pages/AwayTeamMembers/AwayteamMembers";
 import {MatchOfflinePage} from "../pages/matchOffline/matchOffline";
+import {ExtrasPage} from "../pages/extras/extras";
 
 
 import { HomePage } from '../pages/home/home';
@@ -56,7 +57,8 @@ import {UmpirePage} from '../pages/umpire/umpire';
     SpectatorPage,
     MemberPage,
     TabBasicContentPage,
-    UmpirePage
+    UmpirePage,
+    ExtrasPage
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import {UmpirePage} from '../pages/umpire/umpire';
     SpectatorPage,
     MemberPage,
     TabBasicContentPage,
-    UmpirePage
+    UmpirePage,
+    ExtrasPage
   ],
   providers: [
     StatusBar,

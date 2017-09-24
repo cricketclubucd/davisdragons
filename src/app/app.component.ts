@@ -11,6 +11,7 @@ import { ShowPage } from '../pages/show/show';
 import { CheckRolePage } from '../pages/CheckRole/CheckRole';
 import {AwayTeamMembersPage} from "../pages/AwayTeamMembers/AwayteamMembers";
 import {MatchOfflinePage} from "../pages/matchOffline/matchOffline";
+import {ExtrasPage} from "../pages/extras/extras";
 
 
 import { HomePage } from '../pages/home/home';
