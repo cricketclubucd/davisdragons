@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { Platform, ActionSheetController } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
-
 import { User } from '../../models/user';
 import { key } from '../../models/match';
 import {score} from '../../models/Score';
@@ -47,6 +46,7 @@ export class SpectatorPage
 
     this.playersTeamA$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Home');
     this.playersTeamB$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Away');
+   
     this.name.take(1).subscribe(data =>
     {
         console.log("Match Ptr: " + data.matchPtr);

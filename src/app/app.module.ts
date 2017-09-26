@@ -6,8 +6,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from './app.firebase.cofig';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-
-
+// import { ngOdometer } from '../../bower_components/angular-odometer/dist/angular-odometer.js';
 import { MyApp } from './app.component';
 import { SignInPage } from '../pages/signIn/signIn';
 import { GetterPage } from '../pages/getter/getter';
@@ -76,6 +75,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     MatchOfflinePage,
     ShowPage,
     CreatePage,
+    // ngOdometer,
     TeamMembersPage,
     FindPlayerPage,
       AwayFindPlayerPage,
