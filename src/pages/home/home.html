@@ -4,10 +4,10 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <div text-center>
-    <button ion-button large round color="live">
-    		Match live!
+    <button ion-button large round [color]="isLive ? 'live' : 'danger'" (click) = "goToMatch()">
+    		{{ matchState }}
     </button>
-    </div> 
+    </div>
   </ion-navbar>
 </ion-header>
 
