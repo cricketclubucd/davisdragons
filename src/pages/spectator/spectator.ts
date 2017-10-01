@@ -16,7 +16,7 @@ import 'rxjs/add/operator/do';
 
 
 export class SpectatorPage
-{	
+{
   name: any;
   key = {} as key;
   score = {} as score;
@@ -46,7 +46,7 @@ export class SpectatorPage
 
     this.playersTeamA$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Home');
     this.playersTeamB$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Away');
-   
+
     this.name.take(1).subscribe(data =>
     {
         console.log("Match Ptr: " + data.matchPtr);
@@ -61,7 +61,7 @@ export class SpectatorPage
   setMatchStats(key)
   {
 	  console.log(key);
-	this.scoreRef$ = this.database.list(`/Matches/` + key + `/MatchStats/Score/`);
+	  this.scoreRef$ = this.database.list(`/Matches/` + key + `/MatchStats/Score/`);
     this.matchStats$ = this.database.list(`/Matches/` + key + `/MatchStats/`);
   }
 }

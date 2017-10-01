@@ -49,6 +49,7 @@ export class UmpirePage
   static octant = 0;
   data : FirebaseListObservable<any>;
   scoreRef$: FirebaseListObservable<any[]>
+  matchStats$: FirebaseListObservable<any[]>
   toss_val: any;
   key2 ="";
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public fdb: AngularFireDatabase, platform : Platform)
@@ -74,6 +75,7 @@ export class UmpirePage
     this.name = this.fdb.object('/ClubParams/LiveMatchState/');
     //this.toss_val = this.fdb.list('/Matches/' + this.key.MatchKey + '/MatchStats/Score/Toss');
     this.scoreRef$ = this.fdb.list(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`);
+    this.matchStats$ = this.fdb.list(`/Matches/` + this.key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles`);
     this.name.take(1).subscribe(data =>
     {
         console.log("Match Ptr: " + data);

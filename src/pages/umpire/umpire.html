@@ -4,10 +4,34 @@
 	<button ion-button color="secondary" clear menuToggle>
 		<ion-icon name="menu"></ion-icon>
 	</button>
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="players" color="danger">
+          <ion-segment-button value="friends" (ionSelect)="wicket()">
+            OnStrike
+            <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+             {{item.OnStrike}}
+            </div>
+          </ion-segment-button>
+      <ion-segment-button value="enemies" (ionSelect)="wicket()">
+          <img style="width: 10%;" src="assets/icon/wicket.svg" />
+      </ion-segment-button>
+
+      <ion-segment-button value="home" (ionSelect)="wicket()">
+        OffStrike
+      </ion-segment-button>
+      <ion-segment-button value="away" (ionSelect)="wicket()">
+        <img style="width: 10%;" src="assets/icon/wicket.svg" />
+</ion-segment-button>
+</ion-segment>
+</ion-toolbar>
+
+
+
     <button ion-button center color ="danger" (click) = 'wicket(); '>
     			<img style="width: 15%;" src="assets/icon/wicket.svg" /> wicket
-    		</button>
+    </button>
     <br />
+
   </div>
   <div on-tap="onTap($event)">
   <img style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
