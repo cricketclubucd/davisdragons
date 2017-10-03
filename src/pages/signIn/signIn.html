@@ -1,0 +1,26 @@
+<ion-content padding>
+<ion-fab right bottom>
+<button ion-fab color="secondary" large (click)="goTohome()"><ion-icon color="live" name="tennisball"></ion-icon></button>
+</ion-fab>
+
+<div text-center>
+	<img src="assets/img/Welcome.jpg" />
+	<h2 color="secondary"><b> Davis Dragons®</b>
+	</h2> 
+	<h3 color="live"> The Official App for the Cricket Club at UC Davis.
+    </h3>
+    <button ion-button large  color="danger" round (click)="googleauth()">
+      <ion-icon name="logo-googleplus"></ion-icon>
+       &nbsp; Login with Google
+    </button>
+    
+  <ion-item *ngIf="userProfile">
+    <ion-avatar (click)="isloggedin()" item-left>
+      <img [src]="userProfile.photoURL">
+    </ion-avatar>
+    <h2 (click)="isloggedin()">{{ userProfile.displayName }}</h2>
+    <h3>There it is: {{ userProfile.email }}</h3>
+    <ion-icon name="remove" item-right (click)="logout()"></ion-icon>
+  </ion-item>
+</div>
+</ion-content>

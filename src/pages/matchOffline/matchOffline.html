@@ -1,0 +1,20 @@
+<ion-header>
+        <ion-navbar>
+            <button ion-button menuToggle>
+                <ion-icon name="menu" ></ion-icon>
+            </button>
+        <ion-title class="bar">Match End</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>Match Finished!</h1>
+    <div *ngFor ="let item of matchStats1$ | async; let i = index;">
+            <h1 padding *ngIf="i == 1"> Final Score<br><br>
+            {{item.totalRuns}} / {{item.totalWickets}} </h1>
+            <h2 padding *ngIf="i == 1">{{item.totalOvers}} overs</h2>
+    </div><br>
+    <button class="buttons"(click)="sendToCreate()">Start a new Match</button><br><br>
+    <button class="buttons"(click)="sendToHome()">Return to Home Page</button>
+</ion-content>
+    

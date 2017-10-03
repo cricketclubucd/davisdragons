@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" ></ion-icon>
+        </button>
+        <ion-title class="bar">My Team</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-fab right bottom>
+        <button ion-fab color="white"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <ion-list>
+        <ion-list-header text-center class="headfont">  Add Players </ion-list-header>
+        <ion-item>
+            <ion-label floating>Match Key</ion-label>
+            <ion-input type="text"[(ngModel)] = "side.startKey"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label floating>Home Team Captain Jersey Number</ion-label>
+            <ion-input type="text"[(ngModel)] = "captains.Homecaptain"></ion-input>
+        </ion-item>
+
+        <div class="OR" style="text-align:center">
+            <p>Or</p></div>
+
+        <ion-item>
+            <ion-label floating>Away Team Captain Jersey Number</ion-label>
+            <ion-input type="text"[(ngModel)] = "captains.Awaycaptain"></ion-input>
+        </ion-item>
+
+
+
+    </ion-list>
+
+    <div padding>
+        <button ion-button  type="button" (click)="check(side,captains)">Start Match</button>
+    </div>
+</ion-content>

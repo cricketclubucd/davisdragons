@@ -1,0 +1,171 @@
+page-Awayteam{
+
+  body{
+
+    background: #08315E;
+  }
+
+  .button{
+
+    left: 55px;
+    top:80px;
+    background-color: black;
+    font-size: 35px;
+  }
+
+  .card {
+    position: relative;
+    left: 15px;
+    top: 70px;
+    font-family: 'Titillium Web',sans-serif;
+    .clubbadge, .nationflag, .avatar {
+      position: absolute;
+    }
+  }
+  .card {
+
+    .name {
+      position: absolute;
+      text-align: center;
+      overflow: hidden;
+      line-height: 28px;
+      text-transform: uppercase;
+      top: 174px;
+      left: 0px;
+      width: 100%;
+      font-size: 20px;
+      font-family: 'Open Sans Condensed',sans-serif;
+      font-weight: bold;
+      .marquee {
+        position: relative;
+        white-space: nowrap;
+      }
+    }
+    .runs {
+      position: absolute;
+      top: 209px;
+      left: 36px;
+      &:after {
+        content: ' RNS';
+        font-weight: 300;
+      }
+    }
+    .wickets {
+      position: absolute;
+      top: 235px;
+      left: 36px;
+      &:after {
+        content: ' WKTS';
+        font-weight: 300;
+      }
+    }
+    .highestScore {
+      position: absolute;
+      top: 235px;
+      left: 136px;
+      &:after {
+        content: ' HS';
+        font-weight: 300;
+      }
+    }
+    .average {
+      position: absolute;
+      top: 209px;
+      left: 136px;
+      &:after {
+        content: ' AVG';
+        font-weight: 300;
+      }
+    }
+    .defending {
+      position: absolute;
+      top: 235px;
+      left: 136px;
+      &:after {
+        content: ' DEF';
+        font-weight: 300;
+      }
+    }
+    .four {
+      position: absolute;
+      top: 261px;
+      left: 36px;
+      &:after {
+        content: ' 4s';
+        font-weight: 300;
+      }
+    }
+
+    .six {
+      position: absolute;
+      top: 261px;
+      left: 136px;
+      &:after {
+        content: ' 6s';
+        font-weight: 300;
+      }
+    }
+  }
+
+  .card {
+    .pace:after, .shooting:after, .passing:after, .dribbling:after, .defending:after, .heading:after {
+      font-family: 'Knul-Medium';
+    }
+    &.fifa17 {
+      font-family: 'Fjalla One',sans-serif;
+      color: #000;
+      text-shadow: none !important;
+      max-width: 227px;
+
+
+      &.toty, &.goldblue {
+        color: #F9E99E !important;
+      }
+      .avatarholder {
+        top: 41px;
+        left: 88px;
+        width: 133px;
+        height: 133px;
+        position: absolute;
+      }
+      .chemstyle {
+        line-height: 28px;
+        text-transform: uppercase;
+        top: 293px;
+        right: 10px;
+        width: 220px;
+        font-size: 20px;
+        position: absolute;
+        text-align: center;
+      }
+      .chemstylename {
+        padding-left: 4px;
+      }
+      .avatar {
+        bottom: 10px;
+        right: 30px;
+        width: 133px;
+        height: 133px;
+      }
+
+      .clubbadge {
+        top: 90px !important;
+        left: 39px;
+        width: 46px;
+        height: 46px;
+      }
+      .nationflag {
+        top: 140px !important;
+        left: 38px;
+        height: 29px;
+        width: auto;
+      }
+      .attributes {
+        font-family: 'Lato',sans-serif;
+
+        font-size: 20px;
+      }
+    }
+  }
+
+}

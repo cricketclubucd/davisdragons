@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" ></ion-icon>
+        </button>
+        <ion-title class="bar">Create</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-fab right bottom>
+        <button ion-fab color="white"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <ion-list>
+        <ion-list-header text-center class="headfont"> Create Match </ion-list-header>
+        <ion-item>
+            <ion-label floating>Match Key</ion-label>
+            <ion-input type="text"[(ngModel)] = "key.MatchKey"></ion-input>
+        </ion-item>
+
+        <ion-item>
+                <ion-label floating>Overs</ion-label>
+                <ion-input type="text"[(ngModel)] = "score.numOfOvers"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Umpire</ion-label>
+            <ion-input type="text"[(ngModel)] = "captains.umpire"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label floating>Home Team Captain Jersey Number</ion-label>
+            <ion-input type="text"[(ngModel)] = "captains.Homecaptain"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Away Team Captain JerseyNumber</ion-label>
+            <ion-input type="text"[(ngModel)] = "captains.Awaycaptain"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>How many players</ion-label>
+            <ion-input type="text"[(ngModel)] = "key.numPlayers"></ion-input>
+        </ion-item>
+
+
+    </ion-list>
+
+    <div padding>
+        <button ion-button  type="button" (click)="create(key,captains)">Start Match</button>
+    </div>
+</ion-content>

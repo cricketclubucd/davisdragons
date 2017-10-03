@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div text-center *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+    		<ion-title *ngIf="i == 1">{{item.totalRuns}} / {{item.totalWickets}} ({{item.totalOvers}})</ion-title>
+    </div>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="roster">
+        <ion-segment-button value="Home">
+          Home
+        </ion-segment-button>
+        <ion-segment-button value="vs.">
+          vs.
+        </ion-segment-button>
+        <ion-segment-button value="Away">
+          Away
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div [ngSwitch]="roster">
+    <div *ngSwitchCase="'Home'">
+        <ion-item *ngFor="let items of playersTeamA$ | async;">
+        <h2>{{items.$key}} Number: {{items.$value}}</h2>
+      </ion-item>
+    </div>
+
+    <ion-list *ngSwitchCase="'vs.'">
+      <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+	  <h4 *ngIf="i == 1"> Aap dekh rahe hain match number: {{ key.MatchKey }} </h4>
+      <ion-grid>
+      <ion-row>
+    		<ion-col>
+			<h2 text-center *ngIf="i == 1">| Runs |</h2>
+		</ion-col>
+		<ion-col>
+    		    <h2 text-center *ngIf="i == 1">| Wickets |</h2>
+		</ion-col>
+		<ion-col>
+    		    <h2 text-center *ngIf="i == 1">| Overs |</h2>
+		</ion-col>
+	  </ion-row>
+      <ion-row>
+    		<ion-col>
+			<h2  text-center *ngIf="i == 1">{{item.totalRuns}}</h2>
+		</ion-col>
+		<ion-col>
+    		    <h2 text-center *ngIf="i == 1">{{item.totalWickets}}</h2>
+		</ion-col>
+		<ion-col>
+    		    <h2 text-center *ngIf="i == 1">{{item.totalOvers}}</h2>
+		</ion-col>
+	  </ion-row>
+    </ion-grid>
+      </div>
+    <div *ngFor ="let item of scoreRef$ | async; let i = index; let lst = last">
+          <h2 *ngIf="i==lst">Next Ball: {{ item.$value }}</h2>
+    </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Away'">
+      <ion-item *ngFor="let items of playersTeamB$ | async;">
+        <h2>{{items.$key}} Number: {{items.$value}}</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+
+<!--ion-content padding class="action-sheets-basic-page">
+
+  <button ion-button block (click)="openMenu()">
+    Show Action Sheet
+  </button>
+</ion-content !-->

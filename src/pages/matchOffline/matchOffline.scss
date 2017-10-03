@@ -1,0 +1,19 @@
+.buttons{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:goldenrod;
+    background: #002855;
+    font-size: 15px;
+    color: goldenrod;
+    
+}
+
+.buttons:active{
+    border-color:#002855;
+    background: goldenrod;
+    color: #002855;
+
+}

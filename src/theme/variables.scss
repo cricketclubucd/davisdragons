@@ -1,0 +1,59 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+$colors: (
+  primary:    #002855,
+  secondary:  #DAAA00,
+  danger:     #ff0000,
+  live:          #2a900e,
+  light:      white,
+  dark:       #002855
+) !default;
+
+$text-color: color($colors, secondary) !default;
+$link-color: color($colors, secondary) !default;
+$background-color: color($colors, primary) !default;
+$toolbar-background: $background-color !default;
+$toolbar-border-color:  $text-color !default;
+$toolbar-text-color: $text-color !default;
+$toolbar-active-color: $link-color !default;
+$toolbar-inactive-color: $link-color !default;
+$toolbar-md-title-text-color: map-get($colors, secondary);
+$toolbar-ios-title-text-color: map-get($colors, secondary);
+$toolbar-wp-title-text-color: map-get($colors, secondary);
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
