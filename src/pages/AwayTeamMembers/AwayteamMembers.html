@@ -18,7 +18,7 @@
                     <img src="assets/img/Player_Profile.jpg" id="player-card">
 
                     <div class="avatarholder" style="width: 115px; resize: horizontal ">
-                        //<img src= "../../assets/img/virat.jpg" class="avatar">
+                        //<img src= {{this.thePlayer.picture}} class="avatar">
                     </div>
                     <div class=" name">
                         <span class="marquee">{{this.thePlayer.FirstName}}</span>
@@ -34,9 +34,6 @@
                         <span class="six">{{this.thePlayer.sixes}}</span>
 
                     </div>
-                </div>
-                <div class="chemstyle">
-                    <span class="chemstylename">{{this.thePlayer.role}}</span>
                 </div>
             </div>
             <button ion-button (click) = "goToaddPlayer()"> Add </button>

@@ -30,6 +30,9 @@ export class SignInPage {
 	static emailId = "";
 	userProfile: any = null;
 	fireauth = firebase.auth();
+
+    userProf:any = null;
+
 	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform, private data: AngularFireDatabase) {
 		this.fireauth.onAuthStateChanged( user => {
 			if (user){
@@ -42,7 +45,7 @@ export class SignInPage {
 		// alert(this.userProfile.email);
 		this.accessNo$ = this.database.list('ClubParams/ClubRoster');
 	}
-	
+
 
 	googleauth() {
 		var clientInfo = {
@@ -59,7 +62,7 @@ export class SignInPage {
 		  .then((res) => {
 			  const firecreds = firebase.auth.GoogleAuthProvider.credential(res.idToken);
 			 this.fireauth.signInWithCredential(firecreds).then((res) => {
-				  // alert("Firebase success: " + JSON.stringify(res));
+				  //alert("Firebase success: " + JSON.stringify(res));
 				  this.check(this.userProfile);
                  	//this.goToAdd(this.userProfile);
 
@@ -105,26 +108,26 @@ export class SignInPage {
 		//this.data.object('/ClubParams/AccessLevel/' + SignInPage.jersey_num + "/").subscribe(data => console.log("Value: " + data))
 	}
 
-	check(userprofile:any)
+	check(userprofile: any)
 	{
 
-        this.name = this.data.list("/Players",{
+        this.name = this.data.list("/ClubParams/ClubRoster",{
             query: {
                 orderByChild: "email",
                 equalTo: userprofile.email
             }
 
 		});
-		
+
 		// this.j_no = this.database.list("/ClubParams/ClubRoster");
 		//alert(SignInPage.emailId);
-		
+
 		//alert("j_no: " + this.j_no);
 		//alert(this.accessNo$);
         this.name.subscribe(data =>
         {
             if(data.length == 0 && !userprofile) {
-                console.log('User does not exist');
+                alert('User does not exist');
                 console.log(data);
                 this.navCtrl.push(AddPage, {playerInfo: userprofile});
 
@@ -158,8 +161,10 @@ export class SignInPage {
 	  this.navCtrl.push(GetterPage);
   }
 
-  goToAdd(userprofile:any) {
-	  this.navCtrl.push(AddPage, {profile: userprofile});
+  goToAdd() {
+		//this.userProf.picture = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Iverson_from_behind.jpg/180px-Iverson_from_behind.jpg";
+		//this.userProf.email= "nbadavis@gmail.com";
+	  this.navCtrl.push(AddPage);
   }
 
     goToSearch() {
