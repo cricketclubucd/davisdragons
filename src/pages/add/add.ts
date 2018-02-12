@@ -9,7 +9,6 @@ import {stringify} from "@angular/core/src/util";
 import 'rxjs/add/operator/take';
 
 
-
 @Component({
   selector: 'page-add',
   templateUrl: 'add.html'
@@ -32,12 +31,12 @@ export class AddPage {
         user = this.navPrams.get('playerInfo');
         //console.log(user.email);
 
-        this.player.email = user.email;
-        this.player.picture = user.photoURL;
+        //this.player.email = user.email;
+        //this.player.picture = user.photoURL;
         //this.player.picture = null;
 
-        //this.player.picture = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Iverson_from_behind.jpg/180px-Iverson_from_behind.jpg";
-        //this.player.email= "nbadavis@gmail.com";
+        this.player.picture = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Iverson_from_behind.jpg/180px-Iverson_from_behind.jpg";
+        this.player.email= "nbadavis@gmail.com";
 
         //this.userRef$ = this.data.object('Players');
 

@@ -1,8 +1,0 @@
-{
-  "name": "davisdragons",
-  "app_id": "3a17740e",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { Facebook} from "@ionic-native/facebook";
+
 
 import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from './app.firebase.cofig';
@@ -27,6 +29,9 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SpectatorPage } from '../pages/spectator/spectator';
 import { MemberPage } from '../pages/member/member';
+
+import {ProfilePage} from '../pages/Profile/profile';
+
 import{TabBasicContentPage} from '../pages/member/member';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,6 +60,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     MatchOfflinePage,
     SpectatorPage,
     MemberPage,
+    ProfilePage,
     TabBasicContentPage,
     UmpirePage,
     ExtrasPage
@@ -85,6 +91,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
     ListPage,
     SpectatorPage,
     MemberPage,
+    ProfilePage,
     TabBasicContentPage,
     UmpirePage,
     ExtrasPage
@@ -92,6 +99,7 @@ import {UmpirePage} from '../pages/umpire/umpire';
   providers: [
     StatusBar,
     SplashScreen,
+    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseProvider,
     GooglePlus

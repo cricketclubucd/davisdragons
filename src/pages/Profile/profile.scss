@@ -1,22 +1,27 @@
-page-Awayteam{
-
-  body{
-
-    background: #08315E;
+page-profile{
+  .name{
+    color: white;
+    text-align: center;
   }
 
-  .button{
+  .bar{
+    background: #F9E99E ;
 
-    left: 55px;
-    top:80px;
-    background-color: black;
-    font-size: 35px;
+  }
+  .item ion-thumbnail {
+    min-width: 5rem;
+    min-height: 5rem;
+    img {
+        max-width: 5rem;
+        min-width: 5rem;
+    }
+}
+  .profile{
+    text-align: center;
   }
 
   .card {
     position: relative;
-    left: 15px;
-    top: 70px;
     font-family: 'Titillium Web',sans-serif;
     .clubbadge, .nationflag, .avatar {
       position: absolute;
@@ -24,11 +29,15 @@ page-Awayteam{
   }
   .card {
 
+    width: 225px;
+    height: 500px;
+    left: 23%;
+
     .name {
       position: absolute;
       text-align: center;
       overflow: hidden;
-      line-height: 20px;
+      line-height: 28px;
       text-transform: uppercase;
       top: 174px;
       left: 0px;
@@ -167,5 +176,4 @@ page-Awayteam{
       }
     }
   }
-
 }

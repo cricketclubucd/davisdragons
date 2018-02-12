@@ -18,11 +18,12 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {SpectatorPage} from '../pages/spectator/spectator';
 import{MemberPage} from '../pages/member/member';
-//import{TabBasicContentPage} from '../pages/member/TabBasicContentPage';
+import{TabBasicContentPage} from '../pages/member/TabBasicContentPage';
 import {UmpirePage} from '../pages/umpire/umpire';
 import {CreatePage} from '../pages/createMatch/createMatch';
 import {FindPlayerPage} from "../pages/FindPlayer/FindPlayer";
 import {AwayFindPlayerPage} from "../pages/AwayFindPlayer/AwayFindPlayer";
+import {ProfilePage} from '../pages/Profile/profile';
 
 
 @Component({
@@ -56,34 +57,31 @@ export class MyApp {
       { title: 'Home', component: HomePage },
         { title: 'Add to Home Team', component: FindPlayerPage },
         { title: 'Add to Away Team', component: AwayFindPlayerPage },
-      { title: 'List', component: ListPage },
       { title: 'Spectator', component: SpectatorPage },
-        { title: 'Member', component: MemberPage },
+
+        { title: 'Add', component: AddPage },
+        { title: 'Profile', component: ProfilePage },
         { title: 'Umpire', component: UmpirePage },
         { title: 'Search Player', component: SearchPage },
         { title: 'Create Match', component: CreatePage }
     ];
     this.pages_1 = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
         { title: 'Add to Home Team', component: FindPlayerPage },
         { title: 'Add to Away Team', component: AwayFindPlayerPage },
       { title: 'Spectator', component: SpectatorPage },
-        { title: 'Member', component: MemberPage },
         { title: 'Umpire', component: UmpirePage },
         { title: 'Search Player', component: SearchPage },
         { title: 'Create Match', component: CreatePage },
     ];
     this.pages_2 = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-        { title: 'Member', component: MemberPage },
+        { title: 'Profile', component: ProfilePage },
         { title: 'Search Player', component: SearchPage },
     ];
     this.pages_3 = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-        { title: 'Member', component: MemberPage },
+        { title: 'Profile', component: ProfilePage },
         { title: 'Search Player', component: SearchPage },
     ];
     this.pages_4 = [
@@ -92,17 +90,15 @@ export class MyApp {
     ];
       this.pages_5 = [
           { title: 'Home', component: HomePage },
-          { title: 'List', component: ListPage },
           { title: 'Add to Home Team', component: FindPlayerPage },
-          { title: 'Member', component: MemberPage },
+          { title: 'Profile', component: ProfilePage },
           { title: 'Search Player', component: SearchPage },
       ];
 
       this.pages_6 = [
           { title: 'Home', component: HomePage },
-          { title: 'List', component: ListPage },
           { title: 'Add to Away Team', component: AwayFindPlayerPage },
-          { title: 'Member', component: MemberPage },
+          { title: 'Profile', component: ProfilePage },
           { title: 'Search Player', component: SearchPage },
       ];
 

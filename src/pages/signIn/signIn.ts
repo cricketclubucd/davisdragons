@@ -4,6 +4,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 
+import { Facebook} from "@ionic-native/facebook";
+
 import * as firebase from 'firebase';
 
 import { HomePage } from '../home/home';
@@ -33,7 +35,7 @@ export class SignInPage {
 
     userProf:any = null;
 
-	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform, private data: AngularFireDatabase) {
+	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform, private data: AngularFireDatabase, public facebook: Facebook) {
 		this.fireauth.onAuthStateChanged( user => {
 			if (user){
 				this.userProfile = user;
@@ -108,6 +110,45 @@ export class SignInPage {
 		//this.data.object('/ClubParams/AccessLevel/' + SignInPage.jersey_num + "/").subscribe(data => console.log("Value: " + data))
 	}
 
+	login(){
+
+        this.facebook.login(['email']).then(res =>{
+            const fb = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
+            firebase.auth().signInWithCredential(fb).then(fs=>{
+                alert("firebase sec")
+
+            }).catch(ferr=>{
+                alert("firebase err ")
+
+            })
+
+
+        }).catch(err =>{
+
+            alert(JSON.stringify(err ))
+
+        })
+	}
+
+	login2(){
+        var provider = new firebase.auth.FacebookAuthProvider();
+
+        firebase.auth().signInWithRedirect(provider).then(()=> {
+            firebase.auth().getRedirectResult().then((result)=> {
+                alert(JSON.stringify(result));
+            }).catch(function (error) {
+
+            	alert(JSON.stringify(error));
+            })
+
+
+			})
+
+
+        console.log("login 2");
+
+	}
+
 	check(userprofile: any)
 	{
 
@@ -137,9 +178,6 @@ export class SignInPage {
                 this.navCtrl.push(HomePage);
             }
         });
-
-
-
 	}
 
 	logout()

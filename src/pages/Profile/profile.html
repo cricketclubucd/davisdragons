@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-navbar class="bar">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <h4 class="name"> Aman </h4>
+
+    </ion-navbar>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="roster">
+            <ion-segment-button value="Profile">
+                Profile
+            </ion-segment-button>
+            <ion-segment-button value="Achievments">
+                Achievments
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div [ngSwitch]="roster">
+        <ion-list *ngSwitchCase="'Profile'">
+            <h4 class="profile" > Welcome to your profile </h4>
+            <div class="col-md-3">
+
+                    <div class="card toty fifa17">
+                        <div class="player">
+                            <img src="assets/img/Player_Profile.jpg" id="player-card">
+
+                            <div class="avatarholder" style="width: 115px; ">
+                                <img src= "assets/img/rohit.jpg" class="avatar">
+                            </div>
+                            <div class=" name">
+                                <span class="marquee"> Aman </span>
+                            </div>
+                            <div class="attributes ">
+                            <span class="loyalty">
+                            </span>
+                                <span class="runs"> 4 </span>
+                                <span class="wickets"> 6 </span>
+                                <span class="highestScore"> 6 </span>
+                                <span class="average"> 6 </span>
+                                <span class="four"> 2 </span>
+                                <span class="six"> 6 </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'Achievments'">
+
+        </ion-list>
+    </div>
+</ion-content>
+
+
+
+
