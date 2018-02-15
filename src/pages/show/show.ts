@@ -29,7 +29,6 @@ export class ShowPage {
 
 
         this.name = this.navPrams.get('playerInfo');
-        console.log(this.name[0].FirstName);
 
         this.playerRef$ = this.data.list('Players');
 

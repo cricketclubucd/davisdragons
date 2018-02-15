@@ -11,5 +11,7 @@ export interface player
   fours: number;
   sixes: number;
   picture: any;
+  name: any;
+  accesslevel:any;
 
 }

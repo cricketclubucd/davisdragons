@@ -4,9 +4,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 
-import { Facebook} from "@ionic-native/facebook";
-
-import * as firebase from 'firebase';
+import { Facebook, FacebookLoginResponse} from "@ionic-native/facebook";
 
 import { HomePage } from '../home/home';
 import { MyApp } from '../../app/app.component';
@@ -14,6 +12,7 @@ import { MyApp } from '../../app/app.component';
 import { GetterPage } from '../getter/getter';
 import { AddPage } from '../add/add';
 import { SearchPage } from '../Search/search';
+import * as firebase from "firebase/app";
 
 @Component({
   selector: 'page-signIn',
@@ -35,10 +34,12 @@ export class SignInPage {
 
     userProf:any = null;
 
-	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus, public platform: Platform, private data: AngularFireDatabase, public facebook: Facebook) {
+	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus,
+                public platform: Platform, private data: AngularFireDatabase, private facebook: Facebook) {
 		this.fireauth.onAuthStateChanged( user => {
 			if (user){
 				this.userProfile = user;
+				alert("new: "+ user.email)
 			} else {
 				this.userProfile = null;
 			}
@@ -66,6 +67,7 @@ export class SignInPage {
 			 this.fireauth.signInWithCredential(firecreds).then((res) => {
 				  //alert("Firebase success: " + JSON.stringify(res));
 				  this.check(this.userProfile);
+
                  	//this.goToAdd(this.userProfile);
 
 				}).catch((err) => {
@@ -110,49 +112,35 @@ export class SignInPage {
 		//this.data.object('/ClubParams/AccessLevel/' + SignInPage.jersey_num + "/").subscribe(data => console.log("Value: " + data))
 	}
 
-	login(){
 
-        this.facebook.login(['email']).then(res =>{
-            const fb = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken)
-            firebase.auth().signInWithCredential(fb).then(fs=>{
-                alert("firebase sec")
+    login5()
+	{
+	    this.facebook.login(["email"]).then((loginResponse) =>
+		{
 
-            }).catch(ferr=>{
-                alert("firebase err ")
-
+            let cred = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
+	        firebase.auth().signInWithCredential(cred).then((info)=>
+			{
+	                this.userProf  = info;
+	                //alert("lollllllll"+ JSON.stringify(info));
+	                this.check(this.userProfile);
             })
-
-
-        }).catch(err =>{
-
-            alert(JSON.stringify(err ))
-
+				.catch(function (error)
+				{
+                    this.check(this.userProfile);
+                	alert('Firebase auth failed' + error);
+				})
         })
-	}
-
-	login2(){
-        var provider = new firebase.auth.FacebookAuthProvider();
-
-        firebase.auth().signInWithRedirect(provider).then(()=> {
-            firebase.auth().getRedirectResult().then((result)=> {
-                alert(JSON.stringify(result));
-            }).catch(function (error) {
-
-            	alert(JSON.stringify(error));
-            })
+    }
 
 
-			})
 
-
-        console.log("login 2");
-
-	}
 
 	check(userprofile: any)
 	{
 
-        this.name = this.data.list("/ClubParams/ClubRoster",{
+        this.name = this.data.list("/ClubParams/ClubRoster",
+			{
             query: {
                 orderByChild: "email",
                 equalTo: userprofile.email
@@ -160,23 +148,19 @@ export class SignInPage {
 
 		});
 
-		// this.j_no = this.database.list("/ClubParams/ClubRoster");
-		//alert(SignInPage.emailId);
-
-		//alert("j_no: " + this.j_no);
-		//alert(this.accessNo$);
         this.name.subscribe(data =>
         {
-            if(data.length == 0 && !userprofile) {
-                alert('User does not exist');
-                console.log(data);
-                this.navCtrl.push(AddPage, {playerInfo: userprofile});
+            if(data.length == 0)
+            {
+                alert('User does not exist'+ data);
 
-            } else {
-                alert('User does exist');
+                this.navCtrl.push(AddPage, {playerInfo: userprofile});
+            } 	else
+				{
+                alert('User does exist' + data);
                 console.log(data);
                 this.navCtrl.push(HomePage);
-            }
+            	}
         });
 	}
 
@@ -184,7 +168,7 @@ export class SignInPage {
 	{
 		alert("Are you sure you want to remove this account forever?");
 		this.userProfile= null;
-		this.googleplus.logout();
+		this.facebook.logout();
 		this.fireauth.signOut();
 		// this.googleauth();
 		// this.navCtrl.push(MyApp);
@@ -207,6 +191,12 @@ export class SignInPage {
 
     goToSearch() {
         this.navCtrl.push(SearchPage);
+    }
+
+    isloggedin(){
+
+        alert("New: "+ this.userProfile.email);
+
     }
 
 }

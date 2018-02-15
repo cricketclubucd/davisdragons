@@ -1,19 +1,19 @@
 <ion-content padding>
-<ion-fab right bottom>
-<button ion-fab color="secondary" large (click)="goTohome()"><ion-icon color="live" name="tennisball"></ion-icon></button>
+<ion-fab right top>
+<button  class="ball" ion-fab color="secondary" large (click)="goTohome()"><ion-icon color="live" name="tennisball"></ion-icon></button>
 </ion-fab>
 
 <div text-center>
 	<img src="assets/img/Welcome.jpg" />
 	<h1 color="secondary"> Davis Dragons®
-	</h1> 
+	</h1>
 	<h3 color="live"> The Official App for the Cricket Club at UC Davis.
     </h3>
 
 
-    <button ion-button large  color="danger" round (click)="login2()" >
-       &nbsp; Login with Facebook
-    </button>
+    <button ion-button large  color="danger" round (click)="login5()" >&nbsp; Login with Facebook</button>
+    <button ion-button large  color="danger" round (click)="goTohome()" > Guest login </button>
+
   <ion-item *ngIf="userProfile">
     <ion-avatar (click)="isloggedin()" item-left>
       <img [src]="userProfile.photoURL">

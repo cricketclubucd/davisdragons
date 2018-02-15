@@ -108,6 +108,10 @@
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
+        <variable name="APP_ID" value="1920354821612218" />
+        <variable name="APP_NAME" value="davisdragons" />
+    </plugin>
     <engine name="android" spec="^6.4.0" />
     <engine name="browser" spec="^5.0.3" />
     <engine name="ios" spec="^4.5.1" />

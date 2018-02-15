@@ -1,4 +1,4 @@
- {
+{
     "name": "davisdragons",
     "version": "0.0.3",
     "author": "Cricket Club at UC Davis",
@@ -39,6 +39,7 @@
         "cordova-plugin-device": "^1.1.6",
         "cordova-plugin-device-motion": "^1.2.5",
         "cordova-plugin-device-orientation": "^1.0.7",
+        "cordova-plugin-facebook4": "^1.9.1",
         "cordova-plugin-googleplus": "git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-splashscreen": "^4.0.3",
@@ -82,7 +83,11 @@
             "cordova-plugin-googleplus": {
                 "REVERSED_CLIENT_ID": "com.googleusercontent.apps.881322195809-k0dg7hbbk6q8rpo0tfdstrm5q9s2uufo"
             },
-            "cordova-universal-links-plugin": {}
+            "cordova-universal-links-plugin": {},
+            "cordova-plugin-facebook4": {
+                "APP_ID": "1920354821612218",
+                "APP_NAME": "davisdragons"
+            }
         },
         "platforms": [
             "android",

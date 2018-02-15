@@ -17,6 +17,8 @@ export class HomePage {
   accessLevel: number = 5;
   name: any;
   static database: any;
+
+
   constructor(public navCtrl: NavController, public fdb: AngularFireDatabase) {
   	HomePage.database = fdb;
   	this.accessLevel = 5;
@@ -60,7 +62,7 @@ export class HomePage {
   }
   resolveAccessLevel()
   {
-	  var playerKey = "75";
+	  var playerKey = "52";
 	  this.fdb.list(`/ClubParams/AccessLevel/`, { preserveSnapshot: true})
 	  	.subscribe(snapshots=>{
         snapshots.forEach(snapshot => {

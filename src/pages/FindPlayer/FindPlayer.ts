@@ -125,11 +125,9 @@ export class FindPlayerPage {
       this.name.subscribe(data =>
         {
             if(data.length == 0) {
-                console.log('User does not exist');
                 alert("Player with this Jersey Number is not in our databasee")
 
             } else {
-                var Fornow:any;
                 console.log('User does exist');
                 console.log("REF DATA: "+ data);
                 this.SidePlayer = data[0];

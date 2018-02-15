@@ -6,7 +6,18 @@ import { HomePage } from '../home/home';
 import { AddPage } from '../add/add';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import {ShowPage} from "../show/show";
+import { IonicPage, NavParams, Platform } from 'ionic-angular';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { AngularFireAuth } from 'angularfire2/auth';
 
+import { Facebook, FacebookLoginResponse} from "@ionic-native/facebook";
+
+
+import { MyApp } from '../../app/app.component';
+
+import { GetterPage } from '../getter/getter';
+
+import * as firebase from "firebase/app";
 
 
 @Component({
@@ -20,6 +31,12 @@ export class SearchPage {
     player= {} as player;
 
     name:FirebaseListObservable<any[]>;
+
+    fireauth = firebase.auth();
+
+    userProfile:any = null;
+    prof: any = null;
+    other:FirebaseListObservable<any[]>;
 
     constructor(public navCtrl: NavController, private data: AngularFireDatabase) {
 
@@ -51,10 +68,31 @@ export class SearchPage {
         });
     }
 
-    show(player:player){
+    new(){
+        this.fireauth.onAuthStateChanged( user => {
+            if (user){
+                this.userProfile = user;
+                alert("new: "+ user.email)
+            } else {
+                this.userProfile = null;
+            }
+        });
 
-        this.navCtrl.push(ShowPage);
+        this.other = this.data.list("/ClubParams/ClubRoster",{
+            query: {
+                orderByChild: "email",
+                equalTo: this.userProfile.email
+            }
+        });
+
+        this.other.subscribe(data =>
+        {
+            this.prof = data;
+        });
+
+        alert("prof: "+ JSON.stringify(this.prof))
 
     }
+
 
 }
