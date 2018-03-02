@@ -13,5 +13,6 @@ export interface player
   picture: any;
   name: any;
   accesslevel:any;
+  startKey: any;
 
 }

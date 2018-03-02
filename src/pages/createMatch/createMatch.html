@@ -14,6 +14,11 @@
     </ion-fab>
     <ion-list>
         <ion-list-header text-center class="headfont"> Create Match </ion-list-header>
+
+        <ion-item>
+            <ion-input type="date"[(ngModel)] = "key.date"></ion-input>
+        </ion-item>
+
         <ion-item>
             <ion-label floating>Match Key</ion-label>
             <ion-input type="number"[(ngModel)] = "key.MatchKey"></ion-input>

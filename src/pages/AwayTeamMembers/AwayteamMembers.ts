@@ -4,6 +4,10 @@ import {NavController, NavParams} from 'ionic-angular';
 import { player } from '../../models/player';
 import { key } from '../../models/match';
 import { side } from '../../models/match';
+import { player1 } from '../../models/playerSide';
+
+
+
 import {FindPlayerPage} from "../FindPlayer/FindPlayer";
 
 
@@ -25,10 +29,10 @@ export class AwayTeamMembersPage {
     player = {} as player;
     key = {} as key;
     playerInfo:FirebaseListObservable<any[]>;
-    name:FirebaseObjectObservable<player>;
+    name = {} as player1;
     NumofPlayers: any;
     numPlayer: any;
-    thePlayer: any;
+
     sideTeam = {} as side;
 
     open:any;
@@ -37,20 +41,20 @@ export class AwayTeamMembersPage {
 
     constructor(public navCtrl: NavController,public navPrams: NavParams, private data: AngularFireDatabase) {
 
-        this.thePlayer = this.navPrams.get('playerInfo');
-        console.log("ThePlayer key: " + this.thePlayer.startKey);
+        this.name = this.navPrams.get('playerInfo');
+        console.log("name key: " + this.name.picture);
 
-        this.data.object("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Away/check/amountofPlayers/")
+        this.data.object("Matches/" + this.name.startKey + "/MatchStats/PlayerRoster/Away/check/amountofPlayers/")
             .subscribe(data =>
             {
                 this.NumofPlayers = data.$value;
             });
 
 
-        this.playerInfo = this.data.list("/Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Away/",{
+        this.playerInfo = this.data.list("/Matches/" + this.name.startKey + "/MatchStats/PlayerRoster/Away/",{
             query: {
                 orderByChild: "Jersey_Number",
-                equalTo: this.thePlayer.Jersey_Number
+                equalTo: this.name.Jersey_Number
             }
 
         });
@@ -69,7 +73,7 @@ export class AwayTeamMembersPage {
                 var test = 0;
 
 
-                this.numPlayer = this.data.list("Matches/" + this.thePlayer.startKey + "/MatchStats/PlayerRoster/Away/check/");
+                this.numPlayer = this.data.list("Matches/" + this.name.startKey + "/MatchStats/PlayerRoster/Away/check/");
                 this.numPlayer.subscribe(val => {
                     this.open = val;
 
@@ -90,7 +94,7 @@ export class AwayTeamMembersPage {
         var test: number = 1;
         var stop:number = 0;
         stop += this.NumofPlayers;
-        this.sideTeam.startKey = this.thePlayer.startKey;
+        this.sideTeam.startKey = this.name.startKey;
 
 
 
@@ -108,22 +112,22 @@ export class AwayTeamMembersPage {
             if(test == stop)
             {
                 alert("You cannot enter more players");
-                this.navCtrl.push(AwayFindPlayerPage, {team: this.sideTeam});
+                this.navCtrl.setRoot(AwayFindPlayerPage, {team: this.sideTeam});
 
             }
         }
-        this.navCtrl.push(AwayFindPlayerPage, {team: this.sideTeam});
+        this.navCtrl.setRoot(AwayFindPlayerPage, {team: this.sideTeam});
     }
 
     add(placeholder: number){
 
 
 
-        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/Away/Players/`+ placeholder + `/`)
-        .set(this.thePlayer.Jersey_Number);
+        this.data.object(`Matches/`+ this.name.startKey +`/MatchStats/PlayerRoster/Away/Players/`+ placeholder + `/`)
+        .set(this.name.Jersey_Number);
 
-        this.data.object(`Matches/`+ this.thePlayer.startKey +`/MatchStats/PlayerRoster/Away/check/`+ placeholder + `/`)
-            .set(this.thePlayer.Jersey_Number);
+        this.data.object(`Matches/`+ this.name.startKey +`/MatchStats/PlayerRoster/Away/check/`+ placeholder + `/`)
+            .set(this.name.Jersey_Number);
 
 
 

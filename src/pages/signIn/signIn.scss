@@ -38,10 +38,18 @@ page-signIn {
 
 .button {
 	border: none;
+	font-weight: bold;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
 	color: white;
-	padding: 15px 32px;
-	font-size: 16px;
-
+	padding: 15px 10px;
+	font-size: 20px;
 }
+
+	h4{
+		color: white;
+
+	}
 
 }

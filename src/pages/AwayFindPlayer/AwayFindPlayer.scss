@@ -1,11 +1,20 @@
 
 page-Awayfind {
+
+  .pic{
+
+    height: 95px;
+    width: 120px;
+
+
+  }
+
   .headfont {
     font-family: 'exoregular';
     font-size: 35px;
     font-style: normal;
-    font-variant: normal;
     font-weight: bold;
+    font-variant: normal;
     line-height: 38px;
     color: white;
     background: goldenrod;
@@ -80,8 +89,7 @@ page-Awayfind {
       top: 60%;
       left: 20%;
       &:after {
-        content: ' RNS';
-        font-weight: bold;
+        content: ' :RNS';
       }
     }
     .wickets {
@@ -89,8 +97,7 @@ page-Awayfind {
       top: 69%;
       left: 20%;
       &:after {
-        content: ' WKTS';
-        font-weight: bold;
+        content: ' :WKTS';
       }
     }
 
@@ -99,8 +106,7 @@ page-Awayfind {
       top: 76%;
       left: 20%;
       &:after {
-        content: ' 4s';
-        font-weight: bold;
+        content: ' :4s';
       }
     }
 
@@ -109,8 +115,7 @@ page-Awayfind {
       top: 60%;
       left: 60%;
       &:after {
-        content: ' HS';
-        font-weight: bold;
+        content: ' :HS';
       }
     }
     .average {
@@ -118,8 +123,7 @@ page-Awayfind {
       top: 69%;
       left: 60%;
       &:after {
-        content: ' AVG';
-        font-weight: bold;
+        content: ' :AVG';
       }
     }
 
@@ -128,8 +132,7 @@ page-Awayfind {
       top: 76%;
       left: 60%;
       &:after {
-        content: ' 6s';
-        font-weight: bold;
+        content: ' :6s';
       }
     }
   }
@@ -150,7 +153,7 @@ page-Awayfind {
       }
       .avatarholder {
         top: 7%;
-        left: 28%;
+        left: 25%;
         width: 50%;
         position: absolute;
       }
@@ -165,7 +168,6 @@ page-Awayfind {
         width: 100%;
         font-size: 10px;
         font-family: 'Open Sans Condensed',sans-serif;
-        font-weight: bold;
 
       }
 

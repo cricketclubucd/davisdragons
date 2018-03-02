@@ -46,6 +46,8 @@ export class HomePage {
     });// Finds out the current matchPtr
     return key;
   }
+
+
   goToMatch()
   {
 	 if (this.intMatchState === 1)
@@ -60,6 +62,8 @@ export class HomePage {
 		}
 	}
   }
+
+
   resolveAccessLevel()
   {
 	  var playerKey = "52";

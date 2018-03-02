@@ -134,7 +134,6 @@ export class FindPlayerPage {
                 this.SidePlayer.startKey = this.forNow;
                 console.log("Startkey: " + this.forNow);
                 console.log("SidePlayer Name: " + this.SidePlayer.FirstName);
-                this.SidePlayer.picture = " ";
                 this.navCtrl.push(TeamMembersPage, {playerInfo:this.SidePlayer });
             }
         });
@@ -146,7 +145,7 @@ export class FindPlayerPage {
 
     reload(){
 
-        this.navCtrl.push(FindPlayerPage);
+        this.navCtrl.setRoot(FindPlayerPage);
 
 
 

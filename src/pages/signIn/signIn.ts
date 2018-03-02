@@ -33,9 +33,27 @@ export class SignInPage {
 	fireauth = firebase.auth();
 
     userProf:any = null;
+    loggedout = true;
+    loggedin = false;
 
 	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus,
                 public platform: Platform, private data: AngularFireDatabase, private facebook: Facebook) {
+
+
+        this.fireauth.onAuthStateChanged( user => {
+            if (user){
+
+                this.loggedout = false;
+                this.loggedin = true;
+
+            } else {
+
+                this.loggedout = true;
+                this.loggedin = false;
+            }
+        });
+
+
 		this.fireauth.onAuthStateChanged( user => {
 			if (user){
 				this.userProfile = user;
@@ -87,7 +105,7 @@ export class SignInPage {
 
         });
 
-        this.bleh.subscribe(data =>
+        this.bleh.take(1).subscribe(data =>
         {
             if(data.length == 0) {
                 console.log('User does not exist');
@@ -121,17 +139,18 @@ export class SignInPage {
             let cred = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
 	        firebase.auth().signInWithCredential(cred).then((info)=>
 			{
+                this.loggedout = false;
+                this.loggedin = true;
 	                this.userProf  = info;
 	                //alert("lollllllll"+ JSON.stringify(info));
-	                this.check(this.userProfile);
             })
 				.catch(function (error)
 				{
-                    this.check(this.userProfile);
                 	alert('Firebase auth failed' + error);
 				})
         })
     }
+
 
 
 
@@ -159,15 +178,24 @@ export class SignInPage {
 				{
                 alert('User does exist' + data);
                 console.log(data);
-                this.navCtrl.push(HomePage);
+                this.navCtrl.setRoot(HomePage);
             	}
         });
 	}
 
 	logout()
 	{
-		alert("Are you sure you want to remove this account forever?");
+		alert("You have been logged out!");
+        var user = firebase.auth().currentUser;
+
+        user.delete().then(function() {
+            // User deleted.
+        }).catch(function(error) {
+            // An error happened.
+        });
 		this.userProfile= null;
+        this.loggedout = true;
+        this.loggedin = false;
 		this.facebook.logout();
 		this.fireauth.signOut();
 		// this.googleauth();
@@ -184,8 +212,6 @@ export class SignInPage {
   }
 
   goToAdd() {
-		//this.userProf.picture = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Iverson_from_behind.jpg/180px-Iverson_from_behind.jpg";
-		//this.userProf.email= "nbadavis@gmail.com";
 	  this.navCtrl.push(AddPage);
   }
 

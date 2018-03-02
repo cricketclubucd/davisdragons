@@ -11,16 +11,25 @@
     </h3>
 
 
-    <button ion-button large  color="danger" round (click)="login5()" >&nbsp; Login with Facebook</button>
-    <button ion-button large  color="danger" round (click)="goTohome()" > Guest login </button>
+    <div style="text-align: center">
+    <ion-item *ngIf="loggedout">
+        <button ion-button color="danger" round (click)="login5()" >&nbsp; Login with Facebook</button>
+    </ion-item>
 
-  <ion-item *ngIf="userProfile">
-    <ion-avatar (click)="isloggedin()" item-left>
+    <ion-item *ngIf="loggedout">
+        <button ion-button color="danger" round (click)="goTohome()" > Guest login </button>
+    </ion-item>
+    </div>
+
+  <ion-item *ngIf="loggedin">
+    <ion-avatar (click)="check(userProfile)" item-left>
       <img [src]="userProfile.photoURL">
     </ion-avatar>
-    <h2 (click)="isloggedin()">{{ userProfile.displayName }}</h2>
-    <h3>There it is: {{ userProfile.email }}</h3>
+    <h2 (click)="check(userProfile)">{{ userProfile.displayName }}</h2>
+    <h4 style="font-weight: bold" color = "white">Click here to go to home page!</h4>
     <ion-icon name="remove" item-right (click)="logout()"></ion-icon>
   </ion-item>
+
+
 </div>
 </ion-content>

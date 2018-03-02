@@ -43,12 +43,11 @@ export class AwayFindPlayerPage {
 
         this.data.object("ClubParams/LiveMatchState/matchPtr").subscribe(data => {
 
-            console.log("ForNow: " + data.$value);
             this.forNow = data.$value;
             //console.log("Find Player StartKey: " + this.forNow);
 
         });
-        //console.log("Find Player Squad: " + this.forNow.squad);
+
 
 
         this.data.list("Matches/" + this.forNow + "/MatchStats/PlayerRoster/Away/Players/")
@@ -56,8 +55,6 @@ export class AwayFindPlayerPage {
 
                 this.AwayPlayers = data;
                 this.players = data.length;
-                console.log("Player: " + data.length);
-                console.log("Away Players: " + this.AwayPlayers);
 
 
             });
@@ -67,9 +64,7 @@ export class AwayFindPlayerPage {
 
             this.roster$ = data;
 
-            console.log("Roster: " + data.length);
             this.roster = data.length;
-            console.log("roster$: " + this.roster$);
         });
 
 
@@ -85,15 +80,9 @@ export class AwayFindPlayerPage {
 
             while (x < this.roster) {
                 while (y < this.players) {
-                    console.log("X: " + x);
-                    console.log("y: " + y);
-                    console.log("this.roster$[x].Jersey_Number: " + this.roster$[x].Jersey_Number);
-                    console.log("this.AwayPlayers[y].$value: " + this.AwayPlayers[y].$value);
+
 
                     if (this.roster$[x].Jersey_Number == this.AwayPlayers[y].$value) {
-
-                        console.log("this.roster$[x]: " + this.roster$[x]);
-                        console.log("this.AwayChecker[z]: " + this.AwayChecker[z]);
 
                         this.AwayChecker[y] = this.roster$[x];
                     }
@@ -104,8 +93,6 @@ export class AwayFindPlayerPage {
 
 
             }
-
-        //console.log("Checker: " + this.Checker[0]);
 
 
     }
@@ -130,25 +117,16 @@ export class AwayFindPlayerPage {
 
             } else {
                 var Fornow:any;
-                console.log('User does exist');
-                console.log("REF DATA: "+ data);
                 this.SidePlayer = data[0];
                 this.SidePlayer.startKey = this.forNow;
-                console.log("Startkey: " + this.forNow);
-                console.log("SidePlayer Name: " + this.SidePlayer.FirstName);
-                this.SidePlayer.picture = " ";
                 this.navCtrl.push(AwayTeamMembersPage, {playerInfo:this.SidePlayer });
             }
         });
-
-        //console.log("SidePlayer Jersey2: " + this.SidePlayer.Jersey_Number);
-        //this.navCtrl.push(TeamMembersPage, {playerInfo:this.spot });
-
     }
 
     reload(){
 
-        this.navCtrl.push(AwayFindPlayerPage);
+        this.navCtrl.setRoot(AwayFindPlayerPage);
 
 
 

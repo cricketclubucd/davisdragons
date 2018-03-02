@@ -27,7 +27,7 @@ export class CreatePage {
 
 
     key = {} as key;
-    check1 = 0;
+    check1 = 2;
     check2 = 0;
     check3= 0;
     check4= 0;
@@ -37,9 +37,11 @@ export class CreatePage {
     score = {} as score;
     captains = {} as captains;
 
+    date2:any;
+
 
     name:FirebaseListObservable<any>;
-    key1:any;
+
     Home:FirebaseListObservable<any>;
 
     constructor(public navCtrl: NavController, public data: AngularFireDatabase) {
@@ -47,23 +49,20 @@ export class CreatePage {
 
     }
 
-    stop(){
-
-        this.key1.unsubscribe();
-    }
-
     create(key:key, captains: captains) {
 
+        this.date2 = key.date + '-' + key.MatchKey;
+        console.log("Checks: "+ this.check1 + this.check2 + this.check3+ this.check4 );
 
-        this.key1 = this.data.list("/Matches",{
+        this.name = this.data.list("/Matches",{
 
             query:{
-                orderByChild:"Matchkey",
-                equalTo:key.MatchKey
+                orderByChild:"ID",
+                equalTo:this.date2
             }
         });
 
-        this.key1.subscribe(data =>
+        this.name.take(1).subscribe(data =>
         {
             console.log("Key: " + JSON.stringify(data));
             if(data.length == 0) {
@@ -72,17 +71,12 @@ export class CreatePage {
                 this.check1 = 1;
 
             } else {
-
-                alert("A match with this 'Match Key' already exists");
                 console.log("Key3: " + data.length);
                 this.check1 = 0;
+                alert("A match with this 'Match Key' already exists");
             }
-            this.stop();
 
         });
-
-
-
 
 
         this.name = this.data.list("/ClubParams/ClubRoster",{
@@ -93,7 +87,7 @@ export class CreatePage {
 
         });
 
-        this.name.subscribe(data =>
+        this.name.take(1).subscribe(data =>
         {
             if(data.length == 0) {
                 alert("The Umpire's Jersey Number is not in our databasee");
@@ -102,6 +96,8 @@ export class CreatePage {
             } else {
                 this.captains.umpire = captains.umpire;
                 this.check2 = 1;
+
+
             }
         });
 
@@ -114,19 +110,18 @@ export class CreatePage {
 
         });
 
-        this.name.subscribe(data =>
+        this.name.take(1).subscribe(data =>
         {
             if(data.length == 0) {
-                console.log('AUser does not exist');
+                console.log('A User does not exist');
                 alert("The Away Team's Captain's Jersey Number is not in our databasee");
                 this.check3 = 0;
 
             } else {
+                this.check3 =1;
                 console.log('AUser does exist');
-                console.log("Checks2: "+ this.check1 + this.check2 + this.check3+ this.check4 );
                 //console.log(data);
                 this.captains.Awaycaptain = captains.Awaycaptain;
-                this.check3 =1;
             }
         });
 
@@ -139,17 +134,17 @@ export class CreatePage {
 
         });
 
-        this.Home.subscribe(data =>
+        this.Home.take(1).subscribe(data =>
         {
             if(data.length == 0) {
                 console.log('HUser does not exist');
                 alert("The Home Team's Captain's Jersey Number is not in our database");
                 this.check4 = 0;
             } else {
+                this.check4 = 1;
                 console.log('HUser does exist');
                 //console.log(data);
                 this.captains.Homecaptain = captains.Homecaptain;
-                this.check4 = 1;
             }
         });
 
@@ -178,63 +173,78 @@ export class CreatePage {
         this.score.totalWickets=0;
         this.score.ballPtr=1;
 
-        console.log("Checks: "+ this.check1 + this.check2 + this.check3+ this.check4 );
+        console.log("Checks2: "+ this.check1 + this.check2 + this.check3+ this.check4 );
 
-        if(this.check1 == 1 && this.check2 == 1 && this.check3 == 1 && this.check4 == 1 ) {
+        if(this.check1 == 1 && this.check2 == 1 && this.check3 == 1 && this.check4 == 1) {
+
+            this.data.object(`ClubParams/ClubRoster/`+ captains.umpire +`/accesslevel/` )
+                .set(1);
+
+            this.data.object(`ClubParams/ClubRoster/`+ captains.Awaycaptain +`/accesslevel/` )
+                .set(5);
+
+            this.data.object(`ClubParams/ClubRoster/`+ captains.Homecaptain +`/accesslevel/` )
+                .set(4);
+
+
 
             for (var i = 1; i <= key.numPlayers; i++) {
-                this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Away/check/p` + i + `/`)
+                this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Away/check/p` + i + `/`)
                     .set(-1);
 
             }
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Away/check/amountofPlayers/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Away/check/amountofPlayers/`)
                 .set(key.numPlayers);
 
 
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awaycaptain/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awaycaptain/`)
                 .set(this.captains.Awaycaptain);
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awayvcaptain/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awayvcaptain/`)
                 .set(this.captains.Awayvcaptain);
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awaywk/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Away/MainRoles/Awaywk/`)
                 .set(this.captains.Awaywk);
 
             for (var i = 1; i <= key.numPlayers; i++) {
-                this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Home/check/p` + i + `/`)
+                this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Home/check/p` + i + `/`)
                     .set(-1);
 
             }
 
-            this.data.object(`Matches/` + key.MatchKey + `/Matchkey/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/date/`)
+                .set(key.date);
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/key/`)
                 .set(key.MatchKey);
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/ID/`)
+                .set(this.date2);
 
 
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Home/check/amountofPlayers`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Home/check/amountofPlayers`)
                 .set(key.numPlayers);
 
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/HomeCaptain/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/HomeCaptain/`)
                 .set(this.captains.Homecaptain);
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/Homevcaptain/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/Homevcaptain/`)
                 .set(this.captains.Homevcaptain);
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/Homewk/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/Homewk/`)
                 .set(this.captains.Homewk);
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/Score/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/Score/`)
                 .set(this.score);
 
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/Toss/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/Toss/`)
                 .set(this.team.toss);
 
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/TeamName/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/TeamName/`)
                 .set(this.team.TeamName);
 
-            this.data.object(`Matches/` + key.MatchKey + `/MatchStats/Umpire/`)
+            this.data.object(`Matches/` + key.date + '-' + key.MatchKey + `/MatchStats/Umpire/`)
                 .set(this.captains.umpire);
 
 
             this.data.object(`ClubParams/LiveMatchState/matchPtr`)
-                .set(key.MatchKey);
+                .set(key.date + '-' + key.MatchKey);
 
 
-            this.navCtrl.push(UmpirePage);
+            this.navCtrl.setRoot(UmpirePage);
 
         }
 

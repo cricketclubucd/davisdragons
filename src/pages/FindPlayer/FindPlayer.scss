@@ -54,6 +54,18 @@ page-find {
       position: absolute;
 
     }
+
+    .headfont {
+      font-family: 'exoregular';
+      font-size: 35px;
+      font-style: normal;
+      font-variant: normal;
+      line-height: 38px;
+      color: white;
+      background: goldenrod;
+      font-weight: normal;
+    }
+
   }
   .card {
 
@@ -80,7 +92,7 @@ page-find {
       top: 60%;
       left: 20%;
       &:after {
-        content: ' RNS';
+        content: ' :RNS';
         font-weight: bold;
       }
     }
@@ -89,7 +101,7 @@ page-find {
       top: 69%;
       left: 20%;
       &:after {
-        content: ' WKTS';
+        content: ' :WKTS';
         font-weight: bold;
       }
     }
@@ -99,7 +111,7 @@ page-find {
       top: 76%;
       left: 20%;
       &:after {
-        content: ' 4s';
+        content: ' :4s';
         font-weight: bold;
       }
     }
@@ -109,7 +121,7 @@ page-find {
       top: 60%;
       left: 60%;
       &:after {
-        content: ' HS';
+        content: ' :HS';
         font-weight: bold;
       }
     }
@@ -118,7 +130,7 @@ page-find {
       top: 69%;
       left: 60%;
       &:after {
-        content: ' AVG';
+        content: ' :AVG';
         font-weight: bold;
       }
     }
@@ -128,7 +140,7 @@ page-find {
       top: 76%;
       left: 60%;
       &:after {
-        content: ' 6s';
+        content: ' :6s';
         font-weight: bold;
       }
     }

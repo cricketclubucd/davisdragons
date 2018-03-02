@@ -60,8 +60,6 @@ export class AddPage {
         this.player.runs = 0;
         this.player.accesslevel = 2;
 
-        //this.player.picture = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Iverson_from_behind.jpg/180px-Iverson_from_behind.jpg";
-        //this.player.email= "nbadavis@gmail.com";
 
 
         this.name = this.data.list("/ClubParams/ClubRoster/",{
