@@ -42,8 +42,8 @@ export class ProfilePage {
 
         this.name =  this.data.list("ClubParams/ClubRoster/",{
             query: {
-                orderByChild: "email",
-                equalTo: this.Player.email
+                orderByChild: "Jersey_Number",
+                equalTo: this.Player.Jersey_Number
             }
 
         });

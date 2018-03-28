@@ -34,7 +34,7 @@ export class SignInPage {
 
     userProf:any = null;
     loggedout = true;
-    loggedin = false;
+    loggedin:any;
 
 	constructor(public navCtrl: NavController, private database: AngularFireDatabase, public navParams: NavParams, public googleplus: GooglePlus,
                 public platform: Platform, private data: AngularFireDatabase, private facebook: Facebook) {

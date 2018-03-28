@@ -16,12 +16,14 @@
         <ion-list-header text-center class="headfont"> Create Match </ion-list-header>
 
         <ion-item>
-            <ion-input type="date"[(ngModel)] = "key.date"></ion-input>
+            <ion-label floating>Match Key</ion-label>
+            <ion-input type="number"[(ngModel)] = "key.MatchKey"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Match Key</ion-label>
-            <ion-input type="number"[(ngModel)] = "key.MatchKey"></ion-input>
+            <ion-label floating>Match Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="key.date">
+            </ion-datetime>
         </ion-item>
 
         <ion-item>
@@ -54,6 +56,6 @@
     </ion-list>
 
     <div padding>
-        <button ion-button  type="button" (click)="create(key,captains)">Start Match</button>
+        <button ion-button  type="button" (click)="empty(key,captains)">Start Match</button>
     </div>
 </ion-content>

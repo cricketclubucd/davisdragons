@@ -33,6 +33,7 @@ export class SearchPage {
     name:FirebaseListObservable<any[]>;
 
     fireauth = firebase.auth();
+    some: any;
 
     userProfile:any = null;
     prof: any = null;
@@ -49,7 +50,7 @@ export class SearchPage {
         this.name = this.data.list("/ClubParams/ClubRoster",{
             query: {
                 orderByChild: "Jersey_Number",
-                equalTo: player.Jersey_Number
+                equalTo: this.player.Jersey_Number
             }
 
         });
@@ -63,6 +64,8 @@ export class SearchPage {
             } else {
                 console.log('User does exist');
                 //console.log(data);
+                this.some = data;
+                alert("New: " + this.some.FirstName);
                 this.navCtrl.push(ShowPage, {playerInfo:data });
             }
         });
