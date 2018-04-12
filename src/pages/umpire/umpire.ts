@@ -10,6 +10,7 @@ import {score} from '../../models/Score';
 import {SpectatorPage} from '../spectator/spectator';
 import {MatchOfflinePage} from "../matchOffline/matchOffline";
 import {ExtrasPage} from "../extras/extras";
+import {ActionSheetController } from 'ionic-angular';
 //import {totalStats} from '../../models/balls';
 @Component({
 
@@ -52,7 +53,7 @@ export class UmpirePage
   matchStats$: FirebaseListObservable<any[]>
   toss_val: any;
   key2 ="";
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public fdb: AngularFireDatabase, platform : Platform)
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public fdb: AngularFireDatabase, platform : Platform, public actionsheetCtrl: ActionSheetController)
   {
     platform.ready().then((readySource) =>
     {
@@ -434,6 +435,41 @@ export class UmpirePage
   }
   goToExtras()
   {
-    this.navCtrl.push(ExtrasPage);
+    let actionSheet = this.actionsheetCtrl.create({
+    title: 'Extras',
+
+     buttons: [
+
+       {
+         text: 'No Ball',
+         handler: () => {
+           console.log('No Ball clicked');
+         }
+       },
+       {
+         text: 'Leg-Bye',
+         handler: () => {
+           console.log('Leg-Bye clicked');
+         }
+       },
+       {
+         text: 'Wide',
+         handler: () => {
+           console.log('Wide clicked');
+           this.wide()
+
+         }
+       },
+       {
+         text: 'Cancel',
+         role: 'cancel', // will always sort to be on the bottom
+         handler: () => {
+           console.log('Cancel clicked');
+         }
+       }
+     ]
+   });
+   actionSheet.present();
+
   }
 } // end of class
