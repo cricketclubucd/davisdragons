@@ -223,7 +223,7 @@ export class CreatePage {
 
         this.balls.ballid = 0;
 //this.balls.ifWide = "false";
-        this.balls.ifExtras = "false";
+        //this.balls.ifExtras = "false";
 //this.balls.isWicket = "false" ;
         this.balls.octant= 0 ;
 

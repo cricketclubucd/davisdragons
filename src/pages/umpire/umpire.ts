@@ -64,7 +64,7 @@ export class UmpirePage
     this.data = fdb.list('/Matches/Match1/Balls');
     this.balls.ballid = 0;
     this.balls.score = 0;
-    this.balls.ifExtras= "false";
+    //this.balls.ifExtras= "false";
     this.balls.isWicket= "false";
     this.balls.octant= 0 ;
     this.score.ballPtr = 0;
@@ -318,7 +318,7 @@ export class UmpirePage
   }
   dot()
   {
-	this.balls.ifExtras = "false";
+	  //this.balls.ifExtras = "false";
     this.balls.isWicket = "false";
     this.balls.octant = 0;
     this.balls.score =0;
@@ -428,7 +428,7 @@ export class UmpirePage
   }
   wicket()
   {
-    this.balls.ifExtras = "false";
+    //this.balls.ifExtras = "false";
     this.balls.isWicket = "true";
     this.balls.octant = 0;
     this.balls.score =0;

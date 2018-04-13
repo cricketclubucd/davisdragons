@@ -1,6 +1,6 @@
 export interface balls
 {
-  ifExtras: string,
+  //ifExtras: string,
   isWicket: string,
   octant: number
   ballid: number;
