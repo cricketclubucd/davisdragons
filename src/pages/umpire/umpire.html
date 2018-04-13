@@ -11,8 +11,9 @@
   <div on-tap="onTap($event)">
   <img style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
   </div>
-  <div id="overthrows" align= "right">
-    <button ion-button color="danger" clear (click) = 'increment(); ' >Overthrows</button>
+  <div text-center>
+    <h5> Batsman1 Runs  <img style ="width: 7%" src="assets/icon/wicket.svg" (click)= 'wicket()'/> Batsman 2 Runs <img style ="width: 7%" src="assets/icon/wicket.svg" (click)= 'wicket()'/> </h5>
+
   </div>
   <div text-center>
     <button ion-button color="secondary" id="run_button1" clear (click) = 'increment(1); run_button1();'>+1</button>
@@ -20,8 +21,10 @@
     <button ion-button color="secondary" id="run_button3" clear (click) = 'increment(3); run_button3();'>+3</button>
     <button ion-button color="secondary" id="run_button4" clear (click) = 'increment(4); run_button4();' >+4</button>
     <button ion-button color="secondary" id="run_button6" clear (click) = 'increment(6); run_button6();'>+6</button>
-    <button ion-button color ="secondary" id="run_button0" clear (click) = 'increment(0); run_button0();'> Dot </button>
+    <br/>
     <button ion-button color="danger" clear (click) = 'increment(); goToExtras(); ' >Extras</button>
+    <img style="width: 7%" src="assets/icon/dot.png" id="run_button0" (click) = 'increment(0); run_button0();'/>
+    <button ion-button color="danger" clear (click) = 'increment(); ' >Overthrows</button>
     <button ion-button color="danger" full (click) = 'clear(); pushdata();' >Go!</button>
   </div>
 

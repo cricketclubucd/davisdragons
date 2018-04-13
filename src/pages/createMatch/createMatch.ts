@@ -92,7 +92,7 @@ export class CreatePage {
             this.create(key, captains);
         }
         else
-            alert("Empty");
+            alert("Values empty! Please enter valid values");
 
 
 
@@ -222,9 +222,6 @@ export class CreatePage {
 
 
         this.balls.ballid = 0;
-//this.balls.ifWide = "false";
-        //this.balls.ifExtras = "false";
-//this.balls.isWicket = "false" ;
         this.balls.octant= 0 ;
 
         k1.ballKey = this.balls.ballid;
@@ -237,10 +234,7 @@ export class CreatePage {
 
         this.team.toss = "Team";
         this.team.TeamName = " ";
-//this.captains.umpire = 0;
 
-//this.score.ballsnOver=0;
-//this.score.totalOvers= "";
         this.score.totalRuns=0;
         this.score.totalWickets=0;
         this.score.ballPtr=1;
@@ -260,11 +254,11 @@ export class CreatePage {
 
 
             for (var i = 1; i <= k1.numPlayers; i++) {
-                this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Away/check/p` + i + `/`)
+                this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Away/Players/p` + i + `/`)
                     .set(-1);
 
             }
-            this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Away/check/amountofPlayers/`)
+            this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Away/Players/amountofPlayers/`)
                 .set(k1.numPlayers);
 
 
@@ -276,7 +270,7 @@ export class CreatePage {
                 .set(this.captains.Awaywk);
 
             for (var i = 1; i <= k1.numPlayers; i++) {
-                this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Home/check/p` + i + `/`)
+                this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Home/Players/p` + i + `/`)
                     .set(-1);
 
             }
@@ -289,7 +283,7 @@ export class CreatePage {
                 .set(this.date2);
 
 
-            this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Home/check/amountofPlayers`)
+            this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Home/Players/amountofPlayers`)
                 .set(k1.numPlayers);
 
             this.data.object(`Matches/` + k1.date + '-' + k1.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles/HomeCaptain/`)
