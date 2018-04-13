@@ -4,48 +4,25 @@
 	<button ion-button color="secondary" clear menuToggle>
 		<ion-icon name="menu"></ion-icon>
 	</button>
-  <ion-toolbar no-border-top>
-      <ion-segment [(ngModel)]="players" color="danger">
-          <ion-segment-button value="friends" (ionSelect)="wicket()">
-            OnStrike
-            <div *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
-             {{item.OnStrike}}
-            </div>
-          </ion-segment-button>
-      <ion-segment-button value="enemies" (ionSelect)="wicket()">
-          <img style="width: 10%;" src="assets/icon/wicket.svg" />
-      </ion-segment-button>
 
-      <ion-segment-button value="home" (ionSelect)="wicket()">
-        OffStrike
-      </ion-segment-button>
-      <ion-segment-button value="away" (ionSelect)="wicket()">
-        <img style="width: 10%;" src="assets/icon/wicket.svg" />
-</ion-segment-button>
-</ion-segment>
-</ion-toolbar>
-
-
-
-    <button ion-button center color ="danger" (click) = 'wicket(); '>
-    			<img style="width: 15%;" src="assets/icon/wicket.svg" /> wicket
-    </button>
-    <br />
+   <img align= "right" style="width:7%" src="assets/icon/close.png" (click)= 'end()'/>
 
   </div>
+
+
+
   <div on-tap="onTap($event)">
   <img style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
   </div>
   <div text-center>
-    <div style="display: none" id="lastMan"><input padding type="checkbox" id="cb">Last Man Standing</div><br>
     <button ion-button color="secondary" id="run_button1" clear (click) = 'increment(1); run_button1();'>+1</button>
     <button ion-button color="secondary" id="run_button2" clear (click) = 'increment(2); run_button2();' >+2</button>
     <button ion-button color="secondary" id="run_button3" clear (click) = 'increment(3); run_button3();'>+3</button>
     <button ion-button color="secondary" id="run_button4" clear (click) = 'increment(4); run_button4();' >+4</button>
     <button ion-button color="secondary" id="run_button6" clear (click) = 'increment(6); run_button6();'>+6</button>
     <button ion-button color ="secondary" id="run_button0" clear (click) = 'increment(0); run_button0();'> Dot </button>
-    <button ion-button color="danger" id="toss" clear (click) = ' computeToss(); ' >Toss</button>
-    <button ion-button color="dark" (click) = 'wide();' > Wide</button>
+    <!--button ion-button color="danger" id="toss" clear (click) = ' computeToss(); ' >Toss</button>
+    <!button ion-button color="dark" (click) = 'wide();' > Wide</button-->
     <button ion-button color="danger" clear (click) = 'increment(); goToExtras(); ' >Extras</button>
     <button ion-button color="danger" full (click) = 'clear(); pushdata();' >Go!</button>
     <button ion-button style="height: 20px;"color ="danger" (click) = 'endMatch(); '>

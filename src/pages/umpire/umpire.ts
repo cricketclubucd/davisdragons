@@ -472,4 +472,30 @@ export class UmpirePage
    actionSheet.present();
 
   }
+  end()
+  {
+    let actionSheet = this.actionsheetCtrl.create({
+    title: 'Cancel',
+
+     buttons: [
+
+       {
+         text: 'End Match',
+         handler: () => {
+           console.log('No Ball clicked');
+         }
+       },
+       {
+         text: 'End Innings',
+         handler: () => {
+           console.log('Leg-Bye clicked');
+         }
+       }
+
+
+     ]
+   });
+   actionSheet.present();
+
+  }
 } // end of class
