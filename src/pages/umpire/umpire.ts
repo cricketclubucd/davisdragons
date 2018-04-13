@@ -426,13 +426,105 @@ export class UmpirePage
     document.getElementById('run_button4').style.color = 'goldenrod';
     document.getElementById('run_button4').style.background = '#002855';
   }
-  wicket()
+  batsman1Wicket()
   {
     //this.balls.ifExtras = "false";
-    this.balls.isWicket = "true";
-    this.balls.octant = 0;
-    this.balls.score =0;
+    let actionSheet = this.actionsheetCtrl.create({
+    title: 'Batsman 1',
+
+     buttons: [
+
+       {
+         text: 'Bowled',
+         handler: () => {
+           console.log('Bowled clicked');
+         }
+       },
+       {
+         text: 'Caught',
+         handler: () => {
+           console.log('Caught clicked');
+         }
+       },
+       {
+         text: 'LBW',
+         handler: () => {
+           console.log('LBW clicked');
+           this.wide()
+
+         }
+       },
+       {
+         text: 'Run Out',
+         handler: () => {
+           console.log('Run Out clicked');
+         }
+       },
+       {
+         text: 'Retired Hurt',
+         handler: () => {
+           console.log('Retired Hurt clicked');
+         }
+       },
+     ]
+   });
+   actionSheet.present();
+   this.balls.isWicket = "true";
+   this.balls.octant = 0;
+   this.balls.score =0;
+
   }
+  batsman2Wicket()
+  {
+    //this.balls.ifExtras = "false";
+    let actionSheet = this.actionsheetCtrl.create({
+    title: 'Batsman 2',
+
+     buttons: [
+
+       {
+         text: 'Bowled',
+         handler: () => {
+           console.log('Bowled clicked');
+         }
+       },
+       {
+         text: 'Caught',
+         handler: () => {
+           console.log('Caught clicked');
+         }
+       },
+       {
+         text: 'LBW',
+         handler: () => {
+           console.log('LBW clicked');
+           this.wide()
+
+         }
+       },
+       {
+         text: 'Run Out',
+         handler: () => {
+           console.log('Run Out clicked');
+         }
+       },
+       {
+         text: 'Retired Hurt',
+         handler: () => {
+           console.log('Retired Hurt clicked');
+         }
+       },
+     ]
+   });
+   actionSheet.present();
+   this.balls.isWicket = "true";
+   this.balls.octant = 0;
+   this.balls.score =0;
+
+  }
+
+
+
   goToExtras()
   {
     let actionSheet = this.actionsheetCtrl.create({
@@ -475,7 +567,6 @@ export class UmpirePage
   end()
   {
     let actionSheet = this.actionsheetCtrl.create({
-    title: 'Cancel',
 
      buttons: [
 
