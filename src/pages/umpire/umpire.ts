@@ -11,6 +11,7 @@ import {SpectatorPage} from '../spectator/spectator';
 import {MatchOfflinePage} from "../matchOffline/matchOffline";
 import {ExtrasPage} from "../extras/extras";
 import {ActionSheetController } from 'ionic-angular';
+//import {ElementRef, ViewChild} from '@angular/core';
 //import {totalStats} from '../../models/balls';
 @Component({
 
@@ -57,8 +58,9 @@ export class UmpirePage
   {
     platform.ready().then((readySource) =>
     {
-       UmpirePage.radius = platform.width()/2;
-       UmpirePage.height1= platform.height()/2;
+      UmpirePage.radius = platform.width()/2;
+      UmpirePage.height1= platform.width()/2;
+
        this.computeBoundaries();
     }); //accesses platform to find its height and width
     this.data = fdb.list('/Matches/Match1/Balls');
@@ -100,6 +102,7 @@ export class UmpirePage
   }
   computeBoundaries()
   {
+     console.log(UmpirePage.radius, UmpirePage.height1);
      UmpirePage.firstXboundary = (UmpirePage.radius * 1 ) //+ UmpirePage.radius; // rcos0
      UmpirePage.firstYboundary = (UmpirePage.radius * 0 ) //+ UmpirePage.radius; //rsin0
      UmpirePage.secondXboundary = (UmpirePage.radius * 0.70710678118 ) //+ UmpirePage.radius; //rcos45
@@ -121,46 +124,46 @@ export class UmpirePage
   } // Computes the boundaries required to determine which on eof the eight quadrants
   computeOctant()
   {
-    console.log(UmpirePage.firstXboundary, UmpirePage.firstYboundary);
-    console.log(UmpirePage.secondXboundary, UmpirePage.secondYboundary);
-    console.log(UmpirePage.thirdXboundary, UmpirePage.thirdYboundary);
-    console.log(UmpirePage.fourthXboundary, UmpirePage.fourthYboundary);
-    console.log(UmpirePage.fifthXboundary, UmpirePage.fifthYboundary);
-    console.log(UmpirePage.sixthXboundary, UmpirePage.sixthYboundary);
-    console.log(UmpirePage.seventhXboundary, UmpirePage.seventhYboundary);
-    console.log(UmpirePage.eigthXboundary, UmpirePage.eigthYboundary);
-    console.log(UmpirePage.ninthXboundary, UmpirePage.ninthYboundary);
+    console.log("1st",UmpirePage.firstXboundary, UmpirePage.firstYboundary);
+    console.log("2nd",UmpirePage.secondXboundary, UmpirePage.secondYboundary);
+    console.log("3rd",UmpirePage.thirdXboundary, UmpirePage.thirdYboundary);
+    console.log("4th",UmpirePage.fourthXboundary, UmpirePage.fourthYboundary);
+    console.log("5th",UmpirePage.fifthXboundary, UmpirePage.fifthYboundary);
+    console.log("6th",UmpirePage.sixthXboundary, UmpirePage.sixthYboundary);
+    console.log("7th",UmpirePage.seventhXboundary, UmpirePage.seventhYboundary);
+    console.log("8th",UmpirePage.eigthXboundary, UmpirePage.eigthYboundary);
+    console.log("9th",UmpirePage.ninthXboundary, UmpirePage.ninthYboundary);
     console.log(UmpirePage.radius, UmpirePage.radius);
     var xdiff = this.x - UmpirePage.radius;
     var ydiff = - this.y+ UmpirePage.height1;
     console.log("The difference:");
     console.log(xdiff, ydiff);
-    if(xdiff >0 && ydiff>0)
+    if(xdiff > 0 && ydiff >0)
     {
       console.log("First Quadrant");
       if(xdiff > UmpirePage.secondXboundary &&  xdiff < UmpirePage.firstXboundary)
       {
-        console.log("First Octant");
-        this.balls.octant = 1;
+        console.log("Second Octant");
+        this.balls.octant = 2;
       }// checks if first Octant
       else if(xdiff > UmpirePage.thirdXboundary &&  xdiff < UmpirePage.secondXboundary)
       {
-        console.log("Second Octant");
-        this.balls.octant = 2;
+        console.log("First Octant");
+        this.balls.octant = 1;
       }// checks if second Octant
     }// checks if first quadrant
-    else if(xdiff <0 && ydiff >0 )
+    else if(xdiff < 0 && ydiff > 0 )
     {
       console.log("Second Quadrant");
       if(xdiff > UmpirePage.fourthXboundary &&  xdiff < UmpirePage.thirdXboundary)
       {
-        console.log("Third Octant");
-        this.balls.octant = 3;
+        console.log("Eigth Octant");
+        this.balls.octant = 8;
       }// checks if 3rd octant
       else if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.fourthXboundary)
       {
-        console.log("Fourth Octant");
-        this.balls.octant = 4;
+        console.log("Seventh Octant");
+        this.balls.octant = 7;
       }// checks if 4th octant
     }// check if second quadrant
     else if(xdiff <0 && ydiff <0 )
@@ -168,13 +171,13 @@ export class UmpirePage
       console.log("Third Quadrant");
       if(xdiff > UmpirePage.fifthXboundary &&  xdiff < UmpirePage.sixthXboundary)
       {
-        console.log("Fifth Octant");
-        this.balls.octant = 5;
+        console.log("Sixth Octant");
+        this.balls.octant = 6;
       }
       else if(xdiff > UmpirePage.sixthXboundary &&  xdiff < UmpirePage.seventhXboundary)
       {
-        console.log("Sixth Octant");
-        this.balls.octant = 6;
+        console.log("Fifth Octant");
+        this.balls.octant = 5;
       }
     }
     else if(xdiff >0 && ydiff <0)
@@ -182,13 +185,13 @@ export class UmpirePage
       console.log("Fourth Quadrant");
       if(xdiff > UmpirePage.seventhXboundary &&  xdiff < UmpirePage.eigthXboundary)
       {
-        console.log("Seventh Octant");
-        this.balls.octant = 7;
+        console.log("Fourth Octant");
+        this.balls.octant = 4;
       }
       else if(xdiff > UmpirePage.eigthXboundary &&  xdiff < UmpirePage.ninthXboundary)
       {
-        console.log("Eighth Octant");
-        this.balls.octant = 8;
+        console.log("Third Octant");
+        this.balls.octant = 3;
       }
     }
   }
@@ -246,8 +249,8 @@ export class UmpirePage
   {
     this.x = event.srcEvent.offsetX;
     this.y = event.srcEvent.offsetY;
-    alert(this.x + ", "+ this.y);
     this.computeOctant();
+    alert("You have pressed Octant" + " " +this.balls.octant);
     //console.log(this.x, this.y);
   }
   toastScoreFromDB()
