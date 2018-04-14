@@ -133,27 +133,10 @@ export class SignInPage {
 
     login5()
 	{
-	    this.facebook.login(["email"]).then((loginResponse) =>
-		{
-
-            let cred = firebase.auth.FacebookAuthProvider.credential(loginResponse.authResponse.accessToken);
-	        firebase.auth().signInWithCredential(cred).then((info)=>
-			{
-                this.loggedout = false;
-                this.loggedin = true;
-	                this.userProf  = info;
-	                //alert("lollllllll"+ JSON.stringify(info));
-            })
-				.catch(function (error)
-				{
-                	alert('Firebase auth failed' + error);
-				})
-        })
+	    this.facebook.login(['email'])
+	    	.then((res: FacebookLoginResponse) => alert('Login success! ' + res))
+				.catch(e => alert('Facebook auth failed ' + e));
     }
-
-
-
-
 
 	check(userprofile: any)
 	{
