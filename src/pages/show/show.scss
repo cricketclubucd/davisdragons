@@ -7,7 +7,8 @@ page-show{
 
   .card {
     position: relative;
-    left: 15px;
+    left: 25%;
+    right: 25%;
     top: 150px;
     font-family: 'Titillium Web',sans-serif;
     .clubbadge, .nationflag, .avatar {
@@ -49,7 +50,7 @@ page-show{
       top: 235px;
       left: 36px;
       &:after {
-        content: ' WKTS';
+        content: ' :WKTS';
         font-weight: 300;
       }
     }
@@ -58,7 +59,7 @@ page-show{
       top: 235px;
       left: 136px;
       &:after {
-        content: ' HS';
+        content: ' :HS';
         font-weight: 300;
       }
     }

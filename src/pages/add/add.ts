@@ -9,7 +9,6 @@ import {stringify} from "@angular/core/src/util";
 import 'rxjs/add/operator/take';
 
 
-
 @Component({
   selector: 'page-add',
   templateUrl: 'add.html'
@@ -30,10 +29,16 @@ export class AddPage {
 
         var user:any = null;
         user = this.navPrams.get('playerInfo');
-        console.log(user.email);
+        //console.log(user.email);
 
         this.player.email = user.email;
         this.player.picture = user.photoURL;
+        this.player.name = user.displayName;
+
+        alert("hey "+ user.email);
+
+        //this.player.picture = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Iverson_from_behind.jpg/180px-Iverson_from_behind.jpg";
+        //this.player.email= "nbadavis@gmail.com";
 
         //this.userRef$ = this.data.object('Players');
 
@@ -53,6 +58,8 @@ export class AddPage {
         this.player.fours = 0;
         this.player.sixes = 0;
         this.player.runs = 0;
+        this.player.accesslevel = 2;
+
 
 
         this.name = this.data.list("/ClubParams/ClubRoster/",{
@@ -66,12 +73,9 @@ export class AddPage {
         this.name.take(1).subscribe(data =>
         {
             console.log(data.length);
-            if(data.length === 1) {
+            if(data.length == 1) {
 
                 alert("Jersey Number is already taken enter a diffrent one");
-
-
-
             }
             if (data.length == 0){
 
@@ -79,10 +83,8 @@ export class AddPage {
                 .set(player);
 
                 this.player = {} as player;
-
             }
         });
     }
 
 }
-

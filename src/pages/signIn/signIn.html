@@ -1,28 +1,35 @@
 <ion-content padding>
-<ion-fab right bottom>
-<button ion-fab color="secondary" large (click)="goTohome()"><ion-icon color="live" name="tennisball"></ion-icon></button>
+<ion-fab right top>
+<button  class="ball" ion-fab color="secondary" large (click)="goTohome()"><ion-icon color="live" name="tennisball"></ion-icon></button>
 </ion-fab>
 
 <div text-center>
 	<img src="assets/img/Welcome.jpg" />
-	<h1 color="secondary"> Davis Dragons ®
-	</h1> 
+	<h1 color="secondary"> Davis Dragons®
+	</h1>
 	<h3 color="live"> The Official App for the Cricket Club at UC Davis.
-		</h3>
-  <button ion-button color="danger" large round (click)="googleauth()" *ngIf="!userProfile">
-    <ion-icon name="logo-googleplus"></ion-icon>
-    Login with Google
-  </button>
-</div>
+    </h3>
 
-  <ion-item *ngIf="userProfile">
-    <ion-avatar (click)="isloggedin()" item-left>
+
+    <div style="text-align: center">
+    <ion-item *ngIf="loggedout">
+        <button ion-button color="danger" round (click)="login5()" >&nbsp; Login with Facebook</button>
+    </ion-item>
+
+    <ion-item *ngIf="loggedout">
+        <button ion-button color="danger" round (click)="goTohome()" > Guest login </button>
+    </ion-item>
+    </div>
+
+  <ion-item *ngIf="loggedin">
+    <ion-avatar (click)="check(userProfile)" item-left>
       <img [src]="userProfile.photoURL">
     </ion-avatar>
-    <h2 (click)="isloggedin()">{{ userProfile.displayName }}</h2>
-    <h3>{{ userProfile.email }}</h3>
+    <h2 (click)="check(userProfile)">{{ userProfile.displayName }}</h2>
+    <h4 style="font-weight: bold" color = "white">Click here to go to home page!</h4>
     <ion-icon name="remove" item-right (click)="logout()"></ion-icon>
   </ion-item>
 
 
+</div>
 </ion-content>

@@ -1,0 +1,48 @@
+
+page-CheckRole {
+  .headfont {
+    font-family: 'exoregular';
+    font-size: 35px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 38px;
+    color: white;
+    background: goldenrod;
+  }
+
+  .OR{
+
+    font-family: 'exoregular';
+    font-size: 35px;
+    font-weight: bold;
+
+  }
+
+
+  ion-navbar {
+    font-family: 'MyFontFamily';
+    text-transform: uppercase;
+    background-color: red;
+  }
+
+
+  .button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+
+  }
+
+  .button:hover {background-color: red}
+
+  .button:active {
+    background-color: white;
+    transform: translateY(4px);
+  }
+
+
+
+}

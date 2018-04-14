@@ -3,12 +3,11 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-buttons right>
-    <button ion-button round color="live">
-    		Match live!
+    <div text-center>
+    <button ion-button large round [color]="isLive ? 'live' : 'danger'" (click) = "goToMatch()">
+    		{{ matchState }}
     </button>
-    </ion-buttons> 
-    <ion-title>Home</ion-title>
+    </div>
   </ion-navbar>
 </ion-header>
 
@@ -16,29 +15,28 @@
   <ion-content class="card-background-page">
 
   <ion-card>
-    <img src="assets/img/logo.png"/>
-    <div class="card-title">São Paulo</div>
-    <div class="card-subtitle">41 Listings</div>
+    <img src="assets/img/match4.jpg"/>
+    <div class="card-title">Men In Black vs. Royal Blues</div>
+    <div class="card-subtitle">7th February, 2017</div>
   </ion-card>
 
   <ion-card>
-    <img src="assets/img/logo.png"/>
-    <div class="card-title">Amsterdam</div>
-    <div class="card-subtitle">64 Listings</div>
+    <img src="assets/img/celebcricket.jpg"/>
+    <div class="card-title">Royal Blues vs. Men In Black</div>
+    <div class="card-subtitle">11th November, 2016</div>
   </ion-card>
 
   <ion-card>
-    <img src="assets/img/logo.png"/>
-    <div class="card-title">San Francisco</div>
-    <div class="card-subtitle">72 Listings</div>
+    <img src="assets/img/matchday.jpg"/>
+    <div class="card-title">Royal Blues vs. Men In Black</div>
+    <div class="card-subtitle">15th May, 2016</div>
   </ion-card>
 
   <ion-card>
-    <img src="assets/img/logo.png"/>
-    <div class="card-title">Madison</div>
-    <div class="card-subtitle">28 Listings</div>
+    <img src="assets/img/anothernetday.jpg"/>
+    <div class="card-title">Dragons In The Nets</div>
+    <div class="card-subtitle">Practice Stats & Leaderboard</div>
   </ion-card>
 
 </ion-content>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

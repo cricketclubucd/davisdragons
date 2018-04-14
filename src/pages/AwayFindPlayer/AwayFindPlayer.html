@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" ></ion-icon>
+        </button>
+        <ion-title class="bar">Player Search</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-fab right bottom>
+        <button ion-fab color="white"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <ion-list>
+        <ion-list-header text-center class="headfont"> Search Away </ion-list-header>
+        <ion-item>
+            <ion-label floating>Jersey Number</ion-label>
+            <ion-input id ="jr" type="text"[(ngModel)] = "SidePlayer.Jersey_Number"></ion-input>
+        </ion-item>
+
+
+    </ion-list>
+
+    <div padding>
+        <button ion-button  type="button" (click)="check(SidePlayer)">Check</button>
+        <button ion-button  type="button" (click)="reload()">Reload</button>
+
+    </div>
+
+
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6 col-md-4 col-xl-3 *ngFor ="let item of AwayChecker" >
+                <div class="card toty fifa17">
+                    <div class="player">
+                        <img src="assets/img/Player_Profile.jpg" id="player-card">
+
+                        <div class="avatarholder" >
+                            <img class="pic" src= {{item.picture}}>
+                        </div>
+                        <div class=" name">
+                            <span class="marquee">{{item.FirstName}}</span>
+                        </div>
+                        <div class="attributes ">
+            <span class="loyalty">
+            </span>
+                            <span class="runs" style="font-weight: bold">{{item.runs}}</span>
+                            <span class="wickets" style="font-weight: bold">{{item.wickets}}</span>
+                            <span class="highestScore" style="font-weight: bold">{{item.highscore}}</span>
+                            <span class="average" style="font-weight: bold">{{item.strikeRate}}</span>
+                            <span class="four" style="font-weight: bold">{{item.fours}}</span>
+                            <span class="six" style="font-weight: bold">{{item.sixes}}</span>
+
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

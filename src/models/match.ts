@@ -4,7 +4,16 @@ export interface key{
 
     MatchKey: string;
     ballKey: number;
+    numPlayers: number;
+    date:any;
 
+
+}
+
+export interface side{
+
+    squad: string;
+    startKey: string;
 }
 
 

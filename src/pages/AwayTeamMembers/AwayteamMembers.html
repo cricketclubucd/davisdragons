@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu" ></ion-icon>
+        </button>
+        <ion-title class="bar">Player Profile</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<body class="player">
+
+
+<div class="row">
+    <div class="col-md-3">
+        <div style="width: 300px; margin:auto">
+            <div class="card toty fifa17">
+                <div class="player">
+                    <img src="assets/img/Player_Profile.jpg" id="player-card">
+
+                    <div class="avatarholder" >
+                        <img class = "pic"src= {{name.picture}}>
+                    </div>
+                    <div class=" name">
+                        <span class="marquee">{{name.FirstName}}</span>
+                    </div>
+                    <div class="attributes ">
+                            <span class="loyalty">
+                            </span>
+                        <span class="runs">{{name.runs}}</span>
+                        <span class="wickets">{{name.wickets}}</span>
+                        <span class="highestScore">{{name.highscore}}</span>
+                        <span class="average">{{name.strikeRate}}</span>
+                        <span class="four">{{name.fours}}</span>
+                        <span class="six">{{name.sixes}}</span>
+
+                    </div>
+                </div>
+            </div>
+            <button ion-button (click) = "goToaddPlayer()"> Add </button>
+        </div>
+    </div>
+</div>
+
+<div style="height: 20px"></div>
+</body>

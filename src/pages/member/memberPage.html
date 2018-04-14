@@ -1,11 +1,33 @@
 <ion-header>
-     <ion-navbar>
-       <ion-title>Tabs</ion-title>
-     </ion-navbar>
-   </ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
 
-     <ion-tabs class="tabs-basic">
-      <ion-tab tabTitle="Member Information" [root]="rootPage" ></ion-tab>
-      <ion-tab tabTitle="Movies" [root]="rootPage"></ion-tab>
-      <ion-tab tabTitle="Games" [root]="rootPage"></ion-tab>
-    </ion-tabs>
+    </ion-navbar>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="roster">
+            <ion-segment-button value="Home">
+                Home
+            </ion-segment-button>
+            <ion-segment-button value="vs.">
+                vs.
+            </ion-segment-button>
+            <ion-segment-button value="Away">
+                Away
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+</ion-content>
+
+
+
+<!--ion-content padding class="action-sheets-basic-page">
+
+  <button ion-button block (click)="openMenu()">
+    Show Action Sheet
+  </button>
+</ion-content !-->

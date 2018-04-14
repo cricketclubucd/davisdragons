@@ -1,17 +1,71 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <div center>
+      <ion-avatar>
+      <img style='width: 25%; display: block; margin: 0 auto;' src="assets/img/Welcome.jpg">
+    </ion-avatar>
+      </div>
+     <ion-title text-center>Davis Dragons
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+  <ion-content *ngIf="access_val == null">
+      <ion-list no-lines>
+        <button menuClose ion-item *ngFor="let p of pages_0" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+
+  <ion-content *ngIf="access_val == 0">
+    <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let p of pages_0" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>
   </ion-content>
+
+  <ion-content *ngIf="access_val == 1">
+      <ion-list no-lines>
+        <button menuClose ion-item *ngFor="let p of pages_1" (click)="openPage(p)">
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+
+    <ion-content *ngIf="access_val == 2">
+        <ion-list no-lines>
+          <button menuClose ion-item *ngFor="let p of pages_2" (click)="openPage(p)">
+            {{p.title}}
+          </button>
+        </ion-list>
+      </ion-content>
+
+      <ion-content *ngIf="access_val == 3">
+          <ion-list no-lines>
+            <button menuClose ion-item *ngFor="let p of pages_3" (click)="openPage(p)">
+              {{p.title}}
+            </button>
+          </ion-list>
+        </ion-content>
+
+        <ion-content *ngIf="access_val == 4">
+            <ion-list no-lines>
+              <button menuClose ion-item *ngFor="let p of pages_4" (click)="openPage(p)">
+                {{p.title}}
+              </button>
+            </ion-list>
+          </ion-content>
+
+        <ion-content *ngIf="access_val == 5">
+            <ion-list no-lines>
+                <button menuClose ion-item *ngFor="let p of pages_4" (click)="openPage(p)">
+                    {{p.title}}
+                </button>
+            </ion-list>
+        </ion-content>
 
 </ion-menu>
 

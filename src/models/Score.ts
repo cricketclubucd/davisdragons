@@ -1,7 +1,8 @@
 export interface score
 {
-    ballsnOver: number;
-    totalOvers: number;
+    numOfOvers: number;
+    totalOvers: string;
     totalRuns: number;
     totalWickets: number;
+    ballPtr: number;
 }
