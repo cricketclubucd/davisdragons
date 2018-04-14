@@ -13,7 +13,7 @@
 
     <div style="text-align: center">
     <ion-item *ngIf="loggedout">
-        <button ion-button color="danger" round (click)="login5()" >&nbsp; Login with Facebook</button>
+        <button ion-button color="danger" round (click)="login5();  goToHome();" >&nbsp; Login with Facebook</button>
     </ion-item>
 
     <ion-item *ngIf="loggedout">
