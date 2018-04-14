@@ -12,7 +12,7 @@
   </ion-header>
 
   <ion-content *ngIf="access_val == null">
-      <ion-list>
+      <ion-list no-lines>
         <button menuClose ion-item *ngFor="let p of pages_0" (click)="openPage(p)">
           {{p.title}}
         </button>
@@ -20,7 +20,7 @@
     </ion-content>
 
   <ion-content *ngIf="access_val == 0">
-    <ion-list>
+    <ion-list no-lines>
       <button menuClose ion-item *ngFor="let p of pages_0" (click)="openPage(p)">
         {{p.title}}
       </button>
@@ -28,7 +28,7 @@
   </ion-content>
 
   <ion-content *ngIf="access_val == 1">
-      <ion-list>
+      <ion-list no-lines>
         <button menuClose ion-item *ngFor="let p of pages_1" (click)="openPage(p)">
           {{p.title}}
         </button>
@@ -36,7 +36,7 @@
     </ion-content>
 
     <ion-content *ngIf="access_val == 2">
-        <ion-list>
+        <ion-list no-lines>
           <button menuClose ion-item *ngFor="let p of pages_2" (click)="openPage(p)">
             {{p.title}}
           </button>
@@ -44,7 +44,7 @@
       </ion-content>
 
       <ion-content *ngIf="access_val == 3">
-          <ion-list>
+          <ion-list no-lines>
             <button menuClose ion-item *ngFor="let p of pages_3" (click)="openPage(p)">
               {{p.title}}
             </button>
@@ -52,7 +52,7 @@
         </ion-content>
 
         <ion-content *ngIf="access_val == 4">
-            <ion-list>
+            <ion-list no-lines>
               <button menuClose ion-item *ngFor="let p of pages_4" (click)="openPage(p)">
                 {{p.title}}
               </button>
@@ -60,7 +60,7 @@
           </ion-content>
 
         <ion-content *ngIf="access_val == 5">
-            <ion-list>
+            <ion-list no-lines>
                 <button menuClose ion-item *ngFor="let p of pages_4" (click)="openPage(p)">
                     {{p.title}}
                 </button>

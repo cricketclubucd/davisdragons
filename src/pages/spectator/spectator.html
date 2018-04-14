@@ -5,27 +5,55 @@
     </button>
     <div text-center *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
     		<ion-title *ngIf="i == 1">{{item.totalRuns}} / {{item.totalWickets}} ({{item.totalOvers}})</ion-title>
+
     </div>
+    <div id="image" align="right">
+    <img style ="width: 3%" src="assets/rawIcons/firstinnings.png"/>
+   </div>
   </ion-navbar>
   <ion-toolbar no-border-top>
       <ion-segment [(ngModel)]="roster">
         <ion-segment-button value="Home">
           Home
+          <img style ="width: 15%" src="assets/rawIcons/bat.png"/>
         </ion-segment-button>
         <ion-segment-button value="vs.">
           vs.
         </ion-segment-button>
         <ion-segment-button value="Away">
           Away
+          <img style ="width: 10%" src="assets/rawIcons/ball.png"/>
         </ion-segment-button>
       </ion-segment>
     </ion-toolbar>
 </ion-header>
 <ion-content>
   <div [ngSwitch]="roster">
-    <div *ngSwitchCase="'Home'">
-        <ion-item *ngFor="let items of playersTeamA$ | async;">
-        <h2>{{items.$key}} Number: {{items.$value}}</h2>
+    <div *ngSwitchCase="'Home'" src="assets/rawIcons/bat.png">
+        <div align="center">
+        <h2> Batsman Stats </h2>
+       </div>
+        <ion-item *ngFor="let items of playersTeamA$ | async;let i = index; let lst = last">
+
+          <ion-grid>
+
+          <ion-row>
+        		<ion-col>
+    			<h2 text-center *ngIf="i == 1">| Name |</h2>
+    		</ion-col>
+    		<ion-col>
+        		    <h2 text-center *ngIf="i == 1">| Runs |</h2>
+    		</ion-col>
+    		<ion-col>
+        		    <h2 text-center *ngIf="i == 1">| Balls |</h2>
+    		</ion-col>
+        <ion-col>
+        		    <h2 text-center *ngIf="i == 1">| StrikeRate |</h2>
+    		</ion-col>
+    	  </ion-row>
+      </ion-grid>
+        <!--h2>{{items.$key}} Number: {{items.$value}}</h2-->
+
       </ion-item>
     </div>
 
@@ -62,8 +90,27 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'Away'">
-      <ion-item *ngFor="let items of playersTeamB$ | async;">
-        <h2>{{items.$key}} Number: {{items.$value}}</h2>
+      <div align="center">
+      <h2> Bowler Stats </h2>
+     </div>
+      <ion-item *ngFor="let items of playersTeamB$ | async;let i = index; let lst = last">
+        <ion-grid>
+        <ion-row>
+          <ion-col>
+        <h2 text-center *ngIf="i == 1">| Name |</h2>
+      </ion-col>
+      <ion-col>
+              <h2 text-center *ngIf="i == 1">| Overs |</h2>
+      </ion-col>
+      <ion-col>
+              <h2 text-center *ngIf="i == 1">| Runs |</h2>
+      </ion-col>
+      <ion-col>
+              <h2 text-center *ngIf="i == 1">| Wickets |</h2>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+        <!--h2>{{items.$key}} Number: {{items.$value}}</h2-->
       </ion-item>
     </ion-list>
   </div>

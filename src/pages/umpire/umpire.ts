@@ -11,6 +11,7 @@ import {SpectatorPage} from '../spectator/spectator';
 import {MatchOfflinePage} from "../matchOffline/matchOffline";
 import {ExtrasPage} from "../extras/extras";
 import {ActionSheetController } from 'ionic-angular';
+import 'rxjs/add/operator/do';
 //import {ElementRef, ViewChild} from '@angular/core';
 //import {totalStats} from '../../models/balls';
 @Component({
@@ -77,13 +78,14 @@ export class UmpirePage
     this.key.MatchKey = "0";
     this.name = this.fdb.object('/ClubParams/LiveMatchState/');
     //this.toss_val = this.fdb.list('/Matches/' + this.key.MatchKey + '/MatchStats/Score/Toss');
-    this.scoreRef$ = this.fdb.list(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`);
-    this.matchStats$ = this.fdb.list(`/Matches/` + this.key.MatchKey + `/MatchStats/PlayerRoster/Home/MainRoles`);
+
     this.name.take(1).subscribe(data =>
     {
         console.log("Match Ptr: " + data);
         this.key.MatchKey= data.matchPtr;
-    this.name = this.fdb.object(`/Matches/` + this.key.MatchKey + `/MatchStats/Score/`);
+        this.setCurrentStats(this.key.MatchKey);
+
+
     this.name.take(1).subscribe(data2 =>
     {
 	    console.log("constructor ball Ptr: " + data2.ballPtr);
@@ -99,6 +101,11 @@ export class UmpirePage
        toast.present();
     });// Finds out the corrent matchPtr
     });// Finds out the corrent matchPtr
+  }
+  setCurrentStats(key)
+  {
+    this.scoreRef$ = this.fdb.list(`/Matches/` + key + `/MatchStats/Score/`);
+    this.matchStats$ = this.fdb.list(`/Matches/` + key + `/MatchStats/`);
   }
   computeBoundaries()
   {

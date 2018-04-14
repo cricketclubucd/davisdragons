@@ -44,8 +44,6 @@ export class SpectatorPage
     this.key.MatchKey = "0";
     this.name = this.database.object('/ClubParams/LiveMatchState/');
 
-    this.playersTeamA$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Home');
-    this.playersTeamB$ = this.database.list('Matches/Match1/MatchStats/PlayerRoster/Away');
 
     this.name.take(1).subscribe(data =>
     {
@@ -63,5 +61,8 @@ export class SpectatorPage
 	  console.log(key);
 	  this.scoreRef$ = this.database.list(`/Matches/` + key + `/MatchStats/Score/`);
     this.matchStats$ = this.database.list(`/Matches/` + key + `/MatchStats/`);
+    this.playersTeamA$= this.database.list(`/Matches/`+this.key.MatchKey+`/MatchStats/PlayerRoster/Home/Lineups/Batting` );
+    this.playersTeamB$ = this.database.list(`/Matches/`+this.key.MatchKey+`/MatchStats/PlayerRoster/Away/Lineups/Bowling`);
+
   }
 }

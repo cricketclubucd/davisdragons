@@ -5,17 +5,20 @@
 		<ion-icon name="menu"></ion-icon>
 	</button>
 
-   <img align= "right" style="width:7%" src="assets/icon/close.png" (click)= 'end()'/>
+ <img align= "right" style="width:3%" src="assets/rawIcons/close.png" (click)= 'end()'/>
+</div>
+  <div text-center *ngFor ="let item of matchStats$ | async; let i = index; let lst = last">
+      <ion-title *ngIf="i == 1"> TeamName  {{item.totalRuns}} / {{item.totalWickets}} ({{item.totalOvers}}) RR BowlerName WktsRun</ion-title>
 
   </div>
   <div on-tap="onTap($event)">
   <img id = "wagon" style="width: 100%;" src="assets/img/wagonWheelBase.jpg" />
   </div>
   <div text-center>
-    <h5> Batsman1 Runs  <img style ="width: 7%" src="assets/icon/wicket.png" (click)= 'batsman1Wicket()'/> Batsman 2 Runs <img style ="width: 7%" src="assets/icon/wicket.png" (click)= 'batsman2Wicket()'/> </h5>
-
+    <h5> Batsman1 Runs  <img style ="width: 7%" src="assets/rawIcons/wicket.png" (click)= 'batsman1Wicket()'/> Batsman 2 Runs <img style ="width: 7%" src="assets/rawIcons/wicket.png" (click)= 'batsman2Wicket()'/> </h5>
   </div>
   <div text-center>
+    <button ion-button color="secondary" id="run_button0" clear (click)  = 'increment(0); run_button0();'> <img style="width: 50%;" src="assets/rawIcons/dot.png" />  </button>
     <button ion-button color="secondary" id="run_button1" clear (click) = 'increment(1); run_button1();'>+1</button>
     <button ion-button color="secondary" id="run_button2" clear (click) = 'increment(2); run_button2();' >+2</button>
     <button ion-button color="secondary" id="run_button3" clear (click) = 'increment(3); run_button3();'>+3</button>
@@ -23,7 +26,6 @@
     <button ion-button color="secondary" id="run_button6" clear (click) = 'increment(6); run_button6();'>+6</button>
     <br/>
     <button ion-button color="danger" clear (click) = 'increment(); goToExtras(); ' >Extras</button>
-    <img style="width: 7%" src="assets/icon/dot.png" id="run_button0" (click) = 'increment(0); run_button0();'/>
     <button ion-button color="danger" clear (click) = 'increment(); ' >Overthrows</button>
     <button ion-button color="danger" full (click) = 'clear(); pushdata();' >Go!</button>
   </div>
