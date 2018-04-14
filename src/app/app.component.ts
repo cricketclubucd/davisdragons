@@ -10,7 +10,6 @@ import { GetterPage } from '../pages/getter/getter';
 import { AddPage } from '../pages/add/add';
 import { SearchPage } from '../pages/Search/search';
 import { ShowPage } from '../pages/show/show';
-import { CheckRolePage } from '../pages/CheckRole/CheckRole';
 import {AwayTeamMembersPage} from "../pages/AwayTeamMembers/AwayteamMembers";
 import {MatchOfflinePage} from "../pages/matchOffline/matchOffline";
 import {ExtrasPage} from "../pages/extras/extras";
