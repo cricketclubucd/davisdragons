@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="org.cricket.davisdragons" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>davisdragons</name>
+    <name>Davis Dragons</name>
     <description>An Ionic/Cordova app with AngularFire2 to implement a live scoring app for The Cricket Club at UC Davis.</description>
     <author email="jena.suraj.k@gmail.com" href="http://ionicframework.com/">Cricket Club at UC Davis</author>
     <content src="index.html" />
