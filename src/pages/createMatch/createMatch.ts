@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
 import { key } from '../../models/match';
 
 import { balls } from '../../models/balls';
-import {captains, team} from '../../models/team';
+import { captains, team } from '../../models/team';
 import { score} from '../../models/Score';
 import 'rxjs/add/operator/take';
 
@@ -87,15 +87,11 @@ export class CreatePage {
         }else
             this.check10 = 2;
 
-
         if(this.check6 == 2 && this.check7 == 2 && this.check8 == 2 && this.check9 == 2 && this.check10 == 2) {
             this.create(key, captains);
         }
         else
             alert("Values empty! Please enter valid values");
-
-
-
     }
 
     create(key:key, captains: captains) {
@@ -142,12 +138,6 @@ export class CreatePage {
 
 
         this.make(this.name1,this.name2,this.name3,this.name4,key,captains);
-
-
-
-
-
-
     }
 
     make(n1,n2,n3,n4,k1:key,c1:captains){
